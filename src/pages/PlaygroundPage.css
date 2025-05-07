@@ -1,0 +1,162 @@
+/* src/pages/PlaygroundPage.css */
+
+.playground-section {
+  background-color: #f8f9fa;
+}
+
+.api-tabs {
+  border-bottom: none;
+}
+
+.api-tabs .nav-link {
+  color: #495057;
+  border: none;
+  border-bottom: 2px solid transparent;
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  transition: all 0.2s ease;
+  margin-right: 1rem;
+}
+
+.api-tabs .nav-link:hover {
+  color: #00ADD8;
+  border-bottom-color: rgba(0, 173, 216, 0.4);
+  background-color: transparent;
+}
+
+.api-tabs .nav-link.active {
+  color: #00ADD8;
+  border-bottom-color: #00ADD8;
+  background-color: transparent;
+}
+
+.api-demo-card {
+  border: none;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.api-demo-card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.code-input {
+  font-family: 'JetBrains Mono', 'Monaco', 'Consolas', monospace;
+  font-size: 14px;
+  background-color: #f8f9fa;
+  border-color: #ced4da;
+}
+
+.demo-button {
+  background-color: #00ADD8;
+  border-color: #00ADD8;
+  font-weight: 500;
+  padding: 0.5rem 1.5rem;
+  transition: all 0.2s ease;
+}
+
+.demo-button:hover, .demo-button:focus {
+  background-color: #0088a9;
+  border-color: #0088a9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 173, 216, 0.25);
+}
+
+.response-container {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 1rem;
+  max-height: 300px;
+  overflow: auto;
+  font-family: 'JetBrains Mono', 'Monaco', 'Consolas', monospace;
+  font-size: 14px;
+  border: 1px solid #ced4da;
+}
+
+.response-content {
+  color: #212529;
+  white-space: pre-wrap;
+}
+
+.response-placeholder {
+  color: #6c757d;
+  font-style: italic;
+}
+/* Estilização para componentes JSON - adicione ao PlaygroundPage.css */
+
+/* Campo de entrada JSON */
+.code-input {
+  font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #333;
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  padding: 12px;
+  tab-size: 2;
+}
+
+.code-input:focus {
+  border-color: #00ADD8;
+  box-shadow: 0 0 0 0.2rem rgba(0, 173, 216, 0.25);
+  outline: none;
+}
+
+/* Container de resposta JSON */
+.response-container {
+  background-color: #f8f9fa;
+  border-radius: 6px;
+  padding: 16px;
+  max-height: 350px;
+  overflow: auto;
+  border: 1px solid #dee2e6;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+/* Conteúdo JSON formatado */
+.response-content {
+  font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #212529;
+  white-space: pre-wrap;
+  margin: 0;
+}
+
+/* Sintaxe highlighting para JSON */
+.response-content .json-key {
+  color: #0451a5;
+}
+
+.response-content .json-string {
+  color: #a31515;
+}
+
+.response-content .json-number {
+  color: #098658;
+}
+
+.response-content .json-boolean {
+  color: #0000ff;
+}
+
+.response-content .json-null {
+  color: #0451a5;
+}
+
+/* Status e tempo de resposta destacados */
+.response-status {
+  color: #0088a9;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.response-time {
+  color: #6c757d;
+  font-style: italic;
+  margin-bottom: 16px;
+}

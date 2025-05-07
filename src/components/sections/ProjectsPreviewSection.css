@@ -1,0 +1,124 @@
+/* src/components/sections/ProjectsPreviewSection.css */
+
+.projects-preview-section {
+  background-color: #ffffff;
+}
+
+.project-card {
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.project-technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.project-badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  color: white;
+  letter-spacing: 0.3px;
+}
+
+/* Badges específicas */
+.go-badge {
+  background-color: #00ADD8;
+  box-shadow: 0 2px 4px rgba(0, 173, 216, 0.3);
+}
+
+.postgres-badge {
+  background-color: #336791;
+  box-shadow: 0 2px 4px rgba(51, 103, 145, 0.3);
+}
+
+.mongo-badge {
+  background-color: #4DB33D;
+  box-shadow: 0 2px 4px rgba(77, 179, 61, 0.3);
+}
+
+.gin-badge {
+  background-color: #00A1E0;
+  box-shadow: 0 2px 4px rgba(0, 161, 224, 0.3);
+}
+
+.sqlc-badge {
+  background-color: #569cd6;
+  box-shadow: 0 2px 4px rgba(86, 156, 214, 0.3);
+}
+
+.nginx-badge {
+  background-color: #009639;
+  box-shadow: 0 2px 4px rgba(0, 150, 57, 0.3);
+}
+
+.project-features li {
+  margin-bottom: 8px;
+  position: relative;
+}
+
+.project-features li::before {
+  content: '';
+  position: absolute;
+  left: -20px;
+  top: 8px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #00ADD8;
+}
+
+.project-link {
+  display: inline-block;
+  color: #00ADD8;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.project-link:hover {
+  color: #0088a9;
+}
+
+.project-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #00ADD8;
+  transition: width 0.3s ease;
+}
+
+.project-link:hover::after {
+  width: 100%;
+}
+
+.projects-btn {
+  background-color: #00ADD8;
+  border-color: #00ADD8;
+  box-shadow: 0 4px 6px rgba(0, 173, 216, 0.25);
+  transition: all 0.3s ease;
+}
+
+.projects-btn:hover {
+  background-color: #0088a9;
+  border-color: #0088a9;
+  box-shadow: 0 6px 12px rgba(0, 173, 216, 0.35);
+  transform: translateY(-2px);
+}

@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* Estilos básicos */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f8f9fa;
+  color: #212529;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.terminal {
+  background-color: #1e1e1e;
+  color: #f8f8f2;
+  font-family: 'JetBrains Mono', monospace;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 20px;
+  overflow: auto;
+}
+
+.terminal-prompt {
+  color: #50fa7b;
+}
+
+.terminal-command {
+  color: #f1fa8c;
+}
+
+.terminal-output {
+  color: #f8f8f2;
+}
+
+.tech-badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 16px;
+  background-color: #e9ecef;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.go-badge {
+  background-color: #00ADD8;
+}
+
+.java-badge {
+  background-color: #f89820;
+}
+
+.js-badge {
+  background-color: #F7DF1E;
+  color: #333;
+}
+
+.postgres-badge {
+  background-color: #336791;
+}
+
+.mongo-badge {
+  background-color: #4DB33D;
+}
+
+.gin-badge {
+  background-color: #00A1E0;
+}
+
+.sqlc-badge {
+  background-color: #569cd6;
+}
+
+.spring-badge {
+  background-color: #6DB33F;
+}
+
+.react-badge {
+  background-color: #61DAFB;
+  color: #333;
+}
+
+.nginx-badge {
+  background-color: #009639;
+}
+
+.docker-badge {
+  background-color: #2496ED;
+}
+
+.cicd-badge {
+  background-color: #FC6D26;
+}
+.project-card {
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}

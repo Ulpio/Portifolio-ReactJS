@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Favicon - você pode substituir por um arquivo personalizado na pasta public -->
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Meta tags para SEO -->
+    <meta name="description" content="Portfólio de Ulpio Netto, desenvolvedor backend especializado em Go, Java e sistemas distribuídos de alta performance." />
+    <meta name="keywords" content="golang, desenvolvedor backend, api, microservices, ulpio netto, java, postgresql, mongodb" />
+    <meta name="author" content="Ulpio Paulo de Miranda Netto" />
+    
+    <!-- Open Graph para compartilhamento em redes sociais -->
+    <meta property="og:title" content="Ulpio Netto | Desenvolvedor Backend" />
+    <meta property="og:description" content="Portfólio de Ulpio Netto, desenvolvedor backend especializado em Go, Java e sistemas distribuídos de alta performance." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://seudominio.com" />
+    <meta property="og:image" content="https://seudominio.com/preview.jpg" />
+    
+    <!-- Pré-carregar fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Título da página -->
+    <title>Ulpio Netto | Desenvolvedor Backend Go</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+    
+    <!-- Script opcional para animações suaves de scroll -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Scroll suave para links internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+              window.scrollTo({
+                top: targetElement.offsetTop - 80, // Ajuste para o header fixo
+                behavior: 'smooth'
+              });
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
