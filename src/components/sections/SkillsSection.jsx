@@ -1,8 +1,11 @@
-// src/components/sections/SkillsSection.jsx
 import { Container, Row, Col, Card } from 'react-bootstrap';
+import { useTheme } from '../../context/ThemeContext';
 import './SkillsSection.css';
 
 const SkillsSection = () => {
+
+    const { darkMode } = useTheme();
+
   const skills = {
     languages: [
       { name: 'Go', level: 95, badge: 'go-badge' },
@@ -26,7 +29,7 @@ const SkillsSection = () => {
     ]
   };
 
-  const renderSkillCategory = (title, skills) => (
+ const renderSkillCategory = (title, skills) => (
     <Card className="skills-card h-100">
       <Card.Body>
         <Card.Title className="fw-bold mb-3">{title}</Card.Title>
@@ -44,8 +47,8 @@ const SkillsSection = () => {
           <div className="mb-3" key={`progress-${skill.name}`}>
             <div className="d-flex justify-content-between mb-1">
               <span>{skill.name}</span>
-              <span className="text-muted small">
-                {skill.level >= 90 ? 'Avançado' : skill.level >= 80 ? 'Intermediário/Avançado' : 'Intermediário'}
+              <span className={darkMode ? "text-light opacity-75 small" : "text-muted small"}>
+                {skill.level >= 90 ? 'Avançado' : skill.level >= 80 ? 'Intermed/Avançado' : 'Intermediário'}
               </span>
             </div>
             <div className="skill-progress-container">

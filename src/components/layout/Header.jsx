@@ -1,18 +1,33 @@
+// src/components/layout/Header.jsx
 import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { Navbar, Nav, Container } from 'react-bootstrap';
+import ThemeToggle from '../theme/ThemeToggle';
+import { useTheme } from '../../context/ThemeContext';
 
 const Header = () => {
+  const { darkMode } = useTheme();
+  
   return (
-    <Navbar bg="white" expand="md" className="shadow-sm sticky-top">
+    <Navbar 
+      bg={darkMode ? "dark" : "white"} 
+      variant={darkMode ? "dark" : "light"} 
+      expand="md" 
+      className="shadow-sm sticky-top"
+    >
       <Container>
         <Navbar.Brand as={Link} to="/">
           <div>
             <span className="fs-4 fw-bold">Ulpio Netto</span>
-            <p className="text-muted mb-0 small">Desenvolvedor Backend | Especialista em Go</p>
+            <p className={`mb-0 small ${darkMode ? 'text-light opacity-75' : 'text-muted'}`}>
+              Desenvolvedor Backend | Especialista em Go
+            </p>
           </div>
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <div className="d-flex align-items-center">
+          <ThemeToggle />
+          <Navbar.Toggle aria-controls="basic-navbar-nav" className="ms-2" />
+        </div>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
             <Nav.Link as={NavLink} to="/" end className="px-3">

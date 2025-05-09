@@ -1,15 +1,17 @@
 // src/components/layout/Footer.jsx
 import { Container, Row, Col } from 'react-bootstrap';
+import { useTheme } from '../../context/ThemeContext';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const { darkMode } = useTheme();
   
   return (
-    <footer className="bg-white py-4 border-top mt-auto">
+    <footer className={`${darkMode ? 'bg-dark text-light' : 'bg-white'} py-4 border-top mt-auto`}>
       <Container>
         <Row className="align-items-center">
           <Col md={6} className="mb-3 mb-md-0">
-            <p className="text-muted mb-0">
+            <p className={`${darkMode ? 'text-light opacity-75' : 'text-muted'} mb-0`}>
               &copy; {currentYear} Ulpio Netto. Todos os direitos reservados.
             </p>
           </Col>
@@ -20,7 +22,7 @@ const Footer = () => {
                 href="https://github.com/Ulpio" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-muted me-3"
+                className={`${darkMode ? 'text-light opacity-75' : 'text-muted'} me-3`}
                 aria-label="GitHub"
               >
                 <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -32,7 +34,7 @@ const Footer = () => {
                 href="https://linkedin.com/in/ulpionetto" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-muted me-3"
+                className={`${darkMode ? 'text-light opacity-75' : 'text-muted'} me-3`}
                 aria-label="LinkedIn"
               >
                 <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -42,7 +44,7 @@ const Footer = () => {
               {/* Email */}
               <a 
                 href="mailto:seu.email@exemplo.com" 
-                className="text-muted"
+                className={`${darkMode ? 'text-light opacity-75' : 'text-muted'}`}
                 aria-label="Email"
               >
                 <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
