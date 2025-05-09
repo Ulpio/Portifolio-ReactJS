@@ -57,8 +57,8 @@ const ProjectsPage = () => {
       technologies: [
         { name: 'Go', badge: 'go-badge' },
         { name: 'PostgreSQL', badge: 'postgres-badge' },
-        { name: 'Gin', badge: '' },
-        { name: 'SQLC', badge: '' }
+        { name: 'Gin', badge: 'gin-badge' },
+        { name: 'SQLC', badge: 'sqlc-badge' }
       ],
       features: [
         'API RESTful de alta performance',
@@ -69,7 +69,7 @@ const ProjectsPage = () => {
         'Documentação interativa da API'
       ],
       demoLink: '/playground#demo-registartt',
-      imageUrl: '/placeholder-project.jpg'
+      imageUrl: 'img-registartt.png'
     },
     {
       title: 'Impulsa Brasil',
@@ -77,8 +77,8 @@ const ProjectsPage = () => {
       technologies: [
         { name: 'Go', badge: 'go-badge' },
         { name: 'MongoDB', badge: 'mongo-badge' },
-        { name: 'Gin', badge: '' },
-        { name: 'Nginx', badge: '' }
+        { name: 'Gin', badge: 'gin-badge' },
+        { name: 'Nginx', badge: 'nginx-badge' }
       ],
       features: [
         'Arquitetura de microsserviços',
@@ -89,25 +89,25 @@ const ProjectsPage = () => {
         'Processamento de dados em lote'
       ],
       demoLink: '/playground#demo-impulsa',
-      imageUrl: '/placeholder-project.jpg'
+      imageUrl: 'impulsa-placeholder.png'
     },
     {
-      title: 'Sistema de Monitoramento',
-      description: 'Biblioteca de código aberto para monitoramento de aplicações Go, com integrações para sistemas de observabilidade populares.',
+      title: 'OxeTech',
+      description: 'Plataforma do Programa do Governo do Estado de Alagoas, democratizando o acesso ao ensino de tecnologia e desenvolvimento.',
       technologies: [
         { name: 'Go', badge: 'go-badge' },
-        { name: 'Prometheus', badge: '' },
-        { name: 'Grafana', badge: '' }
+        { name: 'JavaScript', badge: 'js-badge' },
+        { name: 'Postgres', badge: 'postgres-badge' }
       ],
       features: [
-        'Métricas de performance customizáveis',
-        'Instrumentação automática de HTTP e gRPC',
-        'Exportadores para diferentes sistemas de monitoramento',
-        'Baixo overhead em produção',
-        'Facilmente extensível'
+        'Transcrição da API original de JS para Go',
+        'Processamento de dados em tempo real',
+        'Diferentes niveis de acesso e lógicas diferentes de negócio',
+        'Tempos de resposta até 75% mais velozes',
+        'Api organizada e Simples'
       ],
-      demoLink: '/playground#demo-monitoring',
-      imageUrl: '/placeholder-project.jpg'
+      demoLink: 'https://oxetech.al.gov.br',
+      imageUrl: 'oxetechlab.png'
     }
   ];
 
