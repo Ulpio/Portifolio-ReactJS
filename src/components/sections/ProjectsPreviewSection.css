@@ -1,20 +1,22 @@
 /* src/components/sections/ProjectsPreviewSection.css */
 
 .projects-preview-section {
-  background-color: #ffffff;
+  background-color: var(--bg-primary);
 }
 
 .project-card {
   border: none;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px var(--shadow-color);
   transition: all 0.3s ease;
   border-radius: 10px;
   overflow: hidden;
+  background-color: var(--bg-card);
+  color: var(--text-primary);
 }
 
 .project-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 24px var(--shadow-hover);
 }
 
 .project-technologies {
@@ -36,7 +38,7 @@
 
 /* Badges específicas */
 .go-badge {
-  background-color: #00ADD8;
+  background-color: var(--accent-primary);
   box-shadow: 0 2px 4px rgba(0, 173, 216, 0.3);
 }
 
@@ -68,6 +70,7 @@
 .project-features li {
   margin-bottom: 8px;
   position: relative;
+  color: var(--text-secondary);
 }
 
 .project-features li::before {
@@ -78,12 +81,12 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background-color: #00ADD8;
+  background-color: var(--accent-primary);
 }
 
 .project-link {
   display: inline-block;
-  color: #00ADD8;
+  color: var(--accent-primary);
   font-weight: 600;
   text-decoration: none;
   transition: all 0.2s ease;
@@ -91,7 +94,7 @@
 }
 
 .project-link:hover {
-  color: #0088a9;
+  color: var(--accent-primary-hover);
 }
 
 .project-link::after {
@@ -101,7 +104,7 @@
   left: 0;
   width: 0;
   height: 2px;
-  background-color: #00ADD8;
+  background-color: var(--accent-primary);
   transition: width 0.3s ease;
 }
 
@@ -110,15 +113,15 @@
 }
 
 .projects-btn {
-  background-color: #00ADD8;
-  border-color: #00ADD8;
+  background-color: var(--accent-primary);
+  border-color: var(--accent-primary);
   box-shadow: 0 4px 6px rgba(0, 173, 216, 0.25);
   transition: all 0.3s ease;
 }
 
 .projects-btn:hover {
-  background-color: #0088a9;
-  border-color: #0088a9;
+  background-color: var(--accent-primary-hover);
+  border-color: var(--accent-primary-hover);
   box-shadow: 0 6px 12px rgba(0, 173, 216, 0.35);
   transform: translateY(-2px);
 }
