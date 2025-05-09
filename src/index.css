@@ -3,8 +3,8 @@
 /* Estilos básicos */
 body {
   font-family: 'Inter', sans-serif;
-  background-color: #f8f9fa;
-  color: #212529;
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
   margin: 0;
   padding: 0;
 }
@@ -16,9 +16,10 @@ body {
   padding: 0 15px;
 }
 
+/* Terminal */
 .terminal {
-  background-color: #1e1e1e;
-  color: #f8f8f2;
+  background-color: var(--terminal-bg);
+  color: var(--terminal-text);
   font-family: 'JetBrains Mono', monospace;
   border-radius: 8px;
   padding: 20px;
@@ -27,22 +28,23 @@ body {
 }
 
 .terminal-prompt {
-  color: #50fa7b;
+  color: var(--terminal-prompt);
 }
 
 .terminal-command {
-  color: #f1fa8c;
+  color: var(--terminal-command);
 }
 
 .terminal-output {
-  color: #f8f8f2;
+  color: var(--terminal-text);
 }
 
+/* Badges */
 .tech-badge {
   display: inline-block;
   padding: 6px 12px;
   border-radius: 16px;
-  background-color: #e9ecef;
+  background-color: var(--bg-tertiary);
   margin-right: 8px;
   margin-bottom: 8px;
   font-size: 14px;
@@ -50,11 +52,11 @@ body {
 }
 
 .go-badge {
-  background-color: #00ADD8;
+  background-color: var(--accent-primary);
 }
 
 .java-badge {
-  background-color: #f89820;
+  background-color: var(--accent-secondary);
 }
 
 .js-badge {
@@ -98,13 +100,78 @@ body {
 .cicd-badge {
   background-color: #FC6D26;
 }
+
+/* Cards */
 .project-card {
   border-radius: 8px;
-  background-color: white;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  background-color: var(--bg-card);
+  color: var(--text-primary);
+  box-shadow: 0 4px 6px var(--shadow-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project-card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 6px 12px var(--shadow-hover);
+}
+
+/* Dark mode overrides for cards */
+.dark-theme .card,
+.dark-theme .project-card {
+  border-color: var(--border-color);
+}
+
+.dark-theme .text-muted {
+  color: var(--text-muted) !important;
+}
+
+.dark-theme .bg-light {
+  background-color: var(--bg-secondary) !important;
+}
+
+.dark-theme .bg-white {
+  background-color: var(--bg-primary) !important;
+}
+
+/* Buttons */
+.dark-theme .btn-outline-primary {
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+}
+
+.dark-theme .btn-outline-primary:hover {
+  background-color: var(--accent-primary);
+  color: var(--bg-primary);
+}
+
+.dark-theme .btn-primary {
+  background-color: var(--accent-primary);
+  border-color: var(--accent-primary);
+}
+
+.dark-theme .btn-primary:hover {
+  background-color: var(--accent-primary-hover);
+  border-color: var(--accent-primary-hover);
+}
+
+/* Forms */
+.dark-theme .form-control {
+  background-color: var(--bg-tertiary);
+  border-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+.dark-theme .form-control:focus {
+  background-color: var(--bg-tertiary);
+  border-color: var(--accent-primary);
+  color: var(--text-primary);
+}
+
+/* Links */
+.dark-theme a:not(.btn) {
+  color: var(--accent-primary);
+}
+
+.dark-theme a:not(.btn):hover {
+  color: var(--accent-primary-hover);
 }

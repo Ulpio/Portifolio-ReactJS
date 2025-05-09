@@ -1,0 +1,84 @@
+:root {
+  /* Variáveis de transição */
+  --transition-theme: 0.3s ease;
+}
+
+/* Tema claro (padrão) */
+.light-theme {
+  /* Cores de fundo */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --bg-tertiary: #e9ecef;
+  --bg-card: #ffffff;
+  
+  /* Cores de texto */
+  --text-primary: #212529;
+  --text-secondary: #495057;
+  --text-muted: #6c757d;
+  
+  /* Cores de borda */
+  --border-color: #dee2e6;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --shadow-hover: rgba(0, 0, 0, 0.15);
+  
+  /* Cores do terminal */
+  --terminal-bg: #1e1e1e;
+  --terminal-text: #f8f8f2;
+  --terminal-prompt: #50fa7b;
+  --terminal-command: #f1fa8c;
+  
+  /* Cores de acento */
+  --accent-primary: #00ADD8; /* Go blue */
+  --accent-primary-hover: #0088a9;
+  --accent-secondary: #f89820; /* Java orange */
+}
+
+/* Tema escuro */
+.dark-theme {
+  /* Cores de fundo */
+  --bg-primary: #121212;
+  --bg-secondary: #1e1e1e;
+  --bg-tertiary: #2d2d2d;
+  --bg-card: #2a2a2a;
+  
+  /* Cores de texto */
+  --text-primary: #e9ecef;
+  --text-secondary: #ced4da;
+  --text-muted: #adb5bd;
+  
+  /* Cores de borda */
+  --border-color: #444444;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --shadow-hover: rgba(0, 0, 0, 0.4);
+  
+  /* Cores do terminal */
+  --terminal-bg: #0d1117;
+  --terminal-text: #e6edf3;
+  --terminal-prompt: #7ee787;
+  --terminal-command: #f0e68c;
+  
+  /* Cores de acento */
+  --accent-primary: #58c2e6; /* Go blue mais claro */
+  --accent-primary-hover: #7fd1ee;
+  --accent-secondary: #ffaa33; /* Java orange mais claro */
+}
+
+/* Aplicar transição suave na mudança de temas */
+body {
+  transition: background-color var(--transition-theme), 
+              color var(--transition-theme);
+}
+
+/* Transição para elementos comuns */
+.card,
+.navbar,
+.btn,
+input,
+textarea,
+.project-card,
+.skills-card {
+  transition: background-color var(--transition-theme),
+              color var(--transition-theme),
+              border-color var(--transition-theme),
+              box-shadow var(--transition-theme);
+}
