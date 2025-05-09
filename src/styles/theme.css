@@ -82,3 +82,101 @@ textarea,
               border-color var(--transition-theme),
               box-shadow var(--transition-theme);
 }
+
+/* Adicione estas classes ao final do arquivo src/styles/theme.css */
+
+/* Melhorias adicionais para modo escuro */
+.dark-theme .nav-tabs {
+  border-color: var(--border-color);
+}
+
+.dark-theme .card {
+  background-color: var(--bg-card);
+  border-color: var(--border-color);
+}
+
+.dark-theme .form-control::placeholder {
+  color: var(--text-muted);
+  opacity: 0.7;
+}
+
+.dark-theme .form-control:focus {
+  color: var(--text-primary);
+  background-color: var(--bg-tertiary);
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 0.25rem rgba(88, 194, 230, 0.25);
+}
+
+.dark-theme .form-select {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+.dark-theme .form-select:focus {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 0.25rem rgba(88, 194, 230, 0.25);
+}
+
+.dark-theme .alert-success {
+  background-color: rgba(25, 135, 84, 0.2);
+  color: #75b798;
+  border-color: rgba(25, 135, 84, 0.3);
+}
+
+.dark-theme .alert-success .btn-close {
+  filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+/* Ajuste para botões no modo escuro */
+.dark-theme .btn-primary {
+  background-color: var(--accent-primary);
+  border-color: var(--accent-primary);
+}
+
+.dark-theme .btn-primary:hover {
+  background-color: var(--accent-primary-hover);
+  border-color: var(--accent-primary-hover);
+}
+
+/* Ajuste para o tema escuro da seção de playground */
+.dark-theme .playground-section .form-label,
+.dark-theme .playground-section .card-title {
+  color: var(--text-primary);
+}
+
+.dark-theme .card,
+.dark-theme .card-body,
+.dark-theme .card-title,
+.dark-theme .card-text,
+.dark-theme .form-label {
+  color: var(--text-primary);
+}
+
+/* Ajustes específicos para o card de contato */
+.dark-theme .form-control:not(:focus) {
+  color: var(--text-primary);
+  background-color: var(--bg-tertiary);
+}
+
+/* Ajustes para textos nos cards de habilidade técnica */
+.dark-theme .skills-card .text-muted,
+.dark-theme .skills-card span:not(.tech-badge) {
+  color: var(--text-primary) !important;
+}
+
+/* Ajustes para os selects do playground */
+.dark-theme .form-select {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23adb5bd' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+}
+
+/* Ajusta a cor do texto nos progressos */
+.dark-theme .skill-progress-container + div,
+.dark-theme .skill-progress-container ~ div {
+  color: var(--text-primary);
+}
+
+/* Garante que todos os textos em pequeno são visíveis */
+.dark-theme .small {
+  color: var(--text-secondary) !important;;
+}
