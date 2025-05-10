@@ -136,7 +136,7 @@ const ProjectsPage = () => {
           </p>
           <div className="d-flex justify-content-center gap-3 flex-wrap">
             <Button 
-              href="https://github.com/seu-usuario" 
+              href="https://github.com/Ulpio" 
               target="_blank" 
               rel="noopener noreferrer"
               variant="dark"

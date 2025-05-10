@@ -121,9 +121,9 @@ const ContactPage = () => {
             <div className="mt-5 text-center">
               <p className="text-muted mb-3">Ou entre em contato diretamente:</p>
               <div className="d-flex justify-content-center gap-4">
-                <a href="mailto:seu.email@exemplo.com" className="text-decoration-none">Email</a>
-                <a href="https://linkedin.com/in/seu-perfil" target="_blank" rel="noopener noreferrer" className="text-decoration-none">LinkedIn</a>
-                <a href="https://github.com/seu-usuario" target="_blank" rel="noopener noreferrer" className="text-decoration-none">GitHub</a>
+                <a href="mailto:ulpionetto0@gmail.comm" className="text-decoration-none">Email</a>
+                <a href="https://linkedin.com/in/ulpionetto" target="_blank" rel="noopener noreferrer" className="text-decoration-none">LinkedIn</a>
+                <a href="https://github.com/Ulpio" target="_blank" rel="noopener noreferrer" className="text-decoration-none">GitHub</a>
               </div>
             </div>
           </Col>
