@@ -1,0 +1,148 @@
+/* src/components/theme/LanguageToggle.css */
+.language-toggle-wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.language-toggle-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-primary);
+  padding: 8px;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+}
+
+.language-toggle-button:hover {
+  background-color: var(--bg-tertiary);
+}
+
+.language-toggle-button svg {
+  transition: transform 0.3s ease, color 0.3s ease;
+  margin-right: 5px;
+}
+
+.language-toggle-button:hover svg {
+  transform: rotate(15deg);
+  color: var(--accent-primary);
+}
+
+.current-language {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* Dropdown de idiomas */
+.language-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 8px;
+  background-color: var(--bg-card);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px var(--shadow-color);
+  z-index: 1000;
+  min-width: 150px;
+  overflow: hidden;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.language-option {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  width: 100%;
+  border: none;
+  background: none;
+  cursor: pointer;
+  text-align: left;
+  color: var(--text-primary);
+  transition: background-color 0.2s ease;
+  position: relative;
+}
+
+.language-option:hover {
+  background-color: var(--bg-tertiary);
+}
+
+.language-option.active {
+  background-color: var(--bg-tertiary);
+}
+
+.language-option.active::after {
+  content: "✓";
+  position: absolute;
+  right: 16px;
+  color: var(--accent-primary);
+  font-weight: bold;
+}
+
+.language-code {
+  font-weight: 600;
+  font-size: 14px;
+  margin-right: 10px;
+  min-width: 24px;
+}
+
+.language-name {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+/* Ocultar elementos do Google Translate */
+.google-translate-hidden {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+  visibility: hidden;
+  height: 0;
+  width: 0;
+  overflow: hidden;
+}
+
+.skiptranslate {
+  display: none !important;
+}
+
+.goog-te-banner-frame {
+  display: none !important;
+}
+
+body {
+  top: 0 !important;
+}
+
+/* Remover o destaque de elementos traduzidos pelo Google */
+.goog-text-highlight {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Ajustes para dispositivos móveis */
+@media (max-width: 768px) {
+  .language-toggle-wrapper {
+    margin-left: 10px;
+    margin-right: auto;
+  }
+  
+  .language-dropdown {
+    right: auto;
+    left: 0;
+  }
+}

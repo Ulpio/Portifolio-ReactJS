@@ -1,8 +1,8 @@
 // src/components/layout/Header.jsx
-import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import ThemeToggle from '../theme/ThemeToggle';
+import LanguageToggle from '../theme/LanguageToggle';
 import { useTheme } from '../../context/ThemeContext';
 
 const Header = () => {
@@ -25,7 +25,6 @@ const Header = () => {
           </div>
         </Navbar.Brand>
         <div className="d-flex align-items-center">
-          <ThemeToggle />
           <Navbar.Toggle aria-controls="basic-navbar-nav" className="ms-2" />
         </div>
         <Navbar.Collapse id="basic-navbar-nav">
@@ -43,7 +42,10 @@ const Header = () => {
               Contato
             </Nav.Link>
           </Nav>
+          
         </Navbar.Collapse>
+        <LanguageToggle />
+          <ThemeToggle />
       </Container>
     </Navbar>
   );

@@ -23,6 +23,24 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     
+    <!-- CSS para esconder a barra do Google Translate -->
+    <style>
+      /* Esconder barra do Google Translate */
+      .skiptranslate, .goog-te-banner-frame {
+        display: none !important;
+      }
+      
+      body {
+        top: 0 !important;
+      }
+      
+      /* Remover destaques do Google Translate */
+      .goog-text-highlight {
+        background-color: transparent !important;
+        box-shadow: none !important;
+      }
+    </style>
+    
     <!-- Título da página -->
     <title>Ulpio Netto | Desenvolvedor Backend Go</title>
   </head>
@@ -51,6 +69,11 @@
           });
         });
       });
+      
+      // Callback para o Google Translate (usado dinamicamente)
+      function googleTranslateElementInit() {
+        // Esta função será sobrescrita pelo componente LanguageToggle quando necessário
+      }
     </script>
   </body>
 </html>
