@@ -43,7 +43,7 @@ const Footer = () => {
               </a>
               {/* Email */}
               <a 
-                href="mailto:seu.email@exemplo.com" 
+                href="mailto:ulpionetto0@gmail.com" 
                 className={`${darkMode ? 'text-light opacity-75' : 'text-muted'}`}
                 aria-label="Email"
               >
