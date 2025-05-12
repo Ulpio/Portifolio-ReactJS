@@ -25,7 +25,6 @@ const Header = () => {
           </div>
         </Navbar.Brand>
         <div className="d-flex align-items-center">
-          <ThemeToggle />
           <Navbar.Toggle aria-controls="basic-navbar-nav" className="ms-2" />
         </div>
         <Navbar.Collapse id="basic-navbar-nav">
@@ -44,6 +43,7 @@ const Header = () => {
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
+        <ThemeToggle />
       </Container>
     </Navbar>
   );

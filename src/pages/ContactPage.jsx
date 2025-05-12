@@ -186,6 +186,7 @@ const ContactPage = () => {
             </Card>
             
             <div className="mt-5 text-center">
+<<<<<<< HEAD
               <p className={`${darkMode ? 'text-light opacity-75' : 'text-muted'} mb-3`}>
                 Ou entre em contato diretamente:
               </p>
@@ -254,6 +255,13 @@ const ContactPage = () => {
                   </svg>
                   GitHub
                 </a>
+=======
+              <p className="text-muted mb-3">Ou entre em contato diretamente:</p>
+              <div className="d-flex justify-content-center gap-4">
+                <a href="mailto:ulpionetto0@gmail.comm" className="text-decoration-none">Email</a>
+                <a href="https://linkedin.com/in/ulpionetto" target="_blank" rel="noopener noreferrer" className="text-decoration-none">LinkedIn</a>
+                <a href="https://github.com/Ulpio" target="_blank" rel="noopener noreferrer" className="text-decoration-none">GitHub</a>
+>>>>>>> 1f8c61fae213ad220812f0608c8f919276685725
               </div>
             </div>
           </Col>
