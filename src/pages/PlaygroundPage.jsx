@@ -86,7 +86,7 @@ const RegistarttDemo = () => {
               prioridade: requestData.prioridade || 1
             }
           };
-        } catch (error) {
+        } catch {
           responseContent = {
             status: '400 Bad Request',
             time: `${randomResponseTime}ms`,
@@ -298,7 +298,7 @@ const ImpulsaDemo = () => {
               }
             }
           };
-        } catch (error) {
+        } catch {
           responseContent = {
             status: '400 Bad Request',
             time: `${randomResponseTime}ms`,
@@ -360,12 +360,13 @@ const ImpulsaDemo = () => {
           <Form.Label className="fw-medium">Resposta</Form.Label>
           <div className="response-container">
             {response ? (
-              <pre className="mb-0 response-content">
-                {`Status: ${response.status}
-Tempo de resposta: ${response.time}
-
-${JSON.stringify(response.data || response.error, null, 2)}`}
-              </pre>
+              <>
+                <div className="response-status">Status: {response.status}</div>
+                <div className="response-time">Tempo de resposta: {response.time}</div>
+                <pre className="response-content">
+                  {JSON.stringify(response.data || response.error, null, 2)}
+                </pre>
+              </>
             ) : (
               <p className="text-muted mb-0 response-placeholder">Envie uma requisição para ver a resposta aqui.</p>
             )}
@@ -399,7 +400,8 @@ const PlaygroundPage = () => {
       <Container>
         <h1 className="text-center fw-bold mb-2">APIs Interativas</h1>
         <p className="text-center text-muted mb-5 mx-auto" style={{ maxWidth: '700px' }}>
-          Experimente demonstrações interativas das APIs que desenvolvi usando Go, PostgreSQL e MongoDB.
+          Experimente demonstrações interativas das APIs que desenvolvi usando Go, PostgreSQL e MongoDB. As respostas abaixo
+          são simuladas para refletir a estrutura e a performance das implementações reais.
         </p>
         
         <Tab.Container activeKey={activeTab} onSelect={setActiveTab}>

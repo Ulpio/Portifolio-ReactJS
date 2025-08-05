@@ -7,10 +7,10 @@ const ProjectCard = ({ title, description, technologies, features, demoLink, ima
   <Card className="h-100 project-card">
     {imageUrl && (
       <div className="bg-light" style={{ height: '200px' }}>
-        <Card.Img 
-          variant="top" 
-          src={imageUrl} 
-          alt={title} 
+        <Card.Img
+          variant="top"
+          src={imageUrl}
+          alt={title}
           style={{ height: '100%', objectFit: 'cover' }}
         />
       </div>
@@ -20,8 +20,8 @@ const ProjectCard = ({ title, description, technologies, features, demoLink, ima
       <Card.Text className="text-muted mb-3">{description}</Card.Text>
       <div className="mb-3">
         {technologies.map((tech, index) => (
-          <span 
-            key={index} 
+          <span
+            key={index}
             className={`tech-badge ${tech.badge || ''}`}
           >
             {tech.name}
@@ -34,12 +34,22 @@ const ProjectCard = ({ title, description, technologies, features, demoLink, ima
           <li key={index}>{feature}</li>
         ))}
       </ul>
-      <Link 
-        to={demoLink}
-        className="text-decoration-none"
-      >
-        Ver demonstração interativa →
-      </Link>
+      {demoLink && (
+        demoLink.startsWith('http') ? (
+          <a
+            href={demoLink}
+            className="text-decoration-none"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Ver demonstração interativa →
+          </a>
+        ) : (
+          <Link to={demoLink} className="text-decoration-none">
+            Ver demonstração interativa →
+          </Link>
+        )
+      )}
     </Card.Body>
   </Card>
 );
@@ -52,8 +62,28 @@ const ProjectsPage = () => {
 
   const projects = [
     {
+      title: 'Guia Travel Hub',
+      description:
+        'Sistema de geração e recomendação de roteiros de viagens usando IA para criar itinerários personalizados.',
+      technologies: [
+        { name: 'Go', badge: 'go-badge' },
+        { name: 'Gemini', badge: 'gemini-badge' },
+        { name: 'Amazon AWS (EC2, S3)', badge: 'aws-badge' },
+        { name: 'Google Places API', badge: 'places-badge' }
+      ],
+      features: [
+        'Geração automática de roteiros com IA Gemini',
+        'Recomendações com dados da Google Places API',
+        'Infraestrutura em EC2 com arquivos no S3',
+        'Exportação e compartilhamento de itinerários',
+        'Interface responsiva e intuitiva'
+      ],
+      demoLink: 'https://github.com/Ulpio/guia-travel-hub'
+    },
+    {
       title: 'Plataforma Registartt',
-      description: 'Desenvolvimento de backend para a plataforma online da Registartt, proporcionando um sistema robusto e escalável para gerenciamento de registros.',
+      description:
+        'Desenvolvimento de backend para a plataforma online da Registartt, proporcionando um sistema robusto e escalável para gerenciamento de registros.',
       technologies: [
         { name: 'Go', badge: 'go-badge' },
         { name: 'PostgreSQL', badge: 'postgres-badge' },
@@ -73,7 +103,8 @@ const ProjectsPage = () => {
     },
     {
       title: 'Impulsa Brasil',
-      description: 'Sistema em desenvolvimento para impulsionar negócios brasileiros, oferecendo ferramentas digitais para crescimento e gestão.',
+      description:
+        'Sistema em desenvolvimento para impulsionar negócios brasileiros, oferecendo ferramentas digitais para crescimento e gestão.',
       technologies: [
         { name: 'Go', badge: 'go-badge' },
         { name: 'MongoDB', badge: 'mongo-badge' },
@@ -93,7 +124,8 @@ const ProjectsPage = () => {
     },
     {
       title: 'OxeTech',
-      description: 'Plataforma do Programa do Governo do Estado de Alagoas, democratizando o acesso ao ensino de tecnologia e desenvolvimento.',
+      description:
+        'Plataforma do Programa do Governo do Estado de Alagoas, democratizando o acesso ao ensino de tecnologia e desenvolvimento.',
       technologies: [
         { name: 'Go', badge: 'go-badge' },
         { name: 'JavaScript', badge: 'js-badge' },

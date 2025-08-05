@@ -93,6 +93,18 @@ body {
   background-color: #009639;
 }
 
+.gemini-badge {
+  background-color: #9e00ff;
+}
+
+.aws-badge {
+  background-color: #ff9900;
+}
+
+.places-badge {
+  background-color: #4285f4;
+}
+
 .docker-badge {
   background-color: #2496ED;
 }

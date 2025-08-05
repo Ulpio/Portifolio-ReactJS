@@ -1,5 +1,4 @@
 // src/components/layout/Header.jsx
-import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import ThemeToggle from '../theme/ThemeToggle';

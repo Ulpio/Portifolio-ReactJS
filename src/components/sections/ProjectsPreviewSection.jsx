@@ -22,9 +22,22 @@ const ProjectCard = ({ title, description, technologies, features, demoLink }) =
           <li key={index}>{feature}</li>
         ))}
       </ul>
-      <Link to={demoLink} className="project-link">
-        Ver demonstração interativa →
-      </Link>
+      {demoLink && (
+        demoLink.startsWith('http') ? (
+          <a
+            href={demoLink}
+            className="project-link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Ver demonstração interativa →
+          </a>
+        ) : (
+          <Link to={demoLink} className="project-link">
+            Ver demonstração interativa →
+          </Link>
+        )
+      )}
     </Card.Body>
   </Card>
 );
@@ -32,8 +45,27 @@ const ProjectCard = ({ title, description, technologies, features, demoLink }) =
 const ProjectsPreviewSection = () => {
   const projects = [
     {
+      title: 'Guia Travel Hub',
+      description:
+        'Sistema de geração e recomendação de roteiros de viagens usando IA para criar itinerários personalizados.',
+      technologies: [
+        { name: 'Go', badge: 'go-badge' },
+        { name: 'Gemini', badge: 'gemini-badge' },
+        { name: 'Amazon AWS (EC2, S3)', badge: 'aws-badge' },
+        { name: 'Google Places API', badge: 'places-badge' }
+      ],
+      features: [
+        'Geração automática de roteiros com IA Gemini',
+        'Recomendações com dados da Google Places API',
+        'Infraestrutura escalável em EC2 e armazenamento no S3',
+        'Exportação e compartilhamento de itinerários'
+      ],
+      demoLink: 'https://github.com/Ulpio/guia-travel-hub'
+    },
+    {
       title: 'Plataforma Registartt',
-      description: 'Desenvolvimento de backend para a plataforma online da Registartt, proporcionando um sistema robusto e escalável para gerenciamento de registros.',
+      description:
+        'Desenvolvimento de backend para a plataforma online da Registartt, proporcionando um sistema robusto e escalável para gerenciamento de registros.',
       technologies: [
         { name: 'Go', badge: 'go-badge' },
         { name: 'PostgreSQL', badge: 'postgres-badge' },
@@ -50,7 +82,8 @@ const ProjectsPreviewSection = () => {
     },
     {
       title: 'Impulsa Brasil',
-      description: 'Sistema em desenvolvimento para impulsionar negócios brasileiros, oferecendo ferramentas digitais para crescimento e gestão.',
+      description:
+        'Sistema em desenvolvimento para impulsionar negócios brasileiros, oferecendo ferramentas digitais para crescimento e gestão.',
       technologies: [
         { name: 'Go', badge: 'go-badge' },
         { name: 'MongoDB', badge: 'mongo-badge' },

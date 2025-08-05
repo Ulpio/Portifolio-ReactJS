@@ -67,6 +67,21 @@
   box-shadow: 0 2px 4px rgba(0, 150, 57, 0.3);
 }
 
+.gemini-badge {
+  background-color: #9e00ff;
+  box-shadow: 0 2px 4px rgba(158, 0, 255, 0.3);
+}
+
+.aws-badge {
+  background-color: #ff9900;
+  box-shadow: 0 2px 4px rgba(255, 153, 0, 0.3);
+}
+
+.places-badge {
+  background-color: #4285f4;
+  box-shadow: 0 2px 4px rgba(66, 133, 244, 0.3);
+}
+
 .project-features li {
   margin-bottom: 8px;
   position: relative;
