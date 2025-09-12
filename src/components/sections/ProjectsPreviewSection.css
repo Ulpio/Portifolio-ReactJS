@@ -125,3 +125,15 @@
   box-shadow: 0 6px 12px rgba(0, 173, 216, 0.35);
   transform: translateY(-2px);
 }
+
+/* Carousel customization */
+.projects-carousel .carousel-item {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.projects-carousel .project-card {
+  width: 100%;
+  max-width: 600px;
+}
