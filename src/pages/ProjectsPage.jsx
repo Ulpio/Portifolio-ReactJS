@@ -71,26 +71,33 @@ const ProjectsPage = () => {
       demoLink: '/playground#demo-registartt',
       imageUrl: 'img-registartt.png'
     },
-    {
-      title: 'Impulsa Brasil',
-      description: 'Sistema em desenvolvimento para impulsionar negócios brasileiros, oferecendo ferramentas digitais para crescimento e gestão.',
-      technologies: [
-        { name: 'Go', badge: 'go-badge' },
-        { name: 'MongoDB', badge: 'mongo-badge' },
-        { name: 'Gin', badge: 'gin-badge' },
-        { name: 'Nginx', badge: 'nginx-badge' }
-      ],
-      features: [
-        'Arquitetura de microsserviços',
-        'Processamento de dados em tempo real',
-        'Integrações com APIs de terceiros',
-        'Dashboard analítico para métricas de negócios',
-        'Sistema de notificações em tempo real',
-        'Processamento de dados em lote'
-      ],
-      demoLink: '/playground#demo-impulsa',
-      imageUrl: 'impulsa-placeholder.png'
-    },
+{
+  title: 'Vergo',
+  description: 'Boilerplate SaaS open source em Go, com foco em multi-tenant, RBAC, autenticação JWT, integração com Postgres/sqlc, S3 e Stripe. Projetado para demonstrar boas práticas de arquitetura, segurança e CI/CD.',
+  technologies: [
+    { name: 'Go', badge: 'go-badge' },
+    { name: 'Postgres', badge: 'postgres-badge' },
+    { name: 'Gin', badge: 'gin-badge' },
+    { name: 'SQLC', badge: 'sqlc-badge' },
+    { name: 'Nginx', badge: 'nginx-badge' },
+    { name: 'Stripe', badge: 'stripe-badge' },
+    { name: 'AWS S3', badge: 's3-badge' },
+    { name: 'GitHub Actions', badge: 'github-actions-badge' }
+  ],
+  features: [
+    'Autenticação JWT (login, signup, refresh)',
+    'RBAC (controle de acesso baseado em papéis)',
+    'Multi-tenant (isolamento de organizações)',
+    'Integração com AWS S3 via presigned URLs',
+    'Integração com Stripe para billing',
+    'CRUD de projetos com audit log',
+    'CI/CD com GitHub Actions (build + test)',
+    'Dependabot e CodeQL para segurança e atualização',
+    'Observabilidade com OpenTelemetry'
+  ],
+  demoLink: 'https://github.com/Ulpio/vergo',
+  imageUrl: 'Vergo.png'
+},
     {
       title: 'OxeTech',
       description: 'Plataforma do Programa do Governo do Estado de Alagoas, democratizando o acesso ao ensino de tecnologia e desenvolvimento.',
