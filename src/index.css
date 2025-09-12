@@ -101,6 +101,22 @@ body {
   background-color: #FC6D26;
 }
 
+.stripe-badge {
+  background-color: #635BFF; /* cor oficial Stripe */
+  color: #fff;
+}
+
+.s3-badge {
+  background-color: #FF9900; /* cor oficial AWS S3 */
+  color: #fff;
+}
+
+.github-actions-badge {
+  background-color: #2088FF; /* azul do GitHub Actions */
+  color: #fff;
+}
+
+
 /* Cards */
 .project-card {
   border-radius: 8px;
