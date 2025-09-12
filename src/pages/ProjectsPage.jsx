@@ -79,7 +79,6 @@ const ProjectsPage = () => {
     { name: 'Postgres', badge: 'postgres-badge' },
     { name: 'Gin', badge: 'gin-badge' },
     { name: 'SQLC', badge: 'sqlc-badge' },
-    { name: 'Nginx', badge: 'nginx-badge' },
     { name: 'Stripe', badge: 'stripe-badge' },
     { name: 'AWS S3', badge: 's3-badge' },
     { name: 'GitHub Actions', badge: 'github-actions-badge' }
