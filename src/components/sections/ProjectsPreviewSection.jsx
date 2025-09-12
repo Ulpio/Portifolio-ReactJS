@@ -1,5 +1,5 @@
 // src/components/sections/ProjectsPreviewSection.jsx
-import { Container, Row, Col, Card, Button } from 'react-bootstrap';
+import { Container, Carousel, Card, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './ProjectsPreviewSection.css';
 
@@ -72,13 +72,15 @@ const ProjectsPreviewSection = () => {
       <Container>
         <h2 className="text-center fw-bold mb-4">Projetos em Destaque</h2>
         
-        <Row className="g-4">
+        <Carousel className="projects-carousel mb-4">
           {projects.map((project, index) => (
-            <Col key={index} md={6}>
-              <ProjectCard {...project} />
-            </Col>
+            <Carousel.Item key={index}>
+              <div className="d-flex justify-content-center">
+                <ProjectCard {...project} />
+              </div>
+            </Carousel.Item>
           ))}
-        </Row>
+        </Carousel>
         
         <div className="text-center mt-5">
           <Button 
