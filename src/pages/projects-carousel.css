@@ -1,0 +1,64 @@
+/* container do carrossel */
+.projects-carousel {
+  --pc-gap: 1rem;
+}
+
+/* setas */
+.pc-arrow {
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
+  z-index: 2;
+  border: none;
+  background: #ffffffee;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  box-shadow: 0 6px 24px rgba(0,0,0,.12);
+  font-size: 28px;
+  line-height: 0;
+  cursor: pointer;
+}
+.pc-arrow-left { left: -6px; }
+.pc-arrow-right { right: -6px; }
+
+/* trilho com snap */
+.pc-track {
+  display: flex;
+  gap: var(--pc-gap);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding-bottom: .25rem;
+  scrollbar-width: thin;
+}
+.pc-track::-webkit-scrollbar { height: 8px; }
+.pc-track::-webkit-scrollbar-thumb { background: #d0d0d0; border-radius: 999px; }
+
+/* item ocupa frações responsivas — controla “quantos por página” */
+.pc-item {
+  scroll-snap-align: start;
+  flex: 0 0 100%;               /* 1 por página (mobile) */
+}
+@media (min-width: 768px) {
+  .pc-item { flex-basis: calc(50% - var(--pc-gap) / 2); } /* 2 por página */
+}
+@media (min-width: 992px) {
+  .pc-item { flex-basis: calc(33.333% - var(--pc-gap) * (2/3)); } /* 3 por página */
+}
+
+/* dots */
+.pc-dots {
+  display: flex;
+  justify-content: center;
+  gap: .5rem;
+}
+.pc-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  border: none;
+  background: #d9d9d9;
+  cursor: pointer;
+}
+.pc-dot.active { background: #0d6efd; } /* primária do bootstrap */

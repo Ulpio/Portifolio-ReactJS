@@ -20,7 +20,7 @@ const Header = () => {
           <div>
             <span className="fs-4 fw-bold">Ulpio Netto</span>
             <p className={`mb-0 small ${darkMode ? 'text-light opacity-75' : 'text-muted'}`}>
-              Desenvolvedor Backend | Especialista em Go
+              Desenvolvedor Backend | Golang e Java
             </p>
           </div>
         </Navbar.Brand>

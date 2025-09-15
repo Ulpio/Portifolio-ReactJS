@@ -51,7 +51,7 @@ import "fmt"
 
 func main() {
     fmt.Println("Olá, sou o Ulpio Netto!")
-    fmt.Println("Desenvolvedor Backend especialista em Go")
+    fmt.Println("Desenvolvedor Backend Golang e Java")
     fmt.Println("Bem-vindo ao meu portfólio interativo!")
 }`}
               </pre>
@@ -60,7 +60,7 @@ func main() {
                 <span className="terminal-command">go run main.go</span>
               </p>
               <p className="terminal-output">Olá, sou o Ulpio Netto!</p>
-              <p className="terminal-output">Desenvolvedor Backend especialista em Go</p>
+              <p className="terminal-output">Desenvolvedor Backend Golang e Java</p>
               <p className="terminal-output">Bem-vindo ao meu portfólio interativo!</p>
             </div>
           </Col>
