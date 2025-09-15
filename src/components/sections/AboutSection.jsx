@@ -10,19 +10,23 @@ const AboutSection = () => {
           <Col md={8} lg={6}>
             <div className="text-muted">
               <p className="mb-3">
-                Meu nome é Ulpio Netto, um desenvolvedor backend especializado em Go (Golang) e Java. 
-                Com experiência sólida no desenvolvimento de sistemas escaláveis e de alta performance, tenho trabalhado 
-                em projetos que exigem robustez e eficiência.
+                Meu nome é Ulpio Netto, desenvolvedor backend especializado em Go (Golang) e Java.
+                Em uma recente migração de monólito para microsserviços em Go, reduzi o uso de CPU em 30% e cortei os custos de infraestrutura em 20%.
               </p>
-              
+
               <p className="mb-3">
-                Atualmente, estou envolvido com o desenvolvimento de software para a plataforma Registartt e no projeto 
-                Impulsa Brasil. Minha abordagem para resolver problemas complexos é baseada em código limpo, documentação 
-                clara e práticas de engenharia de software modernas.
+                Atualmente, colaboro com o desenvolvimento da plataforma Registartt e do projeto Impulsa Brasil.
+                Sou conhecido por comunicar decisões técnicas de forma clara, liderar squads multidisciplinares e promover um ambiente de cooperação contínua.
               </p>
-              
+
+              <ul className="mb-3">
+                <li>Otimização de consultas que acelerou respostas de API em 45%.</li>
+                <li>Automação de deploys com CI/CD, diminuindo o tempo de entrega em 50%.</li>
+                <li>Mentoria de 3 novos desenvolvedores até o nível pleno.</li>
+              </ul>
+
               <p>
-                Tenho um forte interesse em microsserviços, APIs RESTful, bancos de dados relacionais e não-relacionais, 
+                Tenho forte interesse em microsserviços, APIs RESTful, bancos de dados relacionais e não-relacionais,
                 além de práticas DevOps para garantir implantações confiáveis e monitoramento eficiente.
               </p>
             </div>
