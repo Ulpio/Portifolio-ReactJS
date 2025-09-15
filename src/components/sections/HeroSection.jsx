@@ -14,55 +14,39 @@ const HeroSection = () => {
               usando Golang e tecnologias modernas.
             </p>
             <div className="d-flex flex-wrap gap-2">
-              <Button 
-                as={Link} 
-                to="/contato" 
-                variant="primary" 
+              <Button
+                as={Link}
+                to="/contato"
+                variant="primary"
                 size="lg"
                 className="me-2"
               >
                 Entre em contato
               </Button>
-              <Button 
-                as={Link} 
-                to="/projetos" 
-                variant="outline-primary" 
+              <Button
+                href="/UlpioNetto_CV.pdf"
+                variant="outline-primary"
                 size="lg"
               >
-                Ver projetos
+                Baixar CV
+              </Button>
+              <Button
+                href="https://www.linkedin.com/in/ulpionetto/"
+                variant="outline-primary"
+                size="lg"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                LinkedIn
               </Button>
             </div>
           </Col>
           <Col md={6}>
-            <div className="terminal">
-              <p>
-                <span className="terminal-prompt">➜</span>{' '}
-                <span className="terminal-command">go version</span>
-              </p>
-              <p className="terminal-output">go version go1.21.0 linux/amd64</p>
-              <p>
-                <span className="terminal-prompt">➜</span>{' '}
-                <span className="terminal-command">cat main.go</span>
-              </p>
-              <pre className="terminal-output">
-{`package main
-
-import "fmt"
-
-func main() {
-    fmt.Println("Olá, sou o Ulpio Netto!")
-    fmt.Println("Desenvolvedor Backend Golang e Java")
-    fmt.Println("Bem-vindo ao meu portfólio interativo!")
-}`}
-              </pre>
-              <p>
-                <span className="terminal-prompt">➜</span>{' '}
-                <span className="terminal-command">go run main.go</span>
-              </p>
-              <p className="terminal-output">Olá, sou o Ulpio Netto!</p>
-              <p className="terminal-output">Desenvolvedor Backend Golang e Java</p>
-              <p className="terminal-output">Bem-vindo ao meu portfólio interativo!</p>
-            </div>
+            <p className="fs-5 text-muted">
+              Desenvolvedor Backend com 5 anos de experiência, reduzindo em 30% o
+              tempo de processamento e suportando aplicações que atendem mais de
+              50&nbsp;mil usuários.
+            </p>
           </Col>
         </Row>
       </Container>
