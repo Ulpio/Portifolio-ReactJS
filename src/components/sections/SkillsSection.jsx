@@ -3,8 +3,7 @@ import { useTheme } from '../../context/ThemeContext';
 import './SkillsSection.css';
 
 const SkillsSection = () => {
-
-    const { darkMode } = useTheme();
+  const { darkMode } = useTheme();
 
   const skills = {
     languages: [
@@ -26,17 +25,25 @@ const SkillsSection = () => {
       { name: 'Nginx', level: 85, badge: 'nginx-badge' },
       { name: 'Docker', level: 80, badge: 'docker-badge' },
       { name: 'CI/CD', level: 75, badge: 'cicd-badge' }
+    ],
+    softSkills: [
+      { name: 'Comunicação', level: 90, badge: 'communication-badge' },
+      { name: 'Resolução de Problemas', level: 85, badge: 'problem-solving-badge' }
+    ],
+    certifications: [
+      { name: 'AWS Certified Cloud Practitioner', level: 100, badge: 'aws-badge' },
+      { name: 'Scrum Master', level: 100, badge: 'scrum-badge' }
     ]
   };
 
- const renderSkillCategory = (title, skills) => (
+  const renderSkillCategory = (title, skills) => (
     <Card className="skills-card h-100">
       <Card.Body>
         <Card.Title className="fw-bold mb-3">{title}</Card.Title>
         <div className="mb-3">
           {skills.map((skill) => (
-            <span 
-              key={skill.name} 
+            <span
+              key={skill.name}
               className={`tech-badge ${skill.badge}`}
             >
               {skill.name}
@@ -47,13 +54,13 @@ const SkillsSection = () => {
           <div className="mb-3" key={`progress-${skill.name}`}>
             <div className="d-flex justify-content-between mb-1">
               <span>{skill.name}</span>
-              <span className={darkMode ? "text-light opacity-75 small" : "text-muted small"}>
+              <span className={darkMode ? 'text-light opacity-75 small' : 'text-muted small'}>
                 {skill.level >= 90 ? 'Avançado' : skill.level >= 80 ? 'Intermed/Avançado' : 'Intermediário'}
               </span>
             </div>
             <div className="skill-progress-container">
-              <div 
-                className="skill-progress-bar" 
+              <div
+                className="skill-progress-bar"
                 style={{ width: `${skill.level}%` }}
               ></div>
             </div>
@@ -67,7 +74,7 @@ const SkillsSection = () => {
     <section id="habilidades" className="skills-section py-5">
       <Container>
         <h2 className="text-center fw-bold mb-4">Habilidades Técnicas</h2>
-        
+
         <Row className="g-4">
           <Col md={6} lg={3}>
             {renderSkillCategory('Linguagens', skills.languages)}
@@ -80,6 +87,16 @@ const SkillsSection = () => {
           </Col>
           <Col md={6} lg={3}>
             {renderSkillCategory('DevOps', skills.devops)}
+          </Col>
+        </Row>
+
+        <h2 className="text-center fw-bold mt-5 mb-4">Soft Skills & Certificações</h2>
+        <Row className="g-4 justify-content-center">
+          <Col md={6} lg={3}>
+            {renderSkillCategory('Soft Skills', skills.softSkills)}
+          </Col>
+          <Col md={6} lg={3}>
+            {renderSkillCategory('Certificações', skills.certifications)}
           </Col>
         </Row>
       </Container>
