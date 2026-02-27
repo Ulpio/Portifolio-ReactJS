@@ -1,10 +1,11 @@
 // src/components/sections/ProjectsPreviewSection.jsx
-import { Container, Carousel, Card, Button } from 'react-bootstrap';
+import { useState } from 'react';
+import { Container, Card, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { previewProjects } from '../../data/projects';
 import './ProjectsPreviewSection.css';
 
-// Componente de cartão de projeto
-const ProjectCard = ({ title, description, technologies, features, demoLink }) => (
+const ProjectCard = ({ title, description, technologies, features, demoLink, external }) => (
   <Card className="project-card h-100">
     <Card.Body>
       <Card.Title as="h3" className="fw-bold mb-2">{title}</Card.Title>
@@ -22,71 +23,75 @@ const ProjectCard = ({ title, description, technologies, features, demoLink }) =
           <li key={index}>{feature}</li>
         ))}
       </ul>
-      <Link to={demoLink} className="project-link">
-        Ver demonstração interativa →
-      </Link>
+      {demoLink === '#' ? null : external ? (
+        <a href={demoLink} target="_blank" rel="noopener noreferrer" className="project-link">
+          Ver projeto →
+        </a>
+      ) : (
+        <Link to={demoLink} className="project-link">
+          Ver demonstração interativa →
+        </Link>
+      )}
     </Card.Body>
   </Card>
 );
 
 const ProjectsPreviewSection = () => {
-  const projects = [
-    {
-      title: 'Plataforma Registartt',
-      description: 'Desenvolvimento de backend para a plataforma online da Registartt, proporcionando um sistema robusto e escalável para gerenciamento de registros.',
-      technologies: [
-        { name: 'Go', badge: 'go-badge' },
-        { name: 'PostgreSQL', badge: 'postgres-badge' },
-        { name: 'Gin', badge: 'gin-badge' },
-        { name: 'SQLC', badge: 'sqlc-badge' }
-      ],
-      features: [
-        'API RESTful de alta performance',
-        'Sistema de autenticação e autorização',
-        'Cache distribuído para melhor desempenho',
-        'Processamento assíncrono de tarefas'
-      ],
-      demoLink: '/playground#demo-registartt'
-    },
-    {
-      title: 'Impulsa Brasil',
-      description: 'Sistema em desenvolvimento para impulsionar negócios brasileiros, oferecendo ferramentas digitais para crescimento e gestão.',
-      technologies: [
-        { name: 'Go', badge: 'go-badge' },
-        { name: 'MongoDB', badge: 'mongo-badge' },
-        { name: 'Gin', badge: 'gin-badge' },
-        { name: 'Nginx', badge: 'nginx-badge' }
-      ],
-      features: [
-        'Arquitetura de microsserviços',
-        'Processamento de dados em tempo real',
-        'Integrações com APIs de terceiros',
-        'Dashboard analítico para métricas de negócios'
-      ],
-      demoLink: '/playground#demo-impulsa'
-    }
-  ];
+  const projects = previewProjects;
+  const [index, setIndex] = useState(0);
+
+  if (!projects.length) return null;
+
+  const current = projects[index];
+  const goPrev = () => setIndex((i) => (i === 0 ? projects.length - 1 : i - 1));
+  const goNext = () => setIndex((i) => (i === projects.length - 1 ? 0 : i + 1));
 
   return (
     <section className="projects-preview-section py-5 bg-white">
       <Container>
         <h2 className="text-center fw-bold mb-4">Projetos em Destaque</h2>
-        
-        <Carousel className="projects-carousel mb-4">
-          {projects.map((project, index) => (
-            <Carousel.Item key={index}>
-              <div className="d-flex justify-content-center">
-                <ProjectCard {...project} />
-              </div>
-            </Carousel.Item>
+
+        <div className="projects-carousel-wrapper">
+          <button
+            type="button"
+            className="projects-carousel-btn projects-carousel-prev"
+            onClick={goPrev}
+            aria-label="Projeto anterior"
+          >
+            ‹
+          </button>
+
+          <div className="projects-carousel-content">
+            <ProjectCard key={current.title} {...current} />
+          </div>
+
+          <button
+            type="button"
+            className="projects-carousel-btn projects-carousel-next"
+            onClick={goNext}
+            aria-label="Próximo projeto"
+          >
+            ›
+          </button>
+        </div>
+
+        <div className="projects-carousel-dots">
+          {projects.map((_, i) => (
+            <button
+              key={i}
+              type="button"
+              className={`projects-carousel-dot ${i === index ? 'active' : ''}`}
+              onClick={() => setIndex(i)}
+              aria-label={`Ir para projeto ${i + 1}`}
+            />
           ))}
-        </Carousel>
-        
+        </div>
+
         <div className="text-center mt-5">
-          <Button 
-            as={Link} 
-            to="/projetos" 
-            variant="primary" 
+          <Button
+            as={Link}
+            to="/projetos"
+            variant="primary"
             size="lg"
             className="projects-btn"
           >

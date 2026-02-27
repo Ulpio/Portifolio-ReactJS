@@ -2,9 +2,10 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Card, Button } from 'react-bootstrap';
+import { projects as allProjects } from '../data/projects';
 import './projects-carousel.css';
 
-const ProjectCard = ({ title, description, technologies, features, demoLink, imageUrl }) => (
+const ProjectCard = ({ title, description, technologies, features, demoLink, imageUrl, external }) => (
   <Card className="h-100 project-card">
     {imageUrl && (
       <div className="bg-light" style={{ height: '200px' }}>
@@ -32,9 +33,15 @@ const ProjectCard = ({ title, description, technologies, features, demoLink, ima
           <li key={index}>{feature}</li>
         ))}
       </ul>
-      <Link to={demoLink} className="text-decoration-none">
-        Ver demonstração interativa →
-      </Link>
+      {demoLink === '#' ? null : external ? (
+        <a href={demoLink} target="_blank" rel="noopener noreferrer" className="text-decoration-none">
+          Ver projeto →
+        </a>
+      ) : (
+        <Link to={demoLink} className="text-decoration-none">
+          Ver demonstração interativa →
+        </Link>
+      )}
     </Card.Body>
   </Card>
 );
@@ -46,115 +53,7 @@ const ProjectsPage = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  const projects = useMemo(() => ([
-    {
-      title: 'Plataforma Registartt',
-      description: 'Desenvolvimento de backend para a plataforma online da Registartt, proporcionando um sistema robusto e escalável para gerenciamento de registros.',
-      technologies: [
-        { name: 'Go', badge: 'go-badge' },
-        { name: 'PostgreSQL', badge: 'postgres-badge' },
-        { name: 'Gin', badge: 'gin-badge' },
-        { name: 'SQLC', badge: 'sqlc-badge' }
-      ],
-      features: [
-        'API RESTful de alta performance',
-        'Sistema de autenticação e autorização',
-        'Cache distribuído para melhor desempenho',
-        'Processamento assíncrono de tarefas',
-        'Logs estruturados e monitoramento',
-        'Documentação interativa da API'
-      ],
-      demoLink: '/playground#demo-registartt',
-      imageUrl: 'img-registartt.png'
-    },
-    {
-      title: 'Vergo',
-      description: 'Boilerplate SaaS open source em Go, com foco em multi-tenant, RBAC, autenticação JWT, integração com Postgres/sqlc, S3 e Stripe. Projetado para demonstrar boas práticas de arquitetura, segurança e CI/CD.',
-      technologies: [
-        { name: 'Go', badge: 'go-badge' },
-        { name: 'Postgres', badge: 'postgres-badge' },
-        { name: 'Gin', badge: 'gin-badge' },
-        { name: 'SQLC', badge: 'sqlc-badge' },
-        { name: 'Stripe', badge: 'stripe-badge' },
-        { name: 'AWS S3', badge: 's3-badge' },
-        { name: 'GitHub Actions', badge: 'github-actions-badge' }
-      ],
-      features: [
-        'Autenticação JWT (login, signup, refresh)',
-        'RBAC (controle de acesso baseado em papéis)',
-        'Multi-tenant (isolamento de organizações)',
-        'Integração com AWS S3 via presigned URLs',
-        'Integração com Stripe para billing',
-        'CRUD de projetos com audit log',
-        'CI/CD com GitHub Actions (build + test)',
-        'Dependabot e CodeQL para segurança e atualização',
-      ],
-      demoLink: 'https://github.com/Ulpio/vergo',
-      imageUrl: 'Vergo.png'
-    },
-    {
-      title: 'OxeTech',
-      description: 'Plataforma do Programa do Governo do Estado de Alagoas, democratizando o acesso ao ensino de tecnologia e desenvolvimento.',
-      technologies: [
-        { name: 'Go', badge: 'go-badge' },
-        { name: 'JavaScript', badge: 'js-badge' },
-        { name: 'Postgres', badge: 'postgres-badge' }
-      ],
-      features: [
-        'Transcrição da API original de JS para Go',
-        'Processamento de dados em tempo real',
-        'Diferentes niveis de acesso e lógicas diferentes de negócio',
-        'Tempos de resposta até 75% mais velozes',
-        'Api organizada e Simples'
-      ],
-      demoLink: 'https://oxetech.al.gov.br',
-      imageUrl: 'oxetechlab.png'
-    },
-    {
-      title: 'guIA Travel Hub',
-      description: 'Hub de turismo inteligente que utiliza IA para montar roteiros de viagem personalizados a partir do perfil do viajante.',
-      technologies: [
-        { name: 'Go', badge: 'go-badge' },
-        { name: 'React', badge: 'react-badge' },
-        { name: 'Postgres', badge: 'postgres-badge' },
-        { name: 'GORM', badge: 'sqlc-badge' },
-        { name: 'AWS S3', badge: 'docker-badge' },
-        { name: 'AWS EC2', badge: 'nginx-badge' }
-      ],
-      features: [
-        'Criação de roteiros dinâmicos com base em preferências e orçamento',
-        'Exportação de itinerários completos em PDF',
-        'Cadastro e gestão de perfis de viajantes',
-        'Sugestões inteligentes de hotéis, restaurantes e atrações',
-        'Integração com APIs externas para dados atualizados de turismo',
-        'Organização diária do roteiro com dicas locais'
-      ],
-      demoLink: 'https://guia.ulpiodev.com',
-      imageUrl: 'guIA.png'
-    },
-    {
-      title: 'Impulsa Hub',
-      description: 'Hub educacional para escolas públicas, privadas e setores públicos.',
-      technologies: [
-        { name: 'Go', badge: 'go-badge' },
-        { name: 'Postgres', badge: 'postgres-badge' },
-        { name: 'GORM', badge: 'sqlc-badge' },
-        { name: 'MongoDB', badge: 'mongo-badge' },
-        { name: 'AWS S3', badge: 'docker-badge' },
-        { name: 'AWS EC2', badge: 'nginx-badge' }
-      ],
-      features: [
-        'Arquitetura de microsserviços',
-        'Processamento de dados em tempo real',
-        'Integrações com APIs de terceiros',
-        'Dashboard analítico para métricas de negócios',
-        'Sistema de notificações em tempo real',
-        'Processamento de dados em lote'
-      ],
-      demoLink: 'https://guia.ulpiodev.com',
-      imageUrl: 'impulsa-placeholder.png'
-    }
-  ]), []);
+  const projects = useMemo(() => allProjects, []);
 
   // ----- Carrossel infinito com clones -----
   const trackRef = useRef(null);
@@ -205,10 +104,9 @@ const ProjectsPage = () => {
 
   // após (re)montagem ou mudança do perPage, posiciona no 1º item real
   useEffect(() => {
-    const start = headClones; // primeiro índice real
+    const start = headClones;
     setCurrentIndex(start);
     setPage(0);
-    // espera pintar o DOM para ter offsetLeft correto
     const id = requestAnimationFrame(() => scrollToIndex(start, 'auto'));
     return () => cancelAnimationFrame(id);
   }, [headClones, renderList.length]);
@@ -219,8 +117,7 @@ const ProjectsPage = () => {
     if (!track) return;
 
     const onScroll = () => {
-      const raw = Math.round(track.scrollLeft / track.clientWidth); // índice "de página" visual
-      // normaliza: remove deslocamento dos clones iniciais
+      const raw = Math.round(track.scrollLeft / track.clientWidth);
       const logical = ((raw - 1) % pages + pages) % pages;
       setPage(logical);
     };
@@ -228,6 +125,51 @@ const ProjectsPage = () => {
     track.addEventListener('scroll', onScroll, { passive: true });
     return () => track.removeEventListener('scroll', onScroll);
   }, [pages]);
+
+  // infinito: quando o scroll termina na zona de clones, reposiciona sem animação (invisível)
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return;
+
+    const onScrollEnd = () => {
+      const left = track.scrollLeft;
+      const refs = itemRefs.current;
+      const firstReal = refs[headClones];
+      const lastReal = refs[headClones + projects.length - 1];
+      const tailStartEl = refs[headClones + projects.length];
+      if (!firstReal || !lastReal || !tailStartEl) return;
+      const tailStart = tailStartEl.offsetLeft;
+      const realStart = firstReal.offsetLeft;
+      const realEnd = lastReal.offsetLeft;
+      const threshold = 20;
+      if (left >= tailStart - threshold) {
+        track.scrollTo({ left: realStart, behavior: 'auto' });
+        setCurrentIndex(headClones);
+        setPage(0);
+      } else if (headClones > 0 && left <= realStart - threshold) {
+        track.scrollTo({ left: realEnd, behavior: 'auto' });
+        setCurrentIndex(headClones + projects.length - 1);
+        setPage(pages - 1);
+      }
+    };
+
+    const handleScrollEnd = () => requestAnimationFrame(onScrollEnd);
+
+    if ('onscrollend' in window) {
+      track.addEventListener('scrollend', handleScrollEnd);
+      return () => track.removeEventListener('scrollend', handleScrollEnd);
+    }
+    let timeoutId;
+    const debounced = () => {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(handleScrollEnd, 120);
+    };
+    track.addEventListener('scroll', debounced, { passive: true });
+    return () => {
+      clearTimeout(timeoutId);
+      track.removeEventListener('scroll', debounced);
+    };
+  }, [headClones, pages, projects.length]);
 
   // navegação
   const goToPage = (p) => {
@@ -239,41 +181,17 @@ const ProjectsPage = () => {
   };
 
   const next = () => {
-    const total = projects.length;
-    const lastRealIndex = headClones + total - 1;        // último item real
-    const tailAfter = headClones + total + tailClones - 1; // último índice renderizado
-
     const target = currentIndex + 1;
     setCurrentIndex(target);
     scrollToIndex(target);
-
-    // se entrou na zona de clones do final, após a animação "teleporta" pro começo real
-    if (target > lastRealIndex) {
-      window.setTimeout(() => {
-        const jumpTo = headClones; // primeiro real
-        scrollToIndex(jumpTo, 'auto');
-        setCurrentIndex(jumpTo);
-      }, 350);
-    }
+    // o reposicionamento na zona de clones é feito no scrollend (invisível)
   };
 
   const prev = () => {
-    const firstRealIndex = headClones;                 // primeiro real
-    const headBefore = headClones - 1;                 // último clone da esquerda
-    const lastRealIndex = headClones + projects.length - 1;
-
     const target = currentIndex - 1;
     setCurrentIndex(target);
     scrollToIndex(target);
-
-    // se entrou na zona de clones do início, após a animação "teleporta" pro fim real
-    if (target <= headBefore) {
-      window.setTimeout(() => {
-        const jumpTo = lastRealIndex; // último real
-        scrollToIndex(jumpTo, 'auto');
-        setCurrentIndex(jumpTo);
-      }, 350);
-    }
+    // o reposicionamento na zona de clones é feito no scrollend (invisível)
   };
 
   // dots → pula para a página escolhida
@@ -284,8 +202,8 @@ const ProjectsPage = () => {
       <Container>
         <h1 className="text-center fw-bold mb-2">Projetos</h1>
         <p className="text-center text-muted mb-5 mx-auto" style={{ maxWidth: '700px' }}>
-          Conheça os principais projetos que desenvolvi utilizando Go, Java e outras tecnologias modernas para
-          criar soluções robustas e escaláveis.
+          Conheça os principais projetos que desenvolvi utilizando Go, TypeScript, Python e outras tecnologias
+          modernas para criar soluções robustas e escaláveis.
         </p>
 
         <div className="projects-carousel position-relative">
