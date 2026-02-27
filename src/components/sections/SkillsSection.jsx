@@ -10,23 +10,33 @@ const SkillsSection = () => {
     languages: [
       { name: 'Go', level: 95, badge: 'go-badge' },
       { name: 'Java', level: 85, badge: 'java-badge' },
-      { name: 'JavaScript', level: 80, badge: 'js-badge' }
+      { name: 'JavaScript', level: 80, badge: 'js-badge' },
+      { name: 'TypeScript', level: 85, badge: 'ts-badge' },
+      { name: 'Python', level: 75, badge: 'python-badge' },
+      { name: 'Node.js', level: 80, badge: 'node-badge' },
     ],
     databases: [
       { name: 'PostgreSQL', level: 90, badge: 'postgres-badge' },
-      { name: 'MongoDB', level: 80, badge: 'mongo-badge' }
+      { name: 'MySQL', level: 85, badge: 'mysql-badge' },
+      { name: 'MongoDB', level: 80, badge: 'mongo-badge' },
+      { name: 'RDS', level: 80, badge: 'rds-badge' },
     ],
     frameworks: [
       { name: 'Gin', level: 90, badge: 'gin-badge' },
       { name: 'SQLC', level: 85, badge: 'sqlc-badge' },
+      { name: 'GORM', level: 85, badge: 'gorm-badge' },
       { name: 'Spring', level: 80, badge: 'spring-badge' },
-      { name: 'React', level: 75, badge: 'react-badge' }
+      { name: 'React', level: 75, badge: 'react-badge' },
+      { name: 'FastAPI', level: 75, badge: 'fastapi-badge' },
     ],
     devops: [
-      { name: 'Nginx', level: 85, badge: 'nginx-badge' },
+      { name: 'AWS', level: 85, badge: 's3-badge' },
       { name: 'Docker', level: 80, badge: 'docker-badge' },
-      { name: 'CI/CD', level: 75, badge: 'cicd-badge' }
-    ]
+      { name: 'K8s', level: 80, badge: 'k8s-badge' },
+      { name: 'Terraform', level: 75, badge: 'terraform-badge' },
+      { name: 'Nginx', level: 85, badge: 'nginx-badge' },
+      { name: 'CI/CD', level: 85, badge: 'cicd-badge' },
+    ],
   };
 
  const renderSkillCategory = (title, skills) => (
@@ -48,7 +58,7 @@ const SkillsSection = () => {
             <div className="d-flex justify-content-between mb-1">
               <span>{skill.name}</span>
               <span className={darkMode ? "text-light opacity-75 small" : "text-muted small"}>
-                {skill.level >= 90 ? 'Avançado' : skill.level >= 80 ? 'Intermed/Avançado' : 'Intermediário'}
+                {skill.level >= 90 ? 'Avançado' : skill.level >= 80 ? 'Intermediário/Avançado' : 'Intermediário'}
               </span>
             </div>
             <div className="skill-progress-container">

@@ -17,67 +17,7 @@
   box-shadow: 0 6px 12px var(--shadow-hover);
 }
 
-.tech-badge {
-  display: inline-block;
-  padding: 6px 12px;
-  border-radius: 16px;
-  background-color: var(--bg-tertiary);
-  margin-right: 8px;
-  margin-bottom: 8px;
-  font-size: 14px;
-  font-weight: 500;
-  color: white;
-}
-
-.go-badge {
-  background-color: var(--accent-primary);
-}
-
-.java-badge {
-  background-color: var(--accent-secondary);
-}
-
-.js-badge {
-  background-color: #F7DF1E;
-  color: #333;
-}
-
-.postgres-badge {
-  background-color: #336791;
-}
-
-.mongo-badge {
-  background-color: #4DB33D;
-}
-
-.gin-badge {
-  background-color: #00A1E0;
-}
-
-.sqlc-badge {
-  background-color: #569cd6;
-}
-
-.spring-badge {
-  background-color: #6DB33F;
-}
-
-.react-badge {
-  background-color: #61DAFB;
-  color: #333;
-}
-
-.nginx-badge {
-  background-color: #009639;
-}
-
-.docker-badge {
-  background-color: #2496ED;
-}
-
-.cicd-badge {
-  background-color: #FC6D26;
-}
+/* Cores das badges definidas em src/index.css (fonte única) */
 
 .skill-progress-container {
   width: 100%;

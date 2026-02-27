@@ -14,6 +14,20 @@
   color: var(--text-primary);
 }
 
+.projects-carousel-content .project-card {
+  min-height: 580px;
+  max-height: 580px;
+  height: 580px;
+  display: flex;
+  flex-direction: column;
+}
+
+.projects-carousel-content .project-card .card-body {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+}
+
 .project-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 8px 24px var(--shadow-hover);
@@ -36,35 +50,9 @@
   letter-spacing: 0.3px;
 }
 
-/* Badges específicas */
-.go-badge {
-  background-color: var(--accent-primary);
-  box-shadow: 0 2px 4px rgba(0, 173, 216, 0.3);
-}
-
-.postgres-badge {
-  background-color: #336791;
-  box-shadow: 0 2px 4px rgba(51, 103, 145, 0.3);
-}
-
-.mongo-badge {
-  background-color: #4DB33D;
-  box-shadow: 0 2px 4px rgba(77, 179, 61, 0.3);
-}
-
-.gin-badge {
-  background-color: #00A1E0;
-  box-shadow: 0 2px 4px rgba(0, 161, 224, 0.3);
-}
-
-.sqlc-badge {
-  background-color: #569cd6;
-  box-shadow: 0 2px 4px rgba(86, 156, 214, 0.3);
-}
-
-.nginx-badge {
-  background-color: #009639;
-  box-shadow: 0 2px 4px rgba(0, 150, 57, 0.3);
+/* Cores das badges vêm de src/index.css; sombra opcional na área de projetos */
+.project-technologies [class$="-badge"] {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
 }
 
 .project-features li {
@@ -126,14 +114,74 @@
   transform: translateY(-2px);
 }
 
-/* Carousel customization */
-.projects-carousel .carousel-item {
+/* Carrossel simples: um card por vez */
+.projects-carousel-wrapper {
+  position: relative;
   display: flex;
-  justify-content: center;
-  padding: 20px 0;
+  align-items: center;
+  gap: 12px;
+  padding: 24px 0;
+  max-width: 640px;
+  margin: 0 auto;
 }
 
-.projects-carousel .project-card {
+.projects-carousel-content {
+  flex: 1;
+  min-width: 0;
+  min-height: 580px;
+}
+
+.projects-carousel-content .project-card {
   width: 100%;
-  max-width: 600px;
+}
+
+.projects-carousel-btn {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.projects-carousel-btn:hover {
+  background-color: var(--accent-primary);
+  border-color: var(--accent-primary);
+  color: #fff;
+}
+
+.projects-carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.projects-carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-tertiary);
+  padding: 0;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.projects-carousel-dot:hover {
+  background-color: var(--accent-primary);
+  border-color: var(--accent-primary);
+}
+
+.projects-carousel-dot.active {
+  background-color: var(--accent-primary);
+  border-color: var(--accent-primary);
 }

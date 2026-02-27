@@ -10,24 +10,15 @@ const AboutSection = () => {
           <Col md={8} lg={6}>
             <div className="text-muted">
               <p className="mb-3">
-                Meu nome é Ulpio Netto, desenvolvedor backend especializado em Go (Golang) e Java.
-                Em uma recente migração de monólito para microsserviços em Go, reduzi o uso de CPU em 30% e cortei os custos de infraestrutura em 20%.
+                Meu nome é Ulpio Netto — desenvolvedor e engenheiro de software com foco em backend. Minhas principais stacks são Go (Golang) e Java, com as quais construí do zero o backend de plataformas como a Registartt e o guIA Travel Hub. Hoje sigo colaborando na implementação de soluções em projetos como OxeTech, SonorIA e Yes Technology.
               </p>
 
               <p className="mb-3">
-                Atualmente, colaboro com o desenvolvimento da plataforma Registartt e do projeto Impulsa Brasil.
-                Sou conhecido por comunicar decisões técnicas de forma clara, liderar squads multidisciplinares e promover um ambiente de cooperação contínua.
+                Nos últimos anos, tenho me dedicado à arquitetura de microsserviços e à migração de bases legadas em stacks menos performáticas, como Node. Além da implementação de pipelines de CI/CD, atuo na gestão de times como team lead no SonorIA, acompanhando e orientando o desenvolvimento de forma direta.
               </p>
 
-              <ul className="mb-3">
-                <li>Otimização de consultas que acelerou respostas de API em 45%.</li>
-                <li>Automação de deploys com CI/CD, diminuindo o tempo de entrega em 50%.</li>
-                <li>Mentoria de 3 novos desenvolvedores até o nível pleno.</li>
-              </ul>
-
-              <p>
-                Tenho forte interesse em microsserviços, APIs RESTful, bancos de dados relacionais e não-relacionais,
-                além de práticas DevOps para garantir implantações confiáveis e monitoramento eficiente.
+              <p className="mb-0">
+                No dia a dia, trabalho com ecossistema AWS, bancos de dados relacionais e não relacionais, e aplico práticas sólidas de DevOps e CI/CD para entregas mais seguras e previsíveis.
               </p>
             </div>
           </Col>

@@ -53,10 +53,12 @@ body {
 
 .go-badge {
   background-color: var(--accent-primary);
+  color: #fff;
 }
 
 .java-badge {
   background-color: var(--accent-secondary);
+  color: #fff;
 }
 
 .js-badge {
@@ -66,22 +68,37 @@ body {
 
 .postgres-badge {
   background-color: #336791;
+  color: #fff;
 }
 
 .mongo-badge {
   background-color: #4DB33D;
+  color: #fff;
+}
+
+.mysql-badge {
+  background-color: #4479A1;
+  color: #fff;
+}
+
+.rds-badge {
+  background-color: #527FFF;
+  color: #fff;
 }
 
 .gin-badge {
   background-color: #00A1E0;
+  color: #fff;
 }
 
 .sqlc-badge {
   background-color: #569cd6;
+  color: #fff;
 }
 
 .spring-badge {
   background-color: #6DB33F;
+  color: #fff;
 }
 
 .react-badge {
@@ -91,14 +108,17 @@ body {
 
 .nginx-badge {
   background-color: #009639;
+  color: #fff;
 }
 
 .docker-badge {
   background-color: #2496ED;
+  color: #fff;
 }
 
 .cicd-badge {
   background-color: #FC6D26;
+  color: #fff;
 }
 
 .stripe-badge {
@@ -112,7 +132,42 @@ body {
 }
 
 .github-actions-badge {
-  background-color: #2088FF; /* azul do GitHub Actions */
+  background-color: #2088FF;
+  color: #fff;
+}
+
+.ts-badge {
+  background-color: #3178C6;
+  color: #fff;
+}
+
+.node-badge {
+  background-color: #339933;
+  color: #fff;
+}
+
+.python-badge {
+  background-color: #3776AB;
+  color: #fff;
+}
+
+.fastapi-badge {
+  background-color: #009688;
+  color: #fff;
+}
+
+.gorm-badge {
+  background-color: #00ACD7;
+  color: #fff;
+}
+
+.k8s-badge {
+  background-color: #326CE5;
+  color: #fff;
+}
+
+.terraform-badge {
+  background-color: #7B42BC;
   color: #fff;
 }
 

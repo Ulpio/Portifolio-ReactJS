@@ -139,12 +139,6 @@ textarea,
   border-color: var(--accent-primary-hover);
 }
 
-/* Ajuste para o tema escuro da seção de playground */
-.dark-theme .playground-section .form-label,
-.dark-theme .playground-section .card-title {
-  color: var(--text-primary);
-}
-
 .dark-theme .card,
 .dark-theme .card-body,
 .dark-theme .card-title,
@@ -165,7 +159,7 @@ textarea,
   color: var(--text-primary) !important;
 }
 
-/* Ajustes para os selects do playground */
+/* Ajustes para selects em tema escuro */
 .dark-theme .form-select {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23adb5bd' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
 }
