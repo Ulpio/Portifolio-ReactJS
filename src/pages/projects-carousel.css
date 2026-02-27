@@ -40,6 +40,16 @@
   scroll-snap-align: start;
   flex: 0 0 100%;               /* 1 por página (mobile) */
 }
+
+.pc-item .project-card {
+  height: 580px;
+}
+
+.pc-item .project-card .card-body {
+  height: 100%;
+  overflow-y: auto;
+}
+
 @media (min-width: 768px) {
   .pc-item { flex-basis: calc(50% - var(--pc-gap) / 2); } /* 2 por página */
 }
