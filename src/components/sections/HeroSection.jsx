@@ -1,8 +1,22 @@
 // src/components/sections/HeroSection.jsx
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Row, Col, Button } from 'react-bootstrap';
+import { exportCV } from '../../services/cvExport';
 
 const HeroSection = () => {
+  const [exporting, setExporting] = useState(false);
+
+  const handleExportCV = async () => {
+    if (exporting) return;
+    setExporting(true);
+    try {
+      await exportCV();
+    } finally {
+      setExporting(false);
+    }
+  };
+
   return (
     <section className="py-5 bg-light">
       <Container>
@@ -24,11 +38,13 @@ const HeroSection = () => {
                 Entre em contato
               </Button>
               <Button
-                href="/UlpioNetto_CV.pdf"
                 variant="outline-primary"
                 size="lg"
+                onClick={handleExportCV}
+                disabled={exporting}
+                aria-label="Baixar currículo em PDF"
               >
-                Baixar CV
+                {exporting ? 'Gerando PDF...' : 'Baixar CV'}
               </Button>
               <Button
                 href="https://www.linkedin.com/in/ulpionetto/"
@@ -43,9 +59,9 @@ const HeroSection = () => {
           </Col>
           <Col md={6}>
             <p className="fs-5 text-muted">
-              Desenvolvedor Backend com 5 anos de experiência, reduzindo em 30% o
-              tempo de processamento e suportando aplicações que atendem mais de
-              50&nbsp;mil usuários.
+              Desenvolvedor e engenheiro de software com 5 anos de experiência em backend (Go e Java).
+              Atuo com microsserviços e APIs de alta performance — já reduzi em 30% o tempo de processamento
+              em migrações e suporto aplicações que atendem mais de 50&nbsp;mil usuários.
             </p>
           </Col>
         </Row>
