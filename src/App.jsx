@@ -4,7 +4,6 @@ import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import HomePage from './pages/HomePage';
 import ProjectsPage from './pages/ProjectsPage';
-import PlaygroundPage from './pages/PlaygroundPage';
 import ContactPage from './pages/ContactPage';
 
 function App() {
@@ -16,7 +15,6 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/projetos" element={<ProjectsPage />} />
-            <Route path="/playground" element={<PlaygroundPage />} />
             <Route path="/contato" element={<ContactPage />} />
           </Routes>
         </main>
