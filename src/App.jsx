@@ -1,26 +1,59 @@
-// src/App.jsx
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+import { Helmet } from 'react-helmet-async';
+import { ThemeProvider } from './context/ThemeContext';
+import './styles/global.css';
+import './styles/theme.css';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
-import HomePage from './pages/HomePage';
-import ProjectsPage from './pages/ProjectsPage';
-import ContactPage from './pages/ContactPage';
+import HeroSection from './sections/HeroSection';
+import AboutSection from './sections/AboutSection';
+import SkillsSection from './sections/SkillsSection';
+import ProjectsSection from './sections/ProjectsSection';
+import ExperienceSection from './sections/ExperienceSection';
+import ContactSection from './sections/ContactSection';
+
+function AppContent() {
+  const { t, i18n } = useTranslation();
+
+  useEffect(() => {
+    document.documentElement.lang = i18n.language?.startsWith('pt') ? 'pt-BR' : 'en';
+  }, [i18n.language]);
+
+  return (
+    <>
+      <Helmet>
+        <html lang={i18n.language?.startsWith('pt') ? 'pt-BR' : 'en'} />
+        <title>{t('seo.title')}</title>
+        <meta name="description" content={t('seo.description')} />
+        <link rel="alternate" hrefLang="en" href="https://ulpionetto.dev/?lang=en" />
+        <link rel="alternate" hrefLang="pt-BR" href="https://ulpionetto.dev/?lang=pt-BR" />
+        <link rel="alternate" hrefLang="x-default" href="https://ulpionetto.dev/" />
+      </Helmet>
+
+      <a href="#main-content" className="skip-link">
+        {t('a11y.skipToContent')}
+      </a>
+
+      <Header />
+      <main id="main-content">
+        <HeroSection />
+        <AboutSection />
+        <SkillsSection />
+        <ProjectsSection />
+        <ExperienceSection />
+        <ContactSection />
+      </main>
+      <Footer />
+    </>
+  );
+}
 
 function App() {
   return (
-    <Router>
-      <div className="d-flex flex-column min-vh-100">
-        <Header />
-        <main className="flex-grow-1">
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/projetos" element={<ProjectsPage />} />
-            <Route path="/contato" element={<ContactPage />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
-    </Router>
+    <ThemeProvider>
+      <AppContent />
+    </ThemeProvider>
   );
 }
 

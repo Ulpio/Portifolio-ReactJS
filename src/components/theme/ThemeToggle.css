@@ -1,43 +1,31 @@
-/* src/components/theme/ThemeToggle.css */
-.theme-toggle-wrapper {
-  display: flex;
-  align-items: center;
-}
-
-.theme-toggle-button {
+.theme-toggle {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: none;
-  border: none;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
   cursor: pointer;
-  color: var(--text-primary);
-  padding: 8px;
-  border-radius: 50%;
-  transition: background-color 0.2s ease;
+  color: var(--text-secondary);
+  transition: color var(--transition-fast), border-color var(--transition-fast);
 }
 
-.theme-toggle-button:hover {
-  background-color: var(--bg-tertiary);
+.theme-toggle:hover {
+  color: var(--accent-blue);
+  border-color: var(--accent-blue);
 }
 
-.theme-toggle-button svg {
-  transition: transform 0.3s ease, color 0.3s ease;
+.theme-toggle svg {
+  transition: transform var(--transition-base);
 }
 
-.theme-toggle-button:hover svg {
+.theme-toggle:hover svg {
   transform: rotate(15deg);
-  color: var(--accent-primary);
 }
 
-/* Adicionar um efeito de ripple sutil */
-.theme-toggle-button:active {
+.theme-toggle:active {
   transform: scale(0.95);
-}
-
-@media (max-width: 768px) {
-  .theme-toggle-wrapper {
-    margin-left: auto;
-    margin-right: 10px;
-  }
 }
