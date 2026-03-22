@@ -5,299 +5,465 @@ import {
   Text,
   StyleSheet,
   Link,
+  Font,
 } from '@react-pdf/renderer';
 import { cvData } from '../../data/cvData.js';
 
-const styles = StyleSheet.create({
+/* ── Accent colour ──────────────────────────────── */
+const ACCENT = '#2563eb';
+const TEXT_PRIMARY = '#1a1a1a';
+const TEXT_SECONDARY = '#4b5563';
+const TEXT_MUTED = '#6b7280';
+const BORDER = '#e5e7eb';
+const CHIP_BG = '#f3f4f6';
+
+/* ── Styles ─────────────────────────────────────── */
+const s = StyleSheet.create({
   page: {
-    padding: 40,
-    fontSize: 10,
+    paddingTop: 36,
+    paddingBottom: 40,
+    paddingHorizontal: 40,
+    fontSize: 9.5,
     fontFamily: 'Helvetica',
+    color: TEXT_PRIMARY,
+    lineHeight: 1.45,
   },
+
+  /* ── Header ── */
   header: {
-    marginBottom: 16,
-    borderBottomWidth: 1,
-    borderBottomColor: '#333',
-    paddingBottom: 12,
+    marginBottom: 14,
+    paddingBottom: 10,
+    borderBottomWidth: 2,
+    borderBottomColor: ACCENT,
   },
   name: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    marginBottom: 4,
+    fontSize: 22,
+    fontFamily: 'Helvetica-Bold',
+    letterSpacing: 0.5,
+    marginBottom: 3,
+    color: TEXT_PRIMARY,
   },
   title: {
     fontSize: 11,
-    color: '#444',
-    marginBottom: 4,
+    color: ACCENT,
+    fontFamily: 'Helvetica-Bold',
+    marginBottom: 3,
   },
   headline: {
     fontSize: 9,
-    color: '#555',
-    marginBottom: 8,
+    color: TEXT_SECONDARY,
+    marginBottom: 6,
   },
-  contactLine: {
-    fontSize: 9,
-    color: '#555',
+  contactRow: {
     flexDirection: 'row',
     flexWrap: 'wrap',
+    gap: 4,
+    fontSize: 8.5,
+    color: TEXT_SECONDARY,
+  },
+  contactItem: {
+    fontSize: 8.5,
+    color: TEXT_SECONDARY,
+  },
+  contactLink: {
+    fontSize: 8.5,
+    color: ACCENT,
+    textDecoration: 'none',
+  },
+  contactSep: {
+    fontSize: 8.5,
+    color: TEXT_MUTED,
+    marginHorizontal: 4,
+  },
+
+  /* ── Sections ── */
+  sectionWrap: {
+    marginTop: 12,
   },
   sectionTitle: {
-    fontSize: 12,
-    fontWeight: 'bold',
-    marginTop: 14,
-    marginBottom: 8,
-    color: '#222',
+    fontSize: 11,
+    fontFamily: 'Helvetica-Bold',
+    color: ACCENT,
+    textTransform: 'uppercase',
+    letterSpacing: 1,
+    paddingBottom: 3,
+    borderBottomWidth: 0.75,
+    borderBottomColor: BORDER,
+    marginBottom: 7,
   },
+
+  /* ── Summary ── */
   paragraph: {
-    marginBottom: 8,
-    lineHeight: 1.4,
+    marginBottom: 5,
+    lineHeight: 1.5,
     textAlign: 'justify',
+    color: TEXT_PRIMARY,
+  },
+
+  /* ── Skills ── */
+  skillsGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 8,
   },
   skillCategory: {
-    marginBottom: 10,
-  },
-  skillCategoryTitle: {
-    fontSize: 10,
-    fontWeight: 'bold',
-    marginBottom: 4,
-    color: '#333',
-  },
-  skillList: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-  },
-  skillChip: {
-    backgroundColor: '#e9ecef',
-    paddingHorizontal: 6,
-    paddingVertical: 2,
-    borderRadius: 2,
-    fontSize: 9,
-    marginRight: 4,
-    marginBottom: 4,
-  },
-  projectBlock: {
-    marginBottom: 12,
-  },
-  projectTitle: {
-    fontSize: 11,
-    fontWeight: 'bold',
-    marginBottom: 4,
-  },
-  projectDesc: {
-    marginBottom: 4,
-    lineHeight: 1.35,
-    color: '#333',
-  },
-  projectTech: {
-    fontSize: 9,
-    color: '#555',
-    marginBottom: 2,
-  },
-  projectLink: {
-    fontSize: 9,
-    color: '#0066cc',
-  },
-  educationBlock: {
-    marginBottom: 10,
-  },
-  educationDegree: {
-    fontSize: 10,
-    fontWeight: 'bold',
-    marginBottom: 2,
-  },
-  educationMeta: {
-    fontSize: 9,
-    color: '#555',
-    marginBottom: 2,
-  },
-  experienceBlock: {
-    marginBottom: 12,
-  },
-  experienceRole: {
-    fontSize: 11,
-    fontWeight: 'bold',
-    marginBottom: 2,
-  },
-  experienceCompany: {
-    fontSize: 10,
-    color: '#444',
-    marginBottom: 2,
-  },
-  experiencePeriod: {
-    fontSize: 9,
-    color: '#666',
-    marginBottom: 4,
-  },
-  experienceHighlightsWrap: {
-    marginTop: 2,
-  },
-  experienceHighlights: {
-    fontSize: 9,
-    color: '#333',
-    lineHeight: 1.4,
-    marginBottom: 2,
-  },
-  projectsSubtitle: {
-    fontSize: 11,
-    fontWeight: 'bold',
-    marginTop: 8,
+    width: '48%',
     marginBottom: 6,
-    color: '#333',
   },
-  footer: {
-    marginTop: 24,
-    paddingTop: 12,
-    borderTopWidth: 1,
-    borderTopColor: '#ddd',
+  skillCatTitle: {
     fontSize: 9,
-    color: '#666',
+    fontFamily: 'Helvetica-Bold',
+    color: TEXT_PRIMARY,
+    marginBottom: 3,
+  },
+  skillLine: {
+    fontSize: 8.5,
+    color: TEXT_SECONDARY,
+    lineHeight: 1.4,
+  },
+
+  /* ── Experience ── */
+  expBlock: {
+    marginBottom: 10,
+  },
+  expHeaderRow: {
     flexDirection: 'row',
-    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+    alignItems: 'flex-start',
+    marginBottom: 1,
+  },
+  expRole: {
+    fontSize: 10,
+    fontFamily: 'Helvetica-Bold',
+    color: TEXT_PRIMARY,
+    maxWidth: '70%',
+  },
+  expPeriod: {
+    fontSize: 8.5,
+    color: TEXT_MUTED,
+    textAlign: 'right',
+  },
+  expCompany: {
+    fontSize: 9,
+    color: TEXT_SECONDARY,
+    marginBottom: 3,
+  },
+  expBullet: {
+    flexDirection: 'row',
+    marginBottom: 2,
+    paddingLeft: 2,
+  },
+  expBulletDot: {
+    width: 10,
+    fontSize: 9,
+    color: ACCENT,
+  },
+  expBulletText: {
+    flex: 1,
+    fontSize: 9,
+    color: TEXT_PRIMARY,
+    lineHeight: 1.4,
+  },
+
+  /* ── Education ── */
+  eduBlock: {
+    marginBottom: 6,
+  },
+  eduHeaderRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'flex-start',
+  },
+  eduDegree: {
+    fontSize: 10,
+    fontFamily: 'Helvetica-Bold',
+    color: TEXT_PRIMARY,
+  },
+  eduPeriod: {
+    fontSize: 8.5,
+    color: TEXT_MUTED,
+  },
+  eduInstitution: {
+    fontSize: 9,
+    color: TEXT_SECONDARY,
+  },
+
+  /* ── Projects ── */
+  projBlock: {
+    marginBottom: 8,
+  },
+  projHeaderRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+    marginBottom: 2,
+  },
+  projTitle: {
+    fontSize: 10,
+    fontFamily: 'Helvetica-Bold',
+    color: TEXT_PRIMARY,
+  },
+  projLink: {
+    fontSize: 8,
+    color: ACCENT,
+    textDecoration: 'none',
+  },
+  projTech: {
+    fontSize: 8.5,
+    color: TEXT_MUTED,
+    marginBottom: 2,
+  },
+  projDesc: {
+    fontSize: 9,
+    color: TEXT_SECONDARY,
+    lineHeight: 1.4,
+  },
+
+  /* ── Footer ── */
+  footer: {
+    position: 'absolute',
+    bottom: 20,
+    left: 40,
+    right: 40,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    fontSize: 7.5,
+    color: TEXT_MUTED,
+    borderTopWidth: 0.5,
+    borderTopColor: BORDER,
+    paddingTop: 6,
   },
 });
 
-function CVDocument() {
-  const { name, title, headline, summary, contact, skills, education, experience, projects } = cvData;
+/* ── Label maps ─────────────────────────────────── */
+const labels = {
+  en: {
+    summary: 'Professional Summary',
+    skills: 'Technical Skills',
+    experience: 'Professional Experience',
+    education: 'Education',
+    projects: 'Key Projects',
+    languages: 'Languages',
+    databases: 'Databases',
+    frameworks: 'Frameworks & Tools',
+    devops: 'DevOps & Cloud',
+    practices: 'Architecture & Practices',
+    present: 'Present',
+    docTitle: 'Resume - Ulpio Netto - Backend Developer',
+    docSubject: 'Resume of Ulpio Netto, Backend Developer and Software Engineer specializing in Go, Java, REST APIs, microservices, AWS, Kubernetes, and cloud infrastructure.',
+    generated: 'Generated from ulpionetto.dev',
+  },
+  pt: {
+    summary: 'Resumo Profissional',
+    skills: 'Habilidades T\u00e9cnicas',
+    experience: 'Experi\u00eancia Profissional',
+    education: 'Forma\u00e7\u00e3o Acad\u00eamica',
+    projects: 'Projetos Relevantes',
+    languages: 'Linguagens',
+    databases: 'Bancos de Dados',
+    frameworks: 'Frameworks & Ferramentas',
+    devops: 'DevOps & Cloud',
+    practices: 'Arquitetura & Pr\u00e1ticas',
+    present: 'Presente',
+    docTitle: 'Curr\u00edculo - Ulpio Netto - Desenvolvedor Backend',
+    docSubject: 'Curr\u00edculo de Ulpio Netto, Desenvolvedor Backend e Engenheiro de Software especializado em Go, Java, APIs REST, microsservi\u00e7os, AWS, Kubernetes e infraestrutura cloud.',
+    generated: 'Gerado a partir de ulpionetto.dev',
+  },
+};
+
+/* ── PDF keywords for ATS indexing ──────────────── */
+const PDF_KEYWORDS = [
+  'Ulpio Netto', 'Backend Developer', 'Software Engineer',
+  'Go', 'Golang', 'Java', 'REST API', 'Microservices',
+  'PostgreSQL', 'AWS', 'Kubernetes', 'Docker', 'Terraform',
+  'CI/CD', 'Node.js', 'TypeScript', 'Python',
+  'Team Lead', 'DevOps', 'Cloud Infrastructure',
+  'Spring Boot', 'Gin', 'SQLC', 'GORM',
+  'Redis', 'MongoDB', 'GitHub Actions', 'ArgoCD',
+  'OpenTelemetry', 'Jaeger', 'Event-Driven Architecture',
+].join(', ');
+
+/* ── Helpers ────────────────────────────────────── */
+function localized(field, lang) {
+  if (!field) return '';
+  if (typeof field === 'string') return field;
+  return field[lang] || field.en || '';
+}
+
+function localizedArray(field, lang) {
+  if (!field) return [];
+  if (Array.isArray(field)) return field;
+  return field[lang] || field.en || [];
+}
+
+/* ── Component ──────────────────────────────────── */
+function CVDocument({ lang = 'en' }) {
+  const l = labels[lang] || labels.en;
+  const {
+    name, contact, skills, education, experience, projects,
+  } = cvData;
+
+  const titleText = localized(cvData.title, lang);
+  const headlineText = localized(cvData.headline, lang);
+  const summaryParagraphs = localizedArray(cvData.summary, lang);
+  const practicesList = localizedArray(skills.practices, lang);
+  const locationText = localized(contact.location, lang);
+
+  /* Description text for projects from translation keys */
+  const projectDescriptions = {
+    en: {
+      registartt: 'Backend development for Registartt platform, delivering a high-performance RESTful API with authentication, distributed caching, and async task processing.',
+      vergo: 'Open-source multi-tenant SaaS boilerplate in Go with RBAC, JWT auth, Stripe billing, and AWS S3 integration. CI/CD with GitHub Actions and CodeQL.',
+      oxetech: 'Platform for State of Alagoas Government Program. Migrated legacy JS API to Go, achieving 75% faster response times with multiple access levels.',
+      guia: 'AI-powered smart tourism hub for personalized travel itineraries with dynamic route generation, PDF export, and external tourism API integration.',
+      yes: 'Corporate microservices platform in Go for PDF/XLS report generation with BPMN engine, AWS SQS/SNS, Kubernetes deployment via ArgoCD, and Terraform IaC.',
+      sonoria: 'AI-powered web platform for automated analysis of auditory electrophysiological exams, with CRNN model, interactive waveform visualization, and legacy data migration.',
+    },
+    pt: {
+      registartt: 'Desenvolvimento backend da plataforma Registartt, entregando API RESTful de alta performance com autentica\u00e7\u00e3o, cache distribu\u00eddo e processamento ass\u00edncrono.',
+      vergo: 'Boilerplate SaaS multi-tenant open-source em Go com RBAC, autentica\u00e7\u00e3o JWT, billing Stripe e integra\u00e7\u00e3o AWS S3. CI/CD com GitHub Actions e CodeQL.',
+      oxetech: 'Plataforma do Programa do Governo de Alagoas. Migra\u00e7\u00e3o de API legada JS para Go, alcan\u00e7ando tempos de resposta 75% mais r\u00e1pidos.',
+      guia: 'Hub de turismo inteligente com IA para roteiros personalizados, gera\u00e7\u00e3o din\u00e2mica de itiner\u00e1rios, exporta\u00e7\u00e3o PDF e integra\u00e7\u00e3o com APIs de turismo.',
+      yes: 'Plataforma corporativa de microsservi\u00e7os em Go para gera\u00e7\u00e3o de relat\u00f3rios PDF/XLS com motor BPMN, AWS SQS/SNS, deploy Kubernetes via ArgoCD e Terraform.',
+      sonoria: 'Plataforma web com IA para an\u00e1lise automatizada de exames eletrofisiol\u00f3gicos auditivos, com modelo CRNN, visualiza\u00e7\u00e3o interativa e migra\u00e7\u00e3o de dados legados.',
+    },
+  };
 
   return (
     <Document
-      title="Currículo - Ulpio Netto"
+      title={l.docTitle}
       author="Ulpio Netto"
-      subject="Currículo Desenvolvedor Backend Engenheiro de Software - Go Java AWS Microsserviços"
-      keywords="Ulpio Netto, Currículo, Desenvolvedor Backend, Engenheiro de Software, Go, Golang, Java, backend, microsserviços, API REST, APIs REST, PostgreSQL, AWS, Kubernetes, Docker, K8s, CI/CD, Team Lead, Node.js, MongoDB, Terraform, DevOps, Afya Unima, Ciência da Computação, Yes Technology, OxeTech, Registartt, Vergo, Guia"
+      subject={l.docSubject}
+      keywords={PDF_KEYWORDS}
+      creator="ulpionetto.dev"
+      producer="ulpionetto.dev"
     >
-      <Page size="A4" style={styles.page}>
-        <View style={styles.header}>
-          <Text style={styles.name}>{name}</Text>
-          <Text style={styles.title}>{title}</Text>
-          {headline ? <Text style={styles.headline}>{headline}</Text> : null}
-          <View style={styles.contactLine}>
-            <Text>{contact.email}</Text>
-            <Text> | </Text>
-            <Link src={contact.linkedin} style={styles.projectLink}>
-              LinkedIn
-            </Link>
-            <Text> | </Text>
-            <Link src={contact.github} style={styles.projectLink}>
-              GitHub
-            </Link>
+      <Page size="A4" style={s.page}>
+
+        {/* ────────── HEADER ────────── */}
+        <View style={s.header}>
+          <Text style={s.name}>{name}</Text>
+          <Text style={s.title}>{titleText}</Text>
+          {headlineText ? <Text style={s.headline}>{headlineText}</Text> : null}
+          <View style={s.contactRow}>
+            <Text style={s.contactItem}>{contact.email}</Text>
+            <Text style={s.contactSep}>|</Text>
+            <Link src={contact.linkedin} style={s.contactLink}>{contact.linkedinShort}</Link>
+            <Text style={s.contactSep}>|</Text>
+            <Link src={contact.github} style={s.contactLink}>{contact.githubShort}</Link>
+            <Text style={s.contactSep}>|</Text>
+            <Link src={contact.website} style={s.contactLink}>{contact.website.replace('https://', '')}</Link>
+            {locationText ? (
+              <>
+                <Text style={s.contactSep}>|</Text>
+                <Text style={s.contactItem}>{locationText}</Text>
+              </>
+            ) : null}
           </View>
         </View>
 
-        <Text style={styles.sectionTitle}>Resumo profissional</Text>
-        {summary.map((paragraph, i) => (
-          <Text key={i} style={styles.paragraph}>
-            {paragraph}
-          </Text>
-        ))}
+        {/* ────────── SUMMARY ────────── */}
+        <View style={s.sectionWrap}>
+          <Text style={s.sectionTitle}>{l.summary}</Text>
+          {summaryParagraphs.map((p, i) => (
+            <Text key={i} style={s.paragraph}>{p}</Text>
+          ))}
+        </View>
 
-        <Text style={styles.sectionTitle}>Formação</Text>
-        {education && education.length > 0 ? (
-          education.map((item, i) => (
-            <View key={i} style={styles.educationBlock}>
-              <Text style={styles.educationDegree}>{item.degree}</Text>
-              {(item.institution || item.period) ? (
-                <Text style={styles.educationMeta}>
-                  {[item.institution, item.period].filter(Boolean).join(' · ')}
-                </Text>
-              ) : null}
+        {/* ────────── SKILLS ────────── */}
+        <View style={s.sectionWrap}>
+          <Text style={s.sectionTitle}>{l.skills}</Text>
+          <View style={s.skillsGrid}>
+            <View style={s.skillCategory}>
+              <Text style={s.skillCatTitle}>{l.languages}</Text>
+              <Text style={s.skillLine}>{skills.languages.join(', ')}</Text>
             </View>
-          ))
-        ) : (
-          <Text style={styles.paragraph}>Formação em Ciência da Computação ou áreas afins.</Text>
-        )}
-
-        <Text style={styles.sectionTitle}>Habilidades técnicas</Text>
-        <View style={styles.skillCategory}>
-          <Text style={styles.skillCategoryTitle}>Linguagens</Text>
-          <View style={styles.skillList}>
-            {skills.languages.map((s, i) => (
-              <Text key={i} style={styles.skillChip}>
-                {s}
-              </Text>
-            ))}
+            <View style={s.skillCategory}>
+              <Text style={s.skillCatTitle}>{l.databases}</Text>
+              <Text style={s.skillLine}>{skills.databases.join(', ')}</Text>
+            </View>
+            <View style={s.skillCategory}>
+              <Text style={s.skillCatTitle}>{l.frameworks}</Text>
+              <Text style={s.skillLine}>{skills.frameworks.join(', ')}</Text>
+            </View>
+            <View style={s.skillCategory}>
+              <Text style={s.skillCatTitle}>{l.devops}</Text>
+              <Text style={s.skillLine}>{skills.devops.join(', ')}</Text>
+            </View>
           </View>
-        </View>
-        <View style={styles.skillCategory}>
-          <Text style={styles.skillCategoryTitle}>Bancos de dados</Text>
-          <View style={styles.skillList}>
-            {skills.databases.map((s, i) => (
-              <Text key={i} style={styles.skillChip}>
-                {s}
-              </Text>
-            ))}
-          </View>
-        </View>
-        <View style={styles.skillCategory}>
-          <Text style={styles.skillCategoryTitle}>Frameworks e ferramentas</Text>
-          <View style={styles.skillList}>
-            {skills.frameworks.map((s, i) => (
-              <Text key={i} style={styles.skillChip}>
-                {s}
-              </Text>
-            ))}
-          </View>
-        </View>
-        <View style={styles.skillCategory}>
-          <Text style={styles.skillCategoryTitle}>DevOps</Text>
-          <View style={styles.skillList}>
-            {skills.devops.map((s, i) => (
-              <Text key={i} style={styles.skillChip}>
-                {s}
-              </Text>
-            ))}
-          </View>
+          {practicesList.length > 0 && (
+            <View style={{ marginTop: 2 }}>
+              <Text style={s.skillCatTitle}>{l.practices}</Text>
+              <Text style={s.skillLine}>{practicesList.join(', ')}</Text>
+            </View>
+          )}
         </View>
 
-        <Text style={styles.sectionTitle}>Experiência profissional</Text>
-        {experience && experience.length > 0 && experience.map((exp, i) => (
-          <View key={`exp-${i}`} style={styles.experienceBlock} wrap={false}>
-            <Text style={styles.experienceRole}>{exp.role}</Text>
-            <Text style={styles.experienceCompany}>
-              {[exp.company, exp.period].filter(Boolean).join(' · ')}
-            </Text>
-            {exp.highlights && exp.highlights.length > 0 ? (
-              <View style={styles.experienceHighlightsWrap}>
-                {exp.highlights.map((line, j) => (
-                  <Text key={j} style={styles.experienceHighlights}>
-                    • {line}
-                  </Text>
+        {/* ────────── EXPERIENCE ────────── */}
+        <View style={s.sectionWrap}>
+          <Text style={s.sectionTitle}>{l.experience}</Text>
+          {experience.map((exp, i) => {
+            const role = localized(exp.role, lang);
+            const highlights = localizedArray(exp.highlights, lang);
+            return (
+              <View key={i} style={s.expBlock} wrap={false}>
+                <View style={s.expHeaderRow}>
+                  <Text style={s.expRole}>{role}</Text>
+                  <Text style={s.expPeriod}>{exp.period}</Text>
+                </View>
+                <Text style={s.expCompany}>{exp.company}</Text>
+                {highlights.map((line, j) => (
+                  <View key={j} style={s.expBullet}>
+                    <Text style={s.expBulletDot}>{'\u2022'}</Text>
+                    <Text style={s.expBulletText}>{line}</Text>
+                  </View>
                 ))}
               </View>
-            ) : null}
-          </View>
-        ))}
+            );
+          })}
+        </View>
+
+        {/* ────────── PROJECTS ────────── */}
         {projects && projects.length > 0 && (
-          <>
-            {experience && experience.length > 0 ? (
-              <Text style={styles.projectsSubtitle}>Projetos relevantes</Text>
-            ) : null}
-            {projects.map((project, i) => (
-              <View key={i} style={styles.projectBlock} wrap={false}>
-                <Text style={styles.projectTitle}>{project.title}</Text>
-                <Text style={styles.projectDesc}>{project.description}</Text>
-                <Text style={styles.projectTech}>
-                  {project.technologies.join(' · ')}
-                </Text>
-                {project.demoLink && (
-                  <Link src={project.demoLink} style={styles.projectLink}>
-                    {project.demoLink}
-                  </Link>
-                )}
-              </View>
-            ))}
-          </>
+          <View style={s.sectionWrap}>
+            <Text style={s.sectionTitle}>{l.projects}</Text>
+            {projects.map((proj, i) => {
+              const desc = projectDescriptions[lang]?.[proj.slug] || projectDescriptions.en?.[proj.slug] || '';
+              return (
+                <View key={i} style={s.projBlock} wrap={false}>
+                  <View style={s.projHeaderRow}>
+                    <Text style={s.projTitle}>{proj.title}</Text>
+                    {proj.demoLink && (
+                      <Link src={proj.demoLink} style={s.projLink}>{proj.demoLink.replace(/^https?:\/\//, '')}</Link>
+                    )}
+                  </View>
+                  <Text style={s.projTech}>{proj.technologies.join(' \u00b7 ')}</Text>
+                  {desc ? <Text style={s.projDesc}>{desc}</Text> : null}
+                </View>
+              );
+            })}
+          </View>
         )}
 
-        <View style={styles.footer} fixed>
-          <Text>{contact.email}</Text>
-          <Text> · </Text>
-          <Link src={contact.linkedin} style={styles.projectLink}>
-            LinkedIn
-          </Link>
-          <Text> · </Text>
-          <Link src={contact.github} style={styles.projectLink}>
-            GitHub
+        {/* ────────── EDUCATION ────────── */}
+        <View style={s.sectionWrap}>
+          <Text style={s.sectionTitle}>{l.education}</Text>
+          {education.map((item, i) => (
+            <View key={i} style={s.eduBlock}>
+              <View style={s.eduHeaderRow}>
+                <Text style={s.eduDegree}>{localized(item.degree, lang)}</Text>
+                <Text style={s.eduPeriod}>{item.period}</Text>
+              </View>
+              <Text style={s.eduInstitution}>{item.institution}</Text>
+            </View>
+          ))}
+        </View>
+
+        {/* ────────── FOOTER ────────── */}
+        <View style={s.footer} fixed>
+          <Text>{l.generated}</Text>
+          <Link src={contact.website} style={{ fontSize: 7.5, color: TEXT_MUTED, textDecoration: 'none' }}>
+            {contact.website.replace('https://', '')}
           </Link>
         </View>
       </Page>

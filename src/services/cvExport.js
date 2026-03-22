@@ -2,18 +2,25 @@ import { createElement } from 'react';
 import { pdf } from '@react-pdf/renderer';
 import CVDocument from '../components/cv/CVDocument.jsx';
 
-const FILENAME = 'Ulpio-Netto-CV.pdf';
-
 /**
- * Gera o PDF do currículo e dispara o download no navegador.
+ * Generates a bilingual CV PDF and triggers a browser download.
+ * @param {'en' | 'pt'} lang — language code (defaults to 'en')
  * @returns {Promise<void>}
  */
-export async function exportCV() {
-  const blob = await pdf(createElement(CVDocument)).toBlob();
+export async function exportCV(lang = 'en') {
+  const resolvedLang = lang.startsWith('pt') ? 'pt' : 'en';
+  const filename = resolvedLang === 'pt'
+    ? 'Ulpio-Netto-Curriculo.pdf'
+    : 'Ulpio-Netto-Resume.pdf';
+
+  const blob = await pdf(
+    createElement(CVDocument, { lang: resolvedLang }),
+  ).toBlob();
+
   const url = URL.createObjectURL(blob);
   const link = document.createElement('a');
   link.href = url;
-  link.download = FILENAME;
+  link.download = filename;
   link.click();
   URL.revokeObjectURL(url);
 }

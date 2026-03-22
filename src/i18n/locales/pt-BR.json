@@ -1,0 +1,212 @@
+{
+  "nav": {
+    "about": "Sobre",
+    "skills": "Skills",
+    "projects": "Projetos",
+    "experience": "Experi\u00eancia",
+    "contact": "Contato",
+    "backToTop": "Ulpio Netto - voltar ao topo"
+  },
+  "hero": {
+    "badge": "Dispon\u00edvel para oportunidades",
+    "subtitle": "Desenvolvedor Backend \u00b7 Go & Java",
+    "bio": "Engenheiro de Software com 5+ anos de experi\u00eancia construindo APIs REST, microsservi\u00e7os e infraestrutura cloud. Go, Java, PostgreSQL, Kubernetes e AWS s\u00e3o minha stack di\u00e1ria.",
+    "viewProjects": "Ver Projetos",
+    "getInTouch": "Entrar em Contato",
+    "downloadCV": "Baixar CV",
+    "generatingCV": "Gerando...",
+    "githubAria": "GitHub de Ulpio Netto",
+    "linkedinAria": "LinkedIn de Ulpio Netto",
+    "scrollAria": "Rolar para a se\u00e7\u00e3o Sobre"
+  },
+  "about": {
+    "label": "// about me",
+    "title": "Sobre mim",
+    "p1": "Desenvolvedor Backend e Engenheiro de Software com foco em Go (Golang), Java, APIs REST e arquitetura de microsservi\u00e7os. Experi\u00eancia s\u00f3lida com Docker, Kubernetes, AWS, PostgreSQL e pipelines de CI/CD.",
+    "p2": "Constru\u00ed backends de plataformas como Registartt e guIA Travel Hub do zero; atuo em projetos como OxeTech, SonorIA e Yes Technology. Experi\u00eancia em migra\u00e7\u00e3o de bases legadas, design de APIs REST e gest\u00e3o de times como team lead.",
+    "p3": "Stack principal: Go, Java, Node.js, PostgreSQL, MongoDB, AWS, Docker, Kubernetes, Terraform e pr\u00e1ticas de DevOps para entregas seguras e previs\u00edveis.",
+    "stats": {
+      "years": "anos de experi\u00eancia",
+      "projects": "projetos entregues",
+      "users": "usu\u00e1rios impactados",
+      "countries": "pa\u00edses atendidos"
+    },
+    "terminal": {
+      "location": "\"Brasil\"",
+      "email": "\"ulpionetto0@gmail.com\"",
+      "stack": "\"Go, Java, AWS, K8s\"",
+      "openTo": "\"novas oportunidades\""
+    },
+    "terminalAria": "Informa\u00e7\u00f5es de contato em estilo terminal"
+  },
+  "skills": {
+    "label": "// skills",
+    "title": "Tecnologias",
+    "subtitle": "Ferramentas e tecnologias que uso no dia a dia.",
+    "categories": {
+      "languages": "Linguagens",
+      "frameworks": "Frameworks & Libs",
+      "databases": "Bancos de Dados",
+      "infra": "Infra & Cloud"
+    },
+    "skillsInAria": "Habilidades em {{category}}"
+  },
+  "projects": {
+    "label": "// projects",
+    "title": "Projetos",
+    "subtitle": "Alguns dos projetos que desenvolvi e nos quais atuei.",
+    "viewOnGithub": "Ver {{name}} no GitHub",
+    "visitProject": "Visitar {{name}}",
+    "techAria": "Tecnologias utilizadas"
+  },
+  "projectData": {
+    "registartt": {
+      "description": "Desenvolvimento de backend para a plataforma online da Registartt, proporcionando um sistema robusto e escal\u00e1vel para gerenciamento de registros.",
+      "features": [
+        "API RESTful de alta performance",
+        "Sistema de autentica\u00e7\u00e3o e autoriza\u00e7\u00e3o",
+        "Cache distribu\u00eddo para melhor desempenho",
+        "Processamento ass\u00edncrono de tarefas",
+        "Logs estruturados e monitoramento",
+        "Documenta\u00e7\u00e3o interativa da API"
+      ]
+    },
+    "vergo": {
+      "description": "Boilerplate SaaS open source em Go, com foco em multi-tenant, RBAC, autentica\u00e7\u00e3o JWT, integra\u00e7\u00e3o com Postgres/sqlc, S3 e Stripe. Projetado para demonstrar boas pr\u00e1ticas de arquitetura, seguran\u00e7a e CI/CD.",
+      "features": [
+        "Autentica\u00e7\u00e3o JWT (login, signup, refresh)",
+        "RBAC (controle de acesso baseado em pap\u00e9is)",
+        "Multi-tenant (isolamento de organiza\u00e7\u00f5es)",
+        "Integra\u00e7\u00e3o com AWS S3 via presigned URLs",
+        "Integra\u00e7\u00e3o com Stripe para billing",
+        "CRUD de projetos com audit log",
+        "CI/CD com GitHub Actions (build + test)",
+        "Dependabot e CodeQL para seguran\u00e7a e atualiza\u00e7\u00e3o"
+      ]
+    },
+    "oxetech": {
+      "description": "Plataforma do Programa do Governo do Estado de Alagoas, democratizando o acesso ao ensino de tecnologia e desenvolvimento.",
+      "features": [
+        "Transcri\u00e7\u00e3o da API original de JS para Go",
+        "Processamento de dados em tempo real",
+        "Diferentes n\u00edveis de acesso e l\u00f3gicas de neg\u00f3cio",
+        "Tempos de resposta at\u00e9 75% mais velozes",
+        "API organizada e de f\u00e1cil manuten\u00e7\u00e3o"
+      ]
+    },
+    "guia": {
+      "description": "Hub de turismo inteligente que utiliza IA para montar roteiros de viagem personalizados a partir do perfil do viajante.",
+      "features": [
+        "Cria\u00e7\u00e3o de roteiros din\u00e2micos com base em prefer\u00eancias e or\u00e7amento",
+        "Exporta\u00e7\u00e3o de itiner\u00e1rios completos em PDF",
+        "Cadastro e gest\u00e3o de perfis de viajantes",
+        "Sugest\u00f5es inteligentes de hot\u00e9is, restaurantes e atra\u00e7\u00f5es",
+        "Integra\u00e7\u00e3o com APIs externas para dados atualizados de turismo",
+        "Organiza\u00e7\u00e3o di\u00e1ria do roteiro com dicas locais"
+      ]
+    },
+    "yes": {
+      "description": "Plataforma corporativa de microsservi\u00e7os em Go para gera\u00e7\u00e3o de relat\u00f3rios (PDF/XLS) integrada a um motor BPMN, com arquitetura distribu\u00edda e deploy automatizado em Kubernetes na AWS.",
+      "features": [
+        "Motor BPMN para orquestra\u00e7\u00e3o de processos de neg\u00f3cio",
+        "Gera\u00e7\u00e3o ass\u00edncrona de relat\u00f3rios em PDF e XLS",
+        "Comunica\u00e7\u00e3o entre microsservi\u00e7os via AWS SQS/SNS",
+        "Armazenamento de artefatos em AWS S3",
+        "Deploy em Kubernetes via ArgoCD (GitOps)",
+        "Infraestrutura como c\u00f3digo com Terraform",
+        "Observabilidade com OpenTelemetry e Jaeger"
+      ]
+    },
+    "sonoria": {
+      "description": "Plataforma web com IA para an\u00e1lise automatizada de exames eletrofisiol\u00f3gicos auditivos (PEATE, PEAC, VEMP), auxiliando profissionais de sa\u00fade na tomada de decis\u00e3o cl\u00ednica.",
+      "features": [
+        "An\u00e1lise automatizada de exames auditivos com IA (modelo CRNN)",
+        "Upload e processamento de arquivos de exame (.txt)",
+        "Marca\u00e7\u00e3o de picos e ondas manual e assistida por IA",
+        "Visualiza\u00e7\u00e3o interativa de formas de onda",
+        "Autentica\u00e7\u00e3o com perfis (profissional, estudante, professor)",
+        "Migra\u00e7\u00e3o de dados de sistemas legados (EPWin)"
+      ]
+    }
+  },
+  "experience": {
+    "label": "// experience",
+    "title": "Experi\u00eancia",
+    "subtitle": "Trajet\u00f3ria profissional em ordem cronol\u00f3gica reversa.",
+    "highlightsAria": "Destaques",
+    "timelineAria": "Hist\u00f3rico de experi\u00eancia profissional",
+    "roles": {
+      "yes": {
+        "role": "Desenvolvedor Backend | Engenheiro de Software",
+        "highlights": [
+          "Backend em Go (Golang) e Java; APIs REST; microsservi\u00e7os; Docker e Kubernetes; AWS; CI/CD."
+        ]
+      },
+      "guia": {
+        "role": "Desenvolvedor Backend | Engenheiro de Software",
+        "highlights": [
+          "Backend do guIA Travel Hub; APIs REST; Go/Java; PostgreSQL; microsservi\u00e7os; AWS."
+        ]
+      },
+      "vergo": {
+        "role": "Desenvolvedor Backend | Engenheiro de Software",
+        "highlights": [
+          "Desenvolvimento backend; APIs REST; arquitetura de microsservi\u00e7os; Docker; CI/CD."
+        ]
+      },
+      "registartt": {
+        "role": "Desenvolvedor Backend | Engenheiro de Software",
+        "highlights": [
+          "Backend da plataforma do zero; Go (Golang); APIs REST; PostgreSQL; Docker; AWS."
+        ]
+      },
+      "oxetech": {
+        "role": "Desenvolvedor Backend | Engenheiro de Software",
+        "highlights": [
+          "Backend e microsservi\u00e7os; Go, Java e Node.js; APIs REST; PostgreSQL; Docker; Kubernetes; AWS; CI/CD; atua\u00e7\u00e3o como team lead."
+        ]
+      }
+    }
+  },
+  "contact": {
+    "label": "// contact",
+    "title": "Contato",
+    "subtitle": "Tem um projeto em mente ou quer conversar sobre uma oportunidade? Entre em contato!",
+    "formAria": "Formul\u00e1rio de contato",
+    "nameLabel": "Nome *",
+    "namePlaceholder": "Seu nome",
+    "emailLabel": "Email *",
+    "emailPlaceholder": "seu@email.com",
+    "messageLabel": "Mensagem *",
+    "messagePlaceholder": "Ol\u00e1! Gostaria de conversar sobre...",
+    "submit": "Enviar mensagem",
+    "sending": "Enviando...",
+    "errors": {
+      "nameRequired": "Nome \u00e9 obrigat\u00f3rio",
+      "emailRequired": "Email \u00e9 obrigat\u00f3rio",
+      "emailInvalid": "Email inv\u00e1lido",
+      "messageRequired": "Mensagem \u00e9 obrigat\u00f3ria"
+    },
+    "success": "Mensagem enviada com sucesso!",
+    "error": "Falha ao enviar mensagem. Tente novamente."
+  },
+  "footer": {
+    "rights": "Todos os direitos reservados.",
+    "builtWith": "Desenvolvido com React + Vite",
+    "socialAria": "Links sociais",
+    "githubAria": "GitHub de Ulpio Netto",
+    "linkedinAria": "LinkedIn de Ulpio Netto",
+    "emailAria": "Enviar email para Ulpio Netto"
+  },
+  "a11y": {
+    "skipToContent": "Pular para o conte\u00fado principal",
+    "openMenu": "Abrir menu",
+    "closeMenu": "Fechar menu",
+    "switchToLight": "Mudar para modo claro",
+    "switchToDark": "Mudar para modo escuro"
+  },
+  "seo": {
+    "title": "Ulpio Netto \u2013 Desenvolvedor Backend | Go & Java | Engenheiro de Software",
+    "description": "Portfolio de Ulpio Netto, Desenvolvedor Backend com 5+ anos de experi\u00eancia em Go, Java, APIs REST, microsservi\u00e7os, Docker, Kubernetes e AWS."
+  }
+}

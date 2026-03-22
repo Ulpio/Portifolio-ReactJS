@@ -1,56 +1,151 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <!-- Favicon - você pode substituir por um arquivo personalizado na pasta public -->
-    <link rel="icon" type="image/png" href="icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <!-- Meta tags para SEO -->
-    <meta name="description" content="Portfólio de Ulpio Netto, desenvolvedor backend especializado em Go, Java e sistemas distribuídos de alta performance." />
-    <meta name="keywords" content="golang, desenvolvedor backend, api, microservices, ulpio netto, java, postgresql, mongodb" />
+
+    <!-- SEO Meta Tags -->
+    <title>Ulpio Netto – Backend Developer | Go & Java | Software Engineer</title>
+    <meta name="description" content="Portfolio of Ulpio Netto, Backend Developer with 5+ years of experience in Go, Java, REST APIs, microservices, Docker, Kubernetes, and AWS." />
+    <meta name="keywords" content="Ulpio Netto, backend developer, Go, Golang, Java, REST APIs, microservices, Docker, Kubernetes, AWS, PostgreSQL, software engineer" />
     <meta name="author" content="Ulpio Paulo de Miranda Netto" />
-    
-    <!-- Open Graph para compartilhamento em redes sociais -->
-    <meta property="og:title" content="Ulpio Netto | Desenvolvedor Backend" />
-    <meta property="og:description" content="Portfólio de Ulpio Netto, desenvolvedor backend especializado em Go, Java e sistemas distribuídos de alta performance." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://ulpionetto.dev/" />
+
+    <!-- Google Search Console (replace YOUR_VERIFICATION_CODE after registration) -->
+    <!-- <meta name="google-site-verification" content="YOUR_VERIFICATION_CODE" /> -->
+
+    <!-- Hreflang -->
+    <link rel="alternate" hreflang="en" href="https://ulpionetto.dev/?lang=en" />
+    <link rel="alternate" hreflang="pt-BR" href="https://ulpionetto.dev/?lang=pt-BR" />
+    <link rel="alternate" hreflang="x-default" href="https://ulpionetto.dev/" />
+
+    <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://seudominio.com" />
-    <meta property="og:image" content="https://seudominio.com/preview.jpg" />
-    
-    <!-- Pré-carregar fontes -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    
-    <!-- Título da página -->
-    <title>Ulpio Netto | Desenvolvedor Backend Go</title>
+    <meta property="og:url" content="https://ulpionetto.dev/" />
+    <meta property="og:title" content="Ulpio Netto – Backend Developer | Go & Java" />
+    <meta property="og:description" content="Portfolio of Ulpio Netto, Backend Developer with 5+ years of experience in Go, Java, REST APIs, microservices, Docker, Kubernetes, and AWS." />
+    <meta property="og:image" content="https://ulpionetto.dev/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="pt_BR" />
+    <meta property="og:site_name" content="Ulpio Netto – Portfolio" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://ulpionetto.dev/" />
+    <meta name="twitter:title" content="Ulpio Netto – Backend Developer | Go & Java" />
+    <meta name="twitter:description" content="Portfolio of Ulpio Netto, Backend Developer with 5+ years of experience in Go, Java, microservices, and AWS cloud." />
+    <meta name="twitter:image" content="https://ulpionetto.dev/og-image.png" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/icon.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/icon.png" />
+
+    <!-- Preconnect for Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Preload fonts -->
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    />
+
+    <!-- JSON-LD Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://ulpionetto.dev/#person",
+          "name": "Ulpio Paulo de Miranda Netto",
+          "alternateName": "Ulpio Netto",
+          "jobTitle": "Backend Developer | Software Engineer",
+          "description": "Backend Developer with 5+ years of experience in Go, Java, REST APIs, microservices, Docker, Kubernetes, and AWS.",
+          "email": "ulpionetto0@gmail.com",
+          "url": "https://ulpionetto.dev/",
+          "sameAs": [
+            "https://github.com/Ulpio",
+            "https://linkedin.com/in/ulpionetto"
+          ],
+          "knowsAbout": ["Go", "Golang", "Java", "REST APIs", "Microservices", "Docker", "Kubernetes", "AWS", "PostgreSQL", "CI/CD", "Terraform", "Node.js"],
+          "knowsLanguage": ["Portuguese", "English"]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://ulpionetto.dev/#website",
+          "url": "https://ulpionetto.dev/",
+          "name": "Ulpio Netto – Portfolio",
+          "description": "Portfolio of Ulpio Netto, Backend Developer and Software Engineer.",
+          "inLanguage": ["en", "pt-BR"],
+          "author": { "@id": "https://ulpionetto.dev/#person" }
+        },
+        {
+          "@type": "ItemList",
+          "name": "Featured Projects",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Registartt Platform",
+              "description": "Backend development for a robust and scalable record management platform.",
+              "url": "https://ulpionetto.dev/#projects"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Vergo - SaaS Boilerplate",
+              "description": "Open-source Go SaaS boilerplate with multi-tenancy, RBAC, JWT, Stripe, and S3.",
+              "url": "https://github.com/Ulpio/vergo"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "OxeTech",
+              "description": "Government technology education platform. Migrated API from JS to Go with 75% faster response times.",
+              "url": "https://oxetech.al.gov.br"
+            },
+            {
+              "@type": "ListItem",
+              "position": 4,
+              "name": "Yes Technology",
+              "description": "Corporate microservices platform for report generation with BPMN engine on Kubernetes.",
+              "url": "https://yes.technology/pt-BR"
+            },
+            {
+              "@type": "ListItem",
+              "position": 5,
+              "name": "SonorIA",
+              "description": "AI-powered platform for automated auditory electrophysiological exam analysis.",
+              "url": "https://sonoria.com.br"
+            }
+          ]
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ulpionetto.dev/" },
+            { "@type": "ListItem", "position": 2, "name": "About", "item": "https://ulpionetto.dev/#about" },
+            { "@type": "ListItem", "position": 3, "name": "Projects", "item": "https://ulpionetto.dev/#projects" },
+            { "@type": "ListItem", "position": 4, "name": "Experience", "item": "https://ulpionetto.dev/#experience" },
+            { "@type": "ListItem", "position": 5, "name": "Contact", "item": "https://ulpionetto.dev/#contact" }
+          ]
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
-    
-    <!-- Script opcional para animações suaves de scroll -->
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        // Scroll suave para links internos
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-          anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-            
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-              window.scrollTo({
-                top: targetElement.offsetTop - 80, // Ajuste para o header fixo
-                behavior: 'smooth'
-              });
-            }
-          });
-        });
-      });
-    </script>
   </body>
 </html>
