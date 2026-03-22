@@ -5,9 +5,11 @@ import {
   Text,
   StyleSheet,
   Link,
-  Font,
 } from '@react-pdf/renderer';
 import { cvData } from '../../data/cvData.js';
+
+/* Slugs of the 3 featured projects shown in the CV */
+const FEATURED_SLUGS = ['yes', 'vergo', 'registartt'];
 
 /* ── Accent colour ──────────────────────────────── */
 const ACCENT = '#2563eb';
@@ -20,19 +22,19 @@ const CHIP_BG = '#f3f4f6';
 /* ── Styles ─────────────────────────────────────── */
 const s = StyleSheet.create({
   page: {
-    paddingTop: 36,
-    paddingBottom: 40,
-    paddingHorizontal: 40,
+    paddingTop: 32,
+    paddingBottom: 38,
+    paddingHorizontal: 38,
     fontSize: 9.5,
     fontFamily: 'Helvetica',
     color: TEXT_PRIMARY,
-    lineHeight: 1.45,
+    lineHeight: 1.4,
   },
 
   /* ── Header ── */
   header: {
-    marginBottom: 14,
-    paddingBottom: 10,
+    marginBottom: 12,
+    paddingBottom: 9,
     borderBottomWidth: 2,
     borderBottomColor: ACCENT,
   },
@@ -78,25 +80,24 @@ const s = StyleSheet.create({
 
   /* ── Sections ── */
   sectionWrap: {
-    marginTop: 12,
+    marginTop: 10,
   },
   sectionTitle: {
-    fontSize: 11,
+    fontSize: 10.5,
     fontFamily: 'Helvetica-Bold',
     color: ACCENT,
     textTransform: 'uppercase',
-    letterSpacing: 1,
+    letterSpacing: 0.8,
     paddingBottom: 3,
     borderBottomWidth: 0.75,
     borderBottomColor: BORDER,
-    marginBottom: 7,
+    marginBottom: 6,
   },
 
   /* ── Summary ── */
   paragraph: {
-    marginBottom: 5,
-    lineHeight: 1.5,
-    textAlign: 'justify',
+    marginBottom: 4,
+    lineHeight: 1.45,
     color: TEXT_PRIMARY,
   },
 
@@ -124,7 +125,7 @@ const s = StyleSheet.create({
 
   /* ── Experience ── */
   expBlock: {
-    marginBottom: 10,
+    marginBottom: 8,
   },
   expHeaderRow: {
     flexDirection: 'row',
@@ -190,7 +191,7 @@ const s = StyleSheet.create({
 
   /* ── Projects ── */
   projBlock: {
-    marginBottom: 8,
+    marginBottom: 6,
   },
   projHeaderRow: {
     flexDirection: 'row',
@@ -296,12 +297,21 @@ function localizedArray(field, lang) {
   return field[lang] || field.en || [];
 }
 
+function localizedPeriod(period, lang) {
+  if (!period) return '';
+  if (lang === 'pt') return period.replace('Present', 'Presente').replace('present', 'presente');
+  return period;
+}
+
 /* ── Component ──────────────────────────────────── */
 function CVDocument({ lang = 'en' }) {
   const l = labels[lang] || labels.en;
   const {
-    name, contact, skills, education, experience, projects,
+    name, contact, skills, education, experience,
   } = cvData;
+
+  /* Only show 3 featured projects to keep CV to 2 pages */
+  const projects = cvData.projects.filter((p) => FEATURED_SLUGS.includes(p.slug));
 
   const titleText = localized(cvData.title, lang);
   const headlineText = localized(cvData.headline, lang);
@@ -409,7 +419,7 @@ function CVDocument({ lang = 'en' }) {
               <View key={i} style={s.expBlock} wrap={false}>
                 <View style={s.expHeaderRow}>
                   <Text style={s.expRole}>{role}</Text>
-                  <Text style={s.expPeriod}>{exp.period}</Text>
+                  <Text style={s.expPeriod}>{localizedPeriod(exp.period, lang)}</Text>
                 </View>
                 <Text style={s.expCompany}>{exp.company}</Text>
                 {highlights.map((line, j) => (
