@@ -1,17 +1,21 @@
-import { useEffect } from 'react';
+import { useEffect, lazy, Suspense } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet-async';
 import { ThemeProvider } from './context/ThemeContext';
 import './styles/global.css';
 import './styles/theme.css';
+
+/* Header, Footer and Hero load eagerly (above the fold) */
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import HeroSection from './sections/HeroSection';
-import AboutSection from './sections/AboutSection';
-import SkillsSection from './sections/SkillsSection';
-import ProjectsSection from './sections/ProjectsSection';
-import ExperienceSection from './sections/ExperienceSection';
-import ContactSection from './sections/ContactSection';
+
+/* Below-the-fold sections are lazy-loaded */
+const AboutSection = lazy(() => import('./sections/AboutSection'));
+const SkillsSection = lazy(() => import('./sections/SkillsSection'));
+const ProjectsSection = lazy(() => import('./sections/ProjectsSection'));
+const ExperienceSection = lazy(() => import('./sections/ExperienceSection'));
+const ContactSection = lazy(() => import('./sections/ContactSection'));
 
 function AppContent() {
   const { t, i18n } = useTranslation();
@@ -38,11 +42,13 @@ function AppContent() {
       <Header />
       <main id="main-content">
         <HeroSection />
-        <AboutSection />
-        <SkillsSection />
-        <ProjectsSection />
-        <ExperienceSection />
-        <ContactSection />
+        <Suspense fallback={null}>
+          <AboutSection />
+          <SkillsSection />
+          <ProjectsSection />
+          <ExperienceSection />
+          <ContactSection />
+        </Suspense>
       </main>
       <Footer />
     </>
