@@ -5,143 +5,133 @@ import {
   Text,
   StyleSheet,
   Link,
-  Font,
 } from '@react-pdf/renderer';
 import { cvData } from '../../data/cvData.js';
 
-/* ── Accent colour ──────────────────────────────── */
-const ACCENT = '#2563eb';
-const TEXT_PRIMARY = '#1a1a1a';
-const TEXT_SECONDARY = '#4b5563';
-const TEXT_MUTED = '#6b7280';
-const BORDER = '#e5e7eb';
-const CHIP_BG = '#f3f4f6';
+/* Only the 3 most impactful projects are shown in the CV */
+const FEATURED_SLUGS = ['yes', 'vergo', 'registartt'];
 
-/* ── Styles ─────────────────────────────────────── */
+/* ── Colours ─────────────────────────────────────── */
+const ACCENT        = '#2563eb';
+const TEXT_PRIMARY  = '#1a1a1a';
+const TEXT_SECONDARY = '#4b5563';
+const TEXT_MUTED    = '#6b7280';
+const BORDER        = '#e5e7eb';
+
+/* ── Styles ──────────────────────────────────────── */
 const s = StyleSheet.create({
   page: {
-    paddingTop: 36,
+    paddingTop: 32,
     paddingBottom: 40,
-    paddingHorizontal: 40,
+    paddingHorizontal: 38,
     fontSize: 9.5,
     fontFamily: 'Helvetica',
     color: TEXT_PRIMARY,
-    lineHeight: 1.45,
+    /* No lineHeight here — cascading lineHeight causes 2-3× bloat in react-pdf */
   },
 
-  /* ── Header ── */
+  /* Header — each row is a View so marginBottom is always respected */
   header: {
-    marginBottom: 14,
-    paddingBottom: 10,
+    marginBottom: 12,
+    paddingBottom: 9,
     borderBottomWidth: 2,
     borderBottomColor: ACCENT,
   },
+  nameWrap:    { marginBottom: 4 },
+  titleWrap:   { marginBottom: 2 },
+  headlineWrap:{ marginBottom: 5 },
   name: {
     fontSize: 22,
     fontFamily: 'Helvetica-Bold',
-    letterSpacing: 0.5,
-    marginBottom: 3,
     color: TEXT_PRIMARY,
   },
-  title: {
+  titleText: {
     fontSize: 11,
-    color: ACCENT,
     fontFamily: 'Helvetica-Bold',
-    marginBottom: 3,
+    color: ACCENT,
   },
-  headline: {
+  headlineText: {
     fontSize: 9,
     color: TEXT_SECONDARY,
-    marginBottom: 6,
   },
-  contactRow: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 4,
+  /* Contact is a single Text node — avoids all flex overlap */
+  contactText: {
     fontSize: 8.5,
     color: TEXT_SECONDARY,
-  },
-  contactItem: {
-    fontSize: 8.5,
-    color: TEXT_SECONDARY,
-  },
-  contactLink: {
-    fontSize: 8.5,
-    color: ACCENT,
-    textDecoration: 'none',
-  },
-  contactSep: {
-    fontSize: 8.5,
-    color: TEXT_MUTED,
-    marginHorizontal: 4,
   },
 
-  /* ── Sections ── */
-  sectionWrap: {
-    marginTop: 12,
+  /* Section wrapper */
+  section: {
+    marginTop: 10,
   },
   sectionTitle: {
-    fontSize: 11,
+    fontSize: 10.5,
     fontFamily: 'Helvetica-Bold',
     color: ACCENT,
     textTransform: 'uppercase',
-    letterSpacing: 1,
+    letterSpacing: 0.8,
     paddingBottom: 3,
     borderBottomWidth: 0.75,
     borderBottomColor: BORDER,
-    marginBottom: 7,
+    marginBottom: 6,
   },
 
-  /* ── Summary ── */
+  /* Summary — explicit lineHeight so it doesn't inherit from page */
   paragraph: {
     marginBottom: 5,
-    lineHeight: 1.5,
-    textAlign: 'justify',
+    fontSize: 9.5,
+    lineHeight: 1.3,
     color: TEXT_PRIMARY,
   },
 
-  /* ── Skills ── */
-  skillsGrid: {
+  /* Skills — two columns via paired rows */
+  skillRow: {
     flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 8,
+    marginBottom: 5,
   },
-  skillCategory: {
-    width: '48%',
-    marginBottom: 6,
+  skillColLeft: {
+    flex: 1,
+    paddingRight: 12,
+  },
+  skillColRight: {
+    flex: 1,
   },
   skillCatTitle: {
     fontSize: 9,
     fontFamily: 'Helvetica-Bold',
     color: TEXT_PRIMARY,
-    marginBottom: 3,
+    marginBottom: 2,
   },
   skillLine: {
     fontSize: 8.5,
     color: TEXT_SECONDARY,
-    lineHeight: 1.4,
+    lineHeight: 1.2,
+  },
+  skillFullRow: {
+    marginBottom: 4,
   },
 
-  /* ── Experience ── */
+  /* Experience */
   expBlock: {
-    marginBottom: 10,
+    marginBottom: 8,
   },
+  /* flex row: role (flex:1) on left, period (fixed) on right — no overlap */
   expHeaderRow: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
     alignItems: 'flex-start',
     marginBottom: 1,
   },
   expRole: {
+    flex: 1,
     fontSize: 10,
     fontFamily: 'Helvetica-Bold',
     color: TEXT_PRIMARY,
-    maxWidth: '70%',
+    paddingRight: 8,
   },
   expPeriod: {
+    flexShrink: 0,
     fontSize: 8.5,
     color: TEXT_MUTED,
-    textAlign: 'right',
   },
   expCompany: {
     fontSize: 9,
@@ -162,24 +152,26 @@ const s = StyleSheet.create({
     flex: 1,
     fontSize: 9,
     color: TEXT_PRIMARY,
-    lineHeight: 1.4,
+    lineHeight: 1.25,
   },
 
-  /* ── Education ── */
+  /* Education */
   eduBlock: {
     marginBottom: 6,
   },
   eduHeaderRow: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
     alignItems: 'flex-start',
   },
   eduDegree: {
+    flex: 1,
     fontSize: 10,
     fontFamily: 'Helvetica-Bold',
     color: TEXT_PRIMARY,
+    paddingRight: 8,
   },
   eduPeriod: {
+    flexShrink: 0,
     fontSize: 8.5,
     color: TEXT_MUTED,
   },
@@ -188,20 +180,20 @@ const s = StyleSheet.create({
     color: TEXT_SECONDARY,
   },
 
-  /* ── Projects ── */
+  /* Projects */
   projBlock: {
-    marginBottom: 8,
+    marginBottom: 7,
   },
   projHeaderRow: {
     flexDirection: 'row',
-    alignItems: 'center',
-    gap: 6,
+    alignItems: 'baseline',
     marginBottom: 2,
   },
   projTitle: {
     fontSize: 10,
     fontFamily: 'Helvetica-Bold',
     color: TEXT_PRIMARY,
+    marginRight: 6,
   },
   projLink: {
     fontSize: 8,
@@ -216,62 +208,65 @@ const s = StyleSheet.create({
   projDesc: {
     fontSize: 9,
     color: TEXT_SECONDARY,
-    lineHeight: 1.4,
+    lineHeight: 1.25,
   },
 
-  /* ── Footer ── */
+  /* Footer — absolute, fixed on every page */
   footer: {
     position: 'absolute',
-    bottom: 20,
-    left: 40,
-    right: 40,
+    bottom: 18,
+    left: 38,
+    right: 38,
     flexDirection: 'row',
     justifyContent: 'space-between',
     fontSize: 7.5,
     color: TEXT_MUTED,
     borderTopWidth: 0.5,
     borderTopColor: BORDER,
-    paddingTop: 6,
+    paddingTop: 5,
+  },
+  footerLink: {
+    fontSize: 7.5,
+    color: TEXT_MUTED,
+    textDecoration: 'none',
   },
 });
 
-/* ── Label maps ─────────────────────────────────── */
+/* ── Label maps ──────────────────────────────────── */
 const labels = {
   en: {
-    summary: 'Professional Summary',
-    skills: 'Technical Skills',
+    summary:    'Professional Summary',
+    skills:     'Technical Skills',
     experience: 'Professional Experience',
-    education: 'Education',
-    projects: 'Key Projects',
-    languages: 'Languages',
-    databases: 'Databases',
+    education:  'Education',
+    projects:   'Key Projects',
+    languages:  'Languages',
+    databases:  'Databases',
     frameworks: 'Frameworks & Tools',
-    devops: 'DevOps & Cloud',
-    practices: 'Architecture & Practices',
-    present: 'Present',
-    docTitle: 'Resume - Ulpio Netto - Backend Developer',
+    devops:     'DevOps & Cloud',
+    practices:  'Architecture & Practices',
+    docTitle:   'Resume - Ulpio Netto - Backend Developer',
     docSubject: 'Resume of Ulpio Netto, Backend Developer and Software Engineer specializing in Go, Java, REST APIs, microservices, AWS, Kubernetes, and cloud infrastructure.',
-    generated: 'Generated from ulpionetto.dev',
+    generated:  'Generated from ulpionetto.dev',
   },
   pt: {
-    summary: 'Resumo Profissional',
-    skills: 'Habilidades T\u00e9cnicas',
+    summary:    'Resumo Profissional',
+    skills:     'Habilidades T\u00e9cnicas',
     experience: 'Experi\u00eancia Profissional',
-    education: 'Forma\u00e7\u00e3o Acad\u00eamica',
-    projects: 'Projetos Relevantes',
-    languages: 'Linguagens',
-    databases: 'Bancos de Dados',
+    education:  'Forma\u00e7\u00e3o Acad\u00eamica',
+    projects:   'Projetos Relevantes',
+    languages:  'Linguagens',
+    databases:  'Bancos de Dados',
     frameworks: 'Frameworks & Ferramentas',
-    devops: 'DevOps & Cloud',
-    practices: 'Arquitetura & Pr\u00e1ticas',
-    present: 'Presente',
-    docTitle: 'Curr\u00edculo - Ulpio Netto - Desenvolvedor Backend',
+    devops:     'DevOps & Cloud',
+    practices:  'Arquitetura & Pr\u00e1ticas',
+    docTitle:   'Curr\u00edculo - Ulpio Netto - Desenvolvedor Backend',
     docSubject: 'Curr\u00edculo de Ulpio Netto, Desenvolvedor Backend e Engenheiro de Software especializado em Go, Java, APIs REST, microsservi\u00e7os, AWS, Kubernetes e infraestrutura cloud.',
-    generated: 'Gerado a partir de ulpionetto.dev',
+    generated:  'Gerado a partir de ulpionetto.dev',
   },
 };
 
-/* ── PDF keywords for ATS indexing ──────────────── */
+/* ── ATS metadata keywords ───────────────────────── */
 const PDF_KEYWORDS = [
   'Ulpio Netto', 'Backend Developer', 'Software Engineer',
   'Go', 'Golang', 'Java', 'REST API', 'Microservices',
@@ -283,51 +278,57 @@ const PDF_KEYWORDS = [
   'OpenTelemetry', 'Jaeger', 'Event-Driven Architecture',
 ].join(', ');
 
-/* ── Helpers ────────────────────────────────────── */
-function localized(field, lang) {
+/* ── Helpers ─────────────────────────────────────── */
+function loc(field, lang) {
   if (!field) return '';
   if (typeof field === 'string') return field;
   return field[lang] || field.en || '';
 }
 
-function localizedArray(field, lang) {
+function locArr(field, lang) {
   if (!field) return [];
   if (Array.isArray(field)) return field;
   return field[lang] || field.en || [];
 }
 
-/* ── Component ──────────────────────────────────── */
+function locPeriod(period, lang) {
+  if (!period) return '';
+  return lang === 'pt'
+    ? period.replace('Present', 'Presente')
+    : period;
+}
+
+/* ── Project descriptions (inline, ATS-readable) ── */
+const projDescs = {
+  en: {
+    yes: 'Corporate microservices platform in Go for PDF/XLS report generation integrated with a BPMN engine, inter-service communication via AWS SQS/SNS, Kubernetes deployment via ArgoCD, and Terraform IaC.',
+    vergo: 'Open-source multi-tenant SaaS boilerplate in Go with RBAC, JWT auth, Stripe billing, AWS S3 presigned URLs, project CRUD with audit log, CI/CD via GitHub Actions, and CodeQL security scanning.',
+    registartt: 'Full backend built from scratch in Go (Gin + SQLC): high-performance RESTful API, auth/authz system, distributed caching, async task processing, structured logging, and interactive API docs.',
+  },
+  pt: {
+    yes: 'Plataforma corporativa de microsservi\u00e7os em Go para gera\u00e7\u00e3o de relat\u00f3rios PDF/XLS com motor BPMN, comunica\u00e7\u00e3o via AWS SQS/SNS, deploy Kubernetes via ArgoCD e infraestrutura com Terraform.',
+    vergo: 'Boilerplate SaaS multi-tenant open-source em Go com RBAC, JWT, billing Stripe, AWS S3 presigned URLs, CRUD de projetos com audit log, CI/CD com GitHub Actions e an\u00e1lise CodeQL.',
+    registartt: 'Backend completo constru\u00eddo do zero em Go (Gin + SQLC): API RESTful de alta performance, autentica\u00e7\u00e3o/autoriza\u00e7\u00e3o, cache distribu\u00eddo, processamento ass\u00edncrono e documenta\u00e7\u00e3o interativa.',
+  },
+};
+
+/* ── Component ───────────────────────────────────── */
 function CVDocument({ lang = 'en' }) {
-  const l = labels[lang] || labels.en;
-  const {
-    name, contact, skills, education, experience, projects,
-  } = cvData;
+  const l   = labels[lang] || labels.en;
+  const { name, contact, skills, education, experience } = cvData;
+  const projects  = cvData.projects.filter((p) => FEATURED_SLUGS.includes(p.slug));
+  const summary   = locArr(cvData.summary, lang);
+  const practices = locArr(skills.practices, lang);
+  const location  = loc(contact.location, lang);
 
-  const titleText = localized(cvData.title, lang);
-  const headlineText = localized(cvData.headline, lang);
-  const summaryParagraphs = localizedArray(cvData.summary, lang);
-  const practicesList = localizedArray(skills.practices, lang);
-  const locationText = localized(contact.location, lang);
-
-  /* Description text for projects from translation keys */
-  const projectDescriptions = {
-    en: {
-      registartt: 'Backend development for Registartt platform, delivering a high-performance RESTful API with authentication, distributed caching, and async task processing.',
-      vergo: 'Open-source multi-tenant SaaS boilerplate in Go with RBAC, JWT auth, Stripe billing, and AWS S3 integration. CI/CD with GitHub Actions and CodeQL.',
-      oxetech: 'Platform for State of Alagoas Government Program. Migrated legacy JS API to Go, achieving 75% faster response times with multiple access levels.',
-      guia: 'AI-powered smart tourism hub for personalized travel itineraries with dynamic route generation, PDF export, and external tourism API integration.',
-      yes: 'Corporate microservices platform in Go for PDF/XLS report generation with BPMN engine, AWS SQS/SNS, Kubernetes deployment via ArgoCD, and Terraform IaC.',
-      sonoria: 'AI-powered web platform for automated analysis of auditory electrophysiological exams, with CRNN model, interactive waveform visualization, and legacy data migration.',
-    },
-    pt: {
-      registartt: 'Desenvolvimento backend da plataforma Registartt, entregando API RESTful de alta performance com autentica\u00e7\u00e3o, cache distribu\u00eddo e processamento ass\u00edncrono.',
-      vergo: 'Boilerplate SaaS multi-tenant open-source em Go com RBAC, autentica\u00e7\u00e3o JWT, billing Stripe e integra\u00e7\u00e3o AWS S3. CI/CD com GitHub Actions e CodeQL.',
-      oxetech: 'Plataforma do Programa do Governo de Alagoas. Migra\u00e7\u00e3o de API legada JS para Go, alcan\u00e7ando tempos de resposta 75% mais r\u00e1pidos.',
-      guia: 'Hub de turismo inteligente com IA para roteiros personalizados, gera\u00e7\u00e3o din\u00e2mica de itiner\u00e1rios, exporta\u00e7\u00e3o PDF e integra\u00e7\u00e3o com APIs de turismo.',
-      yes: 'Plataforma corporativa de microsservi\u00e7os em Go para gera\u00e7\u00e3o de relat\u00f3rios PDF/XLS com motor BPMN, AWS SQS/SNS, deploy Kubernetes via ArgoCD e Terraform.',
-      sonoria: 'Plataforma web com IA para an\u00e1lise automatizada de exames eletrofisiol\u00f3gicos auditivos, com modelo CRNN, visualiza\u00e7\u00e3o interativa e migra\u00e7\u00e3o de dados legados.',
-    },
-  };
+  /* Build contact line as a single plain string — avoids flex overlap */
+  const contactLine = [
+    contact.email,
+    contact.linkedinShort,
+    contact.githubShort,
+    contact.website.replace('https://', ''),
+    location,
+  ].filter(Boolean).join('  |  ');
 
   return (
     <Document
@@ -340,76 +341,73 @@ function CVDocument({ lang = 'en' }) {
     >
       <Page size="A4" style={s.page}>
 
-        {/* ────────── HEADER ────────── */}
+        {/* ── HEADER ── */}
         <View style={s.header}>
-          <Text style={s.name}>{name}</Text>
-          <Text style={s.title}>{titleText}</Text>
-          {headlineText ? <Text style={s.headline}>{headlineText}</Text> : null}
-          <View style={s.contactRow}>
-            <Text style={s.contactItem}>{contact.email}</Text>
-            <Text style={s.contactSep}>|</Text>
-            <Link src={contact.linkedin} style={s.contactLink}>{contact.linkedinShort}</Link>
-            <Text style={s.contactSep}>|</Text>
-            <Link src={contact.github} style={s.contactLink}>{contact.githubShort}</Link>
-            <Text style={s.contactSep}>|</Text>
-            <Link src={contact.website} style={s.contactLink}>{contact.website.replace('https://', '')}</Link>
-            {locationText ? (
-              <>
-                <Text style={s.contactSep}>|</Text>
-                <Text style={s.contactItem}>{locationText}</Text>
-              </>
-            ) : null}
+          <View style={s.nameWrap}>
+            <Text style={s.name}>{name}</Text>
           </View>
+          <View style={s.titleWrap}>
+            <Text style={s.titleText}>{loc(cvData.title, lang)}</Text>
+          </View>
+          <View style={s.headlineWrap}>
+            <Text style={s.headlineText}>{loc(cvData.headline, lang)}</Text>
+          </View>
+          <Text style={s.contactText}>{contactLine}</Text>
         </View>
 
-        {/* ────────── SUMMARY ────────── */}
-        <View style={s.sectionWrap}>
+        {/* ── SUMMARY ── */}
+        <View style={s.section}>
           <Text style={s.sectionTitle}>{l.summary}</Text>
-          {summaryParagraphs.map((p, i) => (
+          {summary.map((p, i) => (
             <Text key={i} style={s.paragraph}>{p}</Text>
           ))}
         </View>
 
-        {/* ────────── SKILLS ────────── */}
-        <View style={s.sectionWrap}>
+        {/* ── SKILLS ── */}
+        <View style={s.section}>
           <Text style={s.sectionTitle}>{l.skills}</Text>
-          <View style={s.skillsGrid}>
-            <View style={s.skillCategory}>
+          {/* Row 1: Languages | Databases */}
+          <View style={s.skillRow}>
+            <View style={s.skillColLeft}>
               <Text style={s.skillCatTitle}>{l.languages}</Text>
               <Text style={s.skillLine}>{skills.languages.join(', ')}</Text>
             </View>
-            <View style={s.skillCategory}>
+            <View style={s.skillColRight}>
               <Text style={s.skillCatTitle}>{l.databases}</Text>
               <Text style={s.skillLine}>{skills.databases.join(', ')}</Text>
             </View>
-            <View style={s.skillCategory}>
+          </View>
+          {/* Row 2: Frameworks | DevOps */}
+          <View style={s.skillRow}>
+            <View style={s.skillColLeft}>
               <Text style={s.skillCatTitle}>{l.frameworks}</Text>
               <Text style={s.skillLine}>{skills.frameworks.join(', ')}</Text>
             </View>
-            <View style={s.skillCategory}>
+            <View style={s.skillColRight}>
               <Text style={s.skillCatTitle}>{l.devops}</Text>
               <Text style={s.skillLine}>{skills.devops.join(', ')}</Text>
             </View>
           </View>
-          {practicesList.length > 0 && (
-            <View style={{ marginTop: 2 }}>
+          {/* Row 3: Architecture & Practices (full width) */}
+          {practices.length > 0 && (
+            <View style={s.skillFullRow}>
               <Text style={s.skillCatTitle}>{l.practices}</Text>
-              <Text style={s.skillLine}>{practicesList.join(', ')}</Text>
+              <Text style={s.skillLine}>{practices.join(', ')}</Text>
             </View>
           )}
         </View>
 
-        {/* ────────── EXPERIENCE ────────── */}
-        <View style={s.sectionWrap}>
+        {/* ── EXPERIENCE ── */}
+        <View style={s.section}>
           <Text style={s.sectionTitle}>{l.experience}</Text>
           {experience.map((exp, i) => {
-            const role = localized(exp.role, lang);
-            const highlights = localizedArray(exp.highlights, lang);
+            const role       = loc(exp.role, lang);
+            const highlights = locArr(exp.highlights, lang);
             return (
               <View key={i} style={s.expBlock} wrap={false}>
                 <View style={s.expHeaderRow}>
                   <Text style={s.expRole}>{role}</Text>
-                  <Text style={s.expPeriod}>{exp.period}</Text>
+                  <Text style={s.expPeriod}>{locPeriod(exp.period, lang)}</Text>
                 </View>
                 <Text style={s.expCompany}>{exp.company}</Text>
                 {highlights.map((line, j) => (
@@ -423,18 +421,20 @@ function CVDocument({ lang = 'en' }) {
           })}
         </View>
 
-        {/* ────────── PROJECTS ────────── */}
-        {projects && projects.length > 0 && (
-          <View style={s.sectionWrap}>
+        {/* ── KEY PROJECTS ── */}
+        {projects.length > 0 && (
+          <View style={s.section}>
             <Text style={s.sectionTitle}>{l.projects}</Text>
             {projects.map((proj, i) => {
-              const desc = projectDescriptions[lang]?.[proj.slug] || projectDescriptions.en?.[proj.slug] || '';
+              const desc = projDescs[lang]?.[proj.slug] || projDescs.en?.[proj.slug] || '';
               return (
                 <View key={i} style={s.projBlock} wrap={false}>
                   <View style={s.projHeaderRow}>
                     <Text style={s.projTitle}>{proj.title}</Text>
                     {proj.demoLink && (
-                      <Link src={proj.demoLink} style={s.projLink}>{proj.demoLink.replace(/^https?:\/\//, '')}</Link>
+                      <Link src={proj.demoLink} style={s.projLink}>
+                        {proj.demoLink.replace(/^https?:\/\//, '')}
+                      </Link>
                     )}
                   </View>
                   <Text style={s.projTech}>{proj.technologies.join(' \u00b7 ')}</Text>
@@ -445,13 +445,13 @@ function CVDocument({ lang = 'en' }) {
           </View>
         )}
 
-        {/* ────────── EDUCATION ────────── */}
-        <View style={s.sectionWrap}>
+        {/* ── EDUCATION ── */}
+        <View style={s.section}>
           <Text style={s.sectionTitle}>{l.education}</Text>
           {education.map((item, i) => (
             <View key={i} style={s.eduBlock}>
               <View style={s.eduHeaderRow}>
-                <Text style={s.eduDegree}>{localized(item.degree, lang)}</Text>
+                <Text style={s.eduDegree}>{loc(item.degree, lang)}</Text>
                 <Text style={s.eduPeriod}>{item.period}</Text>
               </View>
               <Text style={s.eduInstitution}>{item.institution}</Text>
@@ -459,13 +459,14 @@ function CVDocument({ lang = 'en' }) {
           ))}
         </View>
 
-        {/* ────────── FOOTER ────────── */}
+        {/* ── FOOTER ── */}
         <View style={s.footer} fixed>
           <Text>{l.generated}</Text>
-          <Link src={contact.website} style={{ fontSize: 7.5, color: TEXT_MUTED, textDecoration: 'none' }}>
+          <Link src={contact.website} style={s.footerLink}>
             {contact.website.replace('https://', '')}
           </Link>
         </View>
+
       </Page>
     </Document>
   );

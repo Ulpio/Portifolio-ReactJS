@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
+import { useCountUp } from '../hooks/useCountUp';
 import './AboutSection.css';
 
 const containerVariants = {
@@ -12,14 +13,24 @@ const itemVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
 };
 
+function CountStat({ end, suffix, label }) {
+  const { ref, count } = useCountUp(end);
+  return (
+    <div ref={ref} className="about-stat-cell">
+      <span className="about-stat-value">{count}{suffix}</span>
+      <span className="about-stat-label">{label}</span>
+    </div>
+  );
+}
+
 function AboutSection() {
   const { t } = useTranslation();
 
   const stats = [
-    { value: '5+', label: t('about.stats.years') },
-    { value: '10+', label: t('about.stats.projects') },
-    { value: '50k+', label: t('about.stats.users') },
-    { value: '3', label: t('about.stats.countries') },
+    { end: 5, suffix: '+', label: t('about.stats.years') },
+    { end: 10, suffix: '+', label: t('about.stats.projects') },
+    { end: 50, suffix: 'k+', label: t('about.stats.users') },
+    { end: 3, suffix: '', label: t('about.stats.countries') },
   ];
 
   const terminalLines = [
@@ -55,11 +66,8 @@ function AboutSection() {
             <div className="about-stats-card">
               {/* Stats grid */}
               <div className="about-stats-grid">
-                {stats.map(({ value, label }) => (
-                  <div key={label} className="about-stat-cell">
-                    <span className="about-stat-value">{value}</span>
-                    <span className="about-stat-label">{label}</span>
-                  </div>
+                {stats.map(({ end, suffix, label }) => (
+                  <CountStat key={label} end={end} suffix={suffix} label={label} />
                 ))}
               </div>
 
