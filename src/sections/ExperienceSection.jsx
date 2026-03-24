@@ -55,7 +55,14 @@ function ExperienceSection() {
                 <div className="experience-timeline__dot" aria-hidden="true" />
                 <article className="experience-card">
                   <header className="experience-card__header">
-                    <h3 className="experience-card__company">{exp.company}</h3>
+                    <h3 className="experience-card__company">
+                      {exp.company}
+                      {exp.type && (
+                        <span className={`experience-card__type experience-card__type--${exp.type.en === 'Freelance' ? 'freelance' : 'personal'}`}>
+                          {t(`experience.${exp.type.en === 'Freelance' ? 'freelance' : 'personalProject'}`)}
+                        </span>
+                      )}
+                    </h3>
                     <time className="experience-card__period">{exp.period}</time>
                   </header>
                   <p className="experience-card__role">{role}</p>
