@@ -90,20 +90,21 @@ export const cvData = {
     {
       slug: 'guia',
       company: 'guIA Travel Hub',
+      type: { en: 'Freelance', pt: 'Freelance' },
       period: '2025',
       role: {
-        en: 'Backend Developer | Software Engineer',
-        pt: 'Desenvolvedor Backend | Engenheiro de Software',
+        en: 'Freelance Backend Developer',
+        pt: 'Desenvolvedor Backend Freelance',
       },
       highlights: {
         en: [
-          'Architected and developed REST APIs in Go/Java for an AI-powered travel itinerary platform',
+          'Hired to architect and deliver the MVP backend in Go/Java for an AI-powered travel itinerary platform',
           'Built dynamic itinerary generation engine integrating external tourism APIs and AI recommendations',
           'Designed PostgreSQL schema for multi-profile user management (travelers, agencies)',
           'Deployed on AWS EC2 with S3 for asset storage and automated CI/CD pipelines',
         ],
         pt: [
-          'Arquitetei e desenvolvi APIs REST em Go/Java para plataforma de roteiros de viagem com IA',
+          'Contratado para arquitetar e entregar o MVP backend em Go/Java para plataforma de roteiros de viagem com IA',
           'Constru\u00ed motor de gera\u00e7\u00e3o din\u00e2mica de itiner\u00e1rios integrando APIs externas de turismo e recomenda\u00e7\u00f5es de IA',
           'Projetei schema PostgreSQL para gest\u00e3o de usu\u00e1rios multi-perfil (viajantes, ag\u00eancias)',
           'Deploy em AWS EC2 com S3 para armazenamento de assets e pipelines CI/CD automatizados',
@@ -112,7 +113,8 @@ export const cvData = {
     },
     {
       slug: 'vergo',
-      company: 'Vergo (Open Source)',
+      company: 'Vergo',
+      type: { en: 'Personal Project', pt: 'Projeto Pessoal' },
       period: '2025',
       role: {
         en: 'Creator & Lead Developer',
@@ -120,12 +122,12 @@ export const cvData = {
       },
       highlights: {
         en: [
-          'Created open-source multi-tenant SaaS boilerplate in Go with RBAC, JWT authentication, and Stripe billing',
+          'Created a production-grade SaaS foundation in Go featuring multi-tenancy, RBAC, JWT auth, and Stripe billing — designed as a reusable base for any SaaS product',
           'Implemented secure file handling with AWS S3 presigned URLs and project CRUD with full audit logging',
-          'Set up CI/CD with GitHub Actions, Dependabot for dependency updates, and CodeQL for security scanning',
+          'Engineered CI/CD with GitHub Actions, Dependabot, and CodeQL security scanning; open-sourced as a reference architecture',
         ],
         pt: [
-          'Criei boilerplate SaaS multi-tenant open-source em Go com RBAC, autentica\u00e7\u00e3o JWT e billing Stripe',
+          'Criei uma base SaaS production-grade em Go com multi-tenancy, RBAC, auth JWT e billing Stripe — projetada como fundação reutilizável para qualquer produto SaaS',
           'Implementei manipula\u00e7\u00e3o segura de arquivos com AWS S3 presigned URLs e CRUD de projetos com audit log completo',
           'Configurei CI/CD com GitHub Actions, Dependabot para atualiza\u00e7\u00f5es e CodeQL para an\u00e1lise de seguran\u00e7a',
         ],
@@ -177,6 +179,12 @@ export const cvData = {
         ],
       },
     },
+  ],
+
+  languages: [
+    { lang: { en: 'Portuguese', pt: 'Português' }, level: { en: 'Native', pt: 'Nativo' } },
+    { lang: { en: 'English', pt: 'Inglês' }, level: { en: 'Fluent', pt: 'Fluente' } },
+    { lang: { en: 'Mandarin Chinese', pt: 'Mandarim' }, level: { en: 'Beginner (studying)', pt: 'Iniciante (estudando)' } },
   ],
 
   projects: projects.map((p) => ({

@@ -240,11 +240,12 @@ const labels = {
     experience: 'Professional Experience',
     education:  'Education',
     projects:   'Key Projects',
-    languages:  'Languages',
+    langSkills: 'Languages',
     databases:  'Databases',
     frameworks: 'Frameworks & Tools',
     devops:     'DevOps & Cloud',
     practices:  'Architecture & Practices',
+    spokenLangs: 'Languages',
     docTitle:   'Resume - Ulpio Netto - Backend Developer',
     docSubject: 'Resume of Ulpio Netto, Backend Developer and Software Engineer specializing in Go, Java, REST APIs, microservices, AWS, Kubernetes, and cloud infrastructure.',
     generated:  'Generated from ulpionetto.dev',
@@ -255,11 +256,12 @@ const labels = {
     experience: 'Experi\u00eancia Profissional',
     education:  'Forma\u00e7\u00e3o Acad\u00eamica',
     projects:   'Projetos Relevantes',
-    languages:  'Linguagens',
+    langSkills: 'Linguagens',
     databases:  'Bancos de Dados',
     frameworks: 'Frameworks & Ferramentas',
     devops:     'DevOps & Cloud',
     practices:  'Arquitetura & Pr\u00e1ticas',
+    spokenLangs: 'Idiomas',
     docTitle:   'Curr\u00edculo - Ulpio Netto - Desenvolvedor Backend',
     docSubject: 'Curr\u00edculo de Ulpio Netto, Desenvolvedor Backend e Engenheiro de Software especializado em Go, Java, APIs REST, microsservi\u00e7os, AWS, Kubernetes e infraestrutura cloud.',
     generated:  'Gerado a partir de ulpionetto.dev',
@@ -369,7 +371,7 @@ function CVDocument({ lang = 'en' }) {
           {/* Row 1: Languages | Databases */}
           <View style={s.skillRow}>
             <View style={s.skillColLeft}>
-              <Text style={s.skillCatTitle}>{l.languages}</Text>
+              <Text style={s.skillCatTitle}>{l.langSkills}</Text>
               <Text style={s.skillLine}>{skills.languages.join(', ')}</Text>
             </View>
             <View style={s.skillColRight}>
@@ -409,7 +411,9 @@ function CVDocument({ lang = 'en' }) {
                   <Text style={s.expRole}>{role}</Text>
                   <Text style={s.expPeriod}>{locPeriod(exp.period, lang)}</Text>
                 </View>
-                <Text style={s.expCompany}>{exp.company}</Text>
+                <Text style={s.expCompany}>
+                  {exp.company}{exp.type ? ` — ${loc(exp.type, lang)}` : ''}
+                </Text>
                 {highlights.map((line, j) => (
                   <View key={j} style={s.expBullet}>
                     <Text style={s.expBulletDot}>{'\u2022'}</Text>
@@ -442,6 +446,18 @@ function CVDocument({ lang = 'en' }) {
                 </View>
               );
             })}
+          </View>
+        )}
+
+        {/* ── LANGUAGES ── */}
+        {cvData.languages && cvData.languages.length > 0 && (
+          <View style={s.section}>
+            <Text style={s.sectionTitle}>{l.spokenLangs}</Text>
+            <Text style={s.skillLine}>
+              {cvData.languages.map((lg) =>
+                `${loc(lg.lang, lang)} (${loc(lg.level, lang)})`
+              ).join('  •  ')}
+            </Text>
           </View>
         )}
 

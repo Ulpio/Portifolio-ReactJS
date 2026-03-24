@@ -9,7 +9,7 @@
   },
   "hero": {
     "badge": "Open to opportunities",
-    "subtitle": "Backend Developer \u00b7 Go & Java",
+    "subtitle": "Backend Developer · Go & Java",
     "bio": "Software Engineer with 5+ years of experience building high-throughput REST APIs, microservices at scale, and cloud infrastructure. Go, Java, PostgreSQL, Kubernetes, and AWS are my daily stack.",
     "viewProjects": "View Projects",
     "getInTouch": "Get in Touch",
@@ -35,7 +35,8 @@
       "location": "\"Brazil\"",
       "email": "\"ulpionetto0@gmail.com\"",
       "stack": "\"Go, Java, AWS, K8s\"",
-      "openTo": "\"new opportunities\""
+      "openTo": "\"new opportunities\"",
+      "languages": "\"EN (Fluent), 中文 (Learning)\""
     },
     "terminalAria": "Contact information in terminal style"
   },
@@ -143,15 +144,20 @@
         ]
       },
       "guia": {
-        "role": "Backend Developer | Software Engineer",
+        "role": "Freelance Backend Developer",
         "highlights": [
-          "Built guIA Travel Hub backend; REST APIs in Go/Java; PostgreSQL; microservices; AWS"
+          "Hired to architect and deliver the MVP backend in Go/Java for an AI-powered travel itinerary platform",
+          "Built dynamic itinerary generation engine integrating external tourism APIs and AI recommendations",
+          "Designed PostgreSQL schema for multi-profile user management (travelers, agencies)",
+          "Deployed on AWS EC2 with S3 for asset storage and automated CI/CD pipelines"
         ]
       },
       "vergo": {
-        "role": "Backend Developer | Software Engineer",
+        "role": "Creator & Lead Developer",
         "highlights": [
-          "Backend development; REST APIs; microservices architecture; Docker; CI/CD"
+          "Created a production-grade SaaS foundation in Go featuring multi-tenancy, RBAC, JWT auth, and Stripe billing — designed as a reusable base for any SaaS product",
+          "Implemented secure file handling with AWS S3 presigned URLs and project CRUD with full audit logging",
+          "Engineered CI/CD with GitHub Actions, Dependabot, and CodeQL security scanning; open-sourced as a reference architecture"
         ]
       },
       "registartt": {
@@ -166,7 +172,9 @@
           "Backend and microservices; Go, Java, and Node.js; REST APIs; PostgreSQL; Docker; Kubernetes; AWS; CI/CD; team lead"
         ]
       }
-    }
+    },
+    "freelance": "Freelance",
+    "personalProject": "Personal Project"
   },
   "contact": {
     "label": "// contact",
@@ -206,7 +214,17 @@
     "switchToDark": "Switch to dark mode"
   },
   "seo": {
-    "title": "Ulpio Netto \u2013 Backend Developer | Go & Java | Software Engineer",
+    "title": "Ulpio Netto – Backend Developer | Go & Java | Software Engineer",
     "description": "Portfolio of Ulpio Netto, Backend Developer with 5+ years of experience in Go, Java, REST APIs, microservices, Docker, Kubernetes, and AWS."
+  },
+  "languages": {
+    "label": "// languages",
+    "title": "Languages",
+    "portuguese": "Portuguese",
+    "english": "English",
+    "mandarin": "Mandarin Chinese",
+    "native": "Native",
+    "fluent": "Fluent",
+    "beginner": "Beginner (studying)"
   }
 }

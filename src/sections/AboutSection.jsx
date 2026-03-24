@@ -38,6 +38,7 @@ function AboutSection() {
     ['email', t('about.terminal.email')],
     ['stack', t('about.terminal.stack')],
     ['open_to', t('about.terminal.openTo')],
+    ['languages', t('about.terminal.languages')],
   ];
 
   return (
