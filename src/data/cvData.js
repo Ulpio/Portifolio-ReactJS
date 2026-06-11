@@ -11,7 +11,7 @@ export const cvData = {
 
   contact: {
     email: 'ulpionetto0@gmail.com',
-    phone: '',
+    phone: '+55 82 9 9811-8668',
     location: { en: 'Brazil', pt: 'Brasil' },
     linkedin: 'https://linkedin.com/in/ulpionetto',
     linkedinShort: 'linkedin.com/in/ulpionetto',

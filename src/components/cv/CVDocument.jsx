@@ -326,6 +326,7 @@ function CVDocument({ lang = 'en' }) {
   /* Build contact line as a single plain string — avoids flex overlap */
   const contactLine = [
     contact.email,
+    contact.phone,
     contact.linkedinShort,
     contact.githubShort,
     contact.website.replace('https://', ''),
