@@ -1,7 +1,7 @@
 import { useState, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import { SiGithub, SiLinkedin } from 'react-icons/si';
+import { SiGithub, SiLinkedin, SiWhatsapp } from 'react-icons/si';
 import { MdEmail, MdSend, MdCheckCircle, MdError } from 'react-icons/md';
 import emailService from '../services/emailService';
 import './ContactSection.css';
@@ -85,6 +85,14 @@ function ContactSection() {
       Icon: MdEmail,
       bg: 'rgba(88, 166, 255, 0.08)',
       iconColor: '#58a6ff',
+    },
+    {
+      href: 'https://wa.me/5582998118668',
+      label: 'WhatsApp',
+      handle: '+55 82 9 9811-8668',
+      Icon: SiWhatsapp,
+      bg: 'rgba(37, 211, 102, 0.12)',
+      iconColor: '#25d366',
     },
   ];
 
