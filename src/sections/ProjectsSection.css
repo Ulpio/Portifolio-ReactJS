@@ -77,6 +77,15 @@
   transform: scale(1.03);
 }
 
+/* Logos com proporção fora de 16:9 (muito larga ou quase quadrada): exibir
+   inteiros, sem recorte, num tile branco com respiro. */
+.project-card__image[data-slug="guia"],
+.project-card__image[data-slug="sonoria"] {
+  object-fit: contain;
+  background: #ffffff;
+  padding: 1.25rem 1.5rem;
+}
+
 .project-card__body {
   padding: 0 1.5rem 1.5rem;
   display: flex;
