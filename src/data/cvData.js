@@ -26,18 +26,18 @@ export const cvData = {
   },
 
   headline: {
-    en: 'Go \u00b7 Java \u00b7 REST APIs \u00b7 Microservices \u00b7 AWS \u00b7 Kubernetes',
-    pt: 'Go \u00b7 Java \u00b7 APIs REST \u00b7 Microsservi\u00e7os \u00b7 AWS \u00b7 Kubernetes',
+    en: 'Go · Java · REST APIs · Microservices · AWS · Kubernetes',
+    pt: 'Go · Java · APIs REST · Microsserviços · AWS · Kubernetes',
   },
 
   summary: {
     en: [
-      'Software Engineer with 5+ years of experience designing and building high-throughput REST APIs, microservices architectures, and cloud-native infrastructure. Proficient in Go (Golang), Java, PostgreSQL, Docker, Kubernetes, and AWS.',
-      'Proven track record of migrating legacy systems to modern stacks (achieving up to 75% faster response times), leading cross-functional teams, and shipping production systems serving 50k+ users. Strong focus on clean architecture, observability, and CI/CD best practices.',
+      'Software Engineer with 5+ years of experience designing and building REST APIs, microservices, and cloud-native infrastructure. Proficient in Go (Golang), Java, PostgreSQL/MySQL, Docker, Kubernetes, and AWS.',
+      'Track record of migrating legacy systems to modern stacks (up to 75% faster response times), leading a backend team, and shipping production systems for enterprise clients. Strong focus on clean architecture, observability, and CI/CD.',
     ],
     pt: [
-      'Engenheiro de Software com 5+ anos de experi\u00eancia projetando e construindo APIs REST de alta performance, arquiteturas de microsservi\u00e7os e infraestrutura cloud-native. Proficiente em Go (Golang), Java, PostgreSQL, Docker, Kubernetes e AWS.',
-      'Hist\u00f3rico comprovado em migra\u00e7\u00e3o de sistemas legados para stacks modernas (alcan\u00e7ando tempos de resposta at\u00e9 75% mais r\u00e1pidos), lideran\u00e7a de times multidisciplinares e entrega de sistemas em produ\u00e7\u00e3o servindo 50k+ usu\u00e1rios. Foco em arquitetura limpa, observabilidade e pr\u00e1ticas de CI/CD.',
+      'Engenheiro de Software com 5+ anos de experiência projetando e construindo APIs REST, microsserviços e infraestrutura cloud-native. Proficiente em Go (Golang), Java, PostgreSQL/MySQL, Docker, Kubernetes e AWS.',
+      'Histórico de migração de sistemas legados para stacks modernas (respostas até 75% mais rápidas), liderança de time de backend e entrega de sistemas em produção para clientes corporativos. Foco em arquitetura limpa, observabilidade e CI/CD.',
     ],
   },
 
@@ -48,7 +48,7 @@ export const cvData = {
     devops: ['AWS (EC2, S3, SQS, SNS, RDS)', 'Docker', 'Kubernetes', 'Terraform', 'Nginx', 'GitHub Actions', 'ArgoCD', 'CI/CD Pipelines'],
     practices: {
       en: ['Microservices Architecture', 'REST API Design', 'Event-Driven Architecture', 'Infrastructure as Code', 'GitOps', 'Observability (OpenTelemetry, Jaeger)', 'Agile / Scrum'],
-      pt: ['Arquitetura de Microsservi\u00e7os', 'Design de APIs REST', 'Arquitetura Orientada a Eventos', 'Infraestrutura como C\u00f3digo', 'GitOps', 'Observabilidade (OpenTelemetry, Jaeger)', '\u00c1gil / Scrum'],
+      pt: ['Arquitetura de Microsserviços', 'Design de APIs REST', 'Arquitetura Orientada a Eventos', 'Infraestrutura como Código', 'GitOps', 'Observabilidade (OpenTelemetry, Jaeger)', 'Ágil / Scrum'],
     },
   },
 
@@ -56,10 +56,10 @@ export const cvData = {
     {
       degree: {
         en: 'Bachelor of Computer Science',
-        pt: 'Bacharelado em Ci\u00eancia da Computa\u00e7\u00e3o',
+        pt: 'Bacharelado em Ciência da Computação',
       },
       institution: 'Afya Unima',
-      period: '2022 \u2013 2026',
+      period: '2022 – 2026',
     },
   ],
 
@@ -67,23 +67,25 @@ export const cvData = {
     {
       slug: 'yes',
       company: 'Yes Technology',
-      period: '2025 \u2013 Present',
+      period: '2025 – 2026',
       role: {
         en: 'Backend Developer | Software Engineer',
         pt: 'Desenvolvedor Backend | Engenheiro de Software',
       },
       highlights: {
         en: [
-          'Designed and built microservices in Go for PDF/XLS report generation integrated with a BPMN engine, handling 1000+ daily reports',
-          'Implemented event-driven communication via AWS SQS/SNS across distributed services',
-          'Deployed services on Kubernetes via ArgoCD (GitOps) with Terraform-managed infrastructure',
-          'Established observability stack with OpenTelemetry and Jaeger, reducing incident resolution time by 40%',
+          'Designed and shipped a field-level privacy system (LGPD) that audits 100% of sensitive-data access, with a justified-access flow, masking, and an audit trail in Go, rolled out gradually behind a feature flag',
+          'Built an asynchronous report-generation microservice in Go from scratch (PDF/XLS), processing hundreds of reports per month via AWS SQS/SNS, with S3 storage and a TypeScript CLI running on Kubernetes',
+          "Implemented object-level access control that met the client's compliance requirement, covering the MySQL schema, business logic, and UUID-traceable error messages, validated by integration tests",
+          'Evolved the MySQL master-data layer with dozens of versioned migrations (Objectclass/Relationclass model), fixing referential integrity and translations',
+          'Maintained the Kubernetes (Istio) deployment on AWS via Terraform and GitOps (ArgoCD), with distributed tracing (OpenTelemetry/Jaeger) and structured logging',
         ],
         pt: [
-          'Projetei e constru\u00ed microsservi\u00e7os em Go para gera\u00e7\u00e3o de relat\u00f3rios PDF/XLS integrados a motor BPMN, processando 1000+ relat\u00f3rios di\u00e1rios',
-          'Implementei comunica\u00e7\u00e3o orientada a eventos via AWS SQS/SNS entre servi\u00e7os distribu\u00eddos',
-          'Deploy de servi\u00e7os em Kubernetes via ArgoCD (GitOps) com infraestrutura gerenciada por Terraform',
-          'Estabeleci stack de observabilidade com OpenTelemetry e Jaeger, reduzindo tempo de resolu\u00e7\u00e3o de incidentes em 40%',
+          'Projetei e entreguei um sistema de privacidade a nível de campo (LGPD) que audita 100% dos acessos a dados sensíveis, com fluxo de acesso justificado, mascaramento e trilha de auditoria em Go, liberado gradualmente via feature-flag',
+          'Criei do zero um microsserviço em Go de geração assíncrona de relatórios (PDF/XLS), processando centenas de relatórios por mês via AWS SQS/SNS, com storage em S3 e um CLI TypeScript rodando em Kubernetes',
+          'Implementei controle de acesso a nível de objeto que atendeu a requisito de compliance do cliente, cobrindo schema MySQL, regra de negócio e erros rastreáveis por UUID, validado por testes de integração',
+          'Evoluí a camada de master data em MySQL com dezenas de migrations versionadas (modelo Objectclass/Relationclass), corrigindo integridade referencial e traduções',
+          'Sustentei o deploy em Kubernetes (Istio) na AWS via Terraform e GitOps (ArgoCD), com tracing distribuído (OpenTelemetry/Jaeger) e logs estruturados',
         ],
       },
     },
@@ -105,8 +107,8 @@ export const cvData = {
         ],
         pt: [
           'Contratado para arquitetar e entregar o MVP backend em Go/Java para plataforma de roteiros de viagem com IA',
-          'Constru\u00ed motor de gera\u00e7\u00e3o din\u00e2mica de itiner\u00e1rios integrando APIs externas de turismo e recomenda\u00e7\u00f5es de IA',
-          'Projetei schema PostgreSQL para gest\u00e3o de usu\u00e1rios multi-perfil (viajantes, ag\u00eancias)',
+          'Construí motor de geração dinâmica de itinerários integrando APIs externas de turismo e recomendações de IA',
+          'Projetei schema PostgreSQL para gestão de usuários multi-perfil (viajantes, agências)',
           'Deploy em AWS EC2 com S3 para armazenamento de assets e pipelines CI/CD automatizados',
         ],
       },
@@ -118,63 +120,61 @@ export const cvData = {
       period: '2025',
       role: {
         en: 'Creator & Lead Developer',
-        pt: 'Criador & Desenvolvedor L\u00edder',
+        pt: 'Criador & Desenvolvedor Líder',
       },
       highlights: {
         en: [
-          'Created a production-grade SaaS foundation in Go featuring multi-tenancy, RBAC, JWT auth, and Stripe billing — designed as a reusable base for any SaaS product',
+          'Created a production-grade SaaS foundation in Go featuring multi-tenancy, RBAC, JWT auth, and Stripe billing, designed as a reusable base for any SaaS product',
           'Implemented secure file handling with AWS S3 presigned URLs and project CRUD with full audit logging',
           'Engineered CI/CD with GitHub Actions, Dependabot, and CodeQL security scanning; open-sourced as a reference architecture',
         ],
         pt: [
-          'Criei uma base SaaS production-grade em Go com multi-tenancy, RBAC, auth JWT e billing Stripe — projetada como fundação reutilizável para qualquer produto SaaS',
-          'Implementei manipula\u00e7\u00e3o segura de arquivos com AWS S3 presigned URLs e CRUD de projetos com audit log completo',
-          'Configurei CI/CD com GitHub Actions, Dependabot para atualiza\u00e7\u00f5es e CodeQL para an\u00e1lise de seguran\u00e7a',
+          'Criei uma base SaaS production-grade em Go com multi-tenancy, RBAC, auth JWT e billing Stripe, projetada como fundação reutilizável para qualquer produto SaaS',
+          'Implementei manipulação segura de arquivos com AWS S3 presigned URLs e CRUD de projetos com audit log completo',
+          'Configurei CI/CD com GitHub Actions, Dependabot para atualizações e CodeQL para análise de segurança',
         ],
       },
     },
     {
       slug: 'registartt',
       company: 'Registartt',
-      period: '2024 \u2013 2025',
+      period: '2024 – 2025',
       role: {
         en: 'Backend Developer | Software Engineer',
         pt: 'Desenvolvedor Backend | Engenheiro de Software',
       },
       highlights: {
         en: [
-          'Built the entire backend from scratch in Go (Gin + SQLC), delivering a high-performance RESTful API',
-          'Designed authentication/authorization system and distributed caching layer for improved throughput',
-          'Implemented asynchronous task processing and structured logging with monitoring dashboards',
-          'Created interactive API documentation enabling seamless frontend integration',
+          'Built the platform backend from scratch in Go (Gin, SQLC), delivering a REST API with authentication and authorization',
+          'Designed a distributed caching layer and asynchronous task processing to improve throughput',
+          'Added structured logging with monitoring dashboards and interactive API documentation',
         ],
         pt: [
-          'Constru\u00ed todo o backend do zero em Go (Gin + SQLC), entregando API RESTful de alta performance',
-          'Projetei sistema de autentica\u00e7\u00e3o/autoriza\u00e7\u00e3o e camada de cache distribu\u00eddo para melhor throughput',
-          'Implementei processamento ass\u00edncrono de tarefas e logs estruturados com dashboards de monitoramento',
-          'Criei documenta\u00e7\u00e3o interativa da API possibilitando integra\u00e7\u00e3o seamless com frontend',
+          'Construí o backend da plataforma do zero em Go (Gin, SQLC), entregando uma API REST com autenticação e autorização',
+          'Projetei uma camada de cache distribuído e processamento assíncrono de tarefas para melhorar o throughput',
+          'Adicionei logs estruturados com dashboards de monitoramento e documentação interativa da API',
         ],
       },
     },
     {
       slug: 'oxetech',
       company: 'OxeTech (State Government of Alagoas)',
-      period: '2021 \u2013 2025',
+      period: '2021 – 2025',
       role: {
         en: 'Backend Developer | Team Lead',
         pt: 'Desenvolvedor Backend | Team Lead',
       },
       highlights: {
         en: [
-          'Migrated legacy JavaScript API to Go, achieving 75% faster response times and improved maintainability',
-          'Led a cross-functional team of 5+ developers, coordinating backend, frontend, and DevOps workflows',
-          'Designed and maintained microservices in Go, Java, and Node.js with PostgreSQL and MongoDB',
+          'Migrated a legacy JavaScript API to Go across 50+ endpoints, achieving up to 75% faster response times, as backend team lead',
+          'Led the backend team, coordinating backend, frontend, and DevOps workflows',
+          'Designed and maintained services in Go, Java, and Node.js with PostgreSQL and MongoDB',
           'Managed Docker/Kubernetes deployments on AWS with automated CI/CD pipelines',
         ],
         pt: [
-          'Migrei API legada em JavaScript para Go, alcan\u00e7ando tempos de resposta 75% mais r\u00e1pidos e melhor manutenibilidade',
-          'Liderei time multidisciplinar de 5+ devs, coordenando workflows de backend, frontend e DevOps',
-          'Projetei e mantive microsservi\u00e7os em Go, Java e Node.js com PostgreSQL e MongoDB',
+          'Migrei uma API legada em JavaScript para Go em 50+ endpoints, alcançando tempos de resposta até 75% mais rápidos, como team lead do backend',
+          'Liderei o time de backend, coordenando workflows de backend, frontend e DevOps',
+          'Projetei e mantive serviços em Go, Java e Node.js com PostgreSQL e MongoDB',
           'Gerenciei deploys Docker/Kubernetes na AWS com pipelines CI/CD automatizados',
         ],
       },

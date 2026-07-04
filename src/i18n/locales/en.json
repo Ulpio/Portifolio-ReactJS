@@ -22,9 +22,9 @@
   "about": {
     "label": "// about me",
     "title": "About Me",
-    "p1": "Backend Developer and Software Engineer focused on Go (Golang), Java, REST APIs, and microservices architecture. Solid experience with Docker, Kubernetes, AWS, PostgreSQL, and CI/CD pipelines.",
-    "p2": "Built backends for platforms like Registartt and guIA Travel Hub from scratch; contributed to projects like OxeTech, SonorIA, and Yes Technology. Experience in legacy database migration, REST API design, and team leadership.",
-    "p3": "Core stack: Go, Java, Node.js, PostgreSQL, MongoDB, AWS, Docker, Kubernetes, Terraform, and DevOps practices for secure and predictable deliveries.",
+    "p1": "Backend Developer and Software Engineer focused on Go, Java, REST APIs, and microservices architecture. I work with Docker, Kubernetes, AWS, PostgreSQL/MySQL, and CI/CD pipelines.",
+    "p2": "Built backends from scratch (Registartt, guIA Travel Hub) and worked on projects like OxeTech, SonorIA, and Yes Technology, including legacy database migration, REST API design, and technical team leadership.",
+    "p3": "Core stack: Go, Java, Node.js, PostgreSQL, MySQL, MongoDB, AWS, Docker, Kubernetes, Terraform, and DevOps practices for secure and predictable deliveries.",
     "stats": {
       "years": "years of experience",
       "projects": "projects delivered",
@@ -62,18 +62,17 @@
   },
   "projectData": {
     "registartt": {
-      "description": "Backend development for Registartt's online platform, providing a robust and scalable system for record management.",
+      "description": "Backend for Registartt's platform for record management, with a REST API, authentication, distributed caching, and asynchronous task processing.",
       "features": [
-        "High-performance RESTful API",
-        "Authentication and authorization system",
-        "Distributed cache for better performance",
+        "REST API with authentication and authorization",
+        "Distributed cache to reduce latency",
         "Asynchronous task processing",
         "Structured logging and monitoring",
         "Interactive API documentation"
       ]
     },
     "vergo": {
-      "description": "Open-source SaaS boilerplate in Go, featuring multi-tenancy, RBAC, JWT authentication, Postgres/sqlc integration, S3, and Stripe. Designed to demonstrate best practices in architecture, security, and CI/CD.",
+      "description": "Open-source SaaS boilerplate in Go, featuring multi-tenancy, RBAC, JWT authentication, Postgres/sqlc integration, S3, and Stripe. Demonstrates best practices in architecture, security, and CI/CD.",
       "features": [
         "JWT authentication (login, signup, refresh)",
         "RBAC (role-based access control)",
@@ -86,40 +85,41 @@
       ]
     },
     "oxetech": {
-      "description": "Platform for the State of Alagoas Government Program, democratizing access to technology education and development.",
+      "description": "Platform for the State of Alagoas Government Program for technology education. I rewrote the API from JavaScript to Go, with response times up to 75% faster and multiple access levels.",
       "features": [
-        "Migrated original API from JS to Go",
+        "Rewrote the API from JavaScript to Go",
         "Real-time data processing",
-        "Multiple access levels and business logic",
+        "Multiple access levels and business rules",
         "Response times up to 75% faster",
-        "Well-organized and maintainable API"
+        "Well-organized, maintainable API"
       ]
     },
     "guia": {
-      "description": "Smart tourism hub using AI to create personalized travel itineraries based on traveler profiles.",
+      "description": "Tourism hub that uses AI to build personalized travel itineraries based on the traveler's profile.",
       "features": [
         "Dynamic itinerary creation based on preferences and budget",
         "Complete itinerary export to PDF",
         "Traveler profile management",
-        "Smart suggestions for hotels, restaurants, and attractions",
+        "Suggestions for hotels, restaurants, and attractions",
         "Integration with external APIs for updated tourism data",
         "Daily itinerary organization with local tips"
       ]
     },
     "yes": {
-      "description": "Corporate microservices platform in Go for report generation (PDF/XLS) integrated with a BPMN engine, with distributed architecture and automated deployment on Kubernetes in AWS.",
+      "description": "Corporate low-code platform built around a BPMN engine, with a distributed Go backend on AWS. I worked on the platform core, built an asynchronous report-generation microservice (PDF/XLS), and evolved the master-data layer (MySQL). I also delivered a field-level privacy system, with justified access and auditing, aligned with Brazil's LGPD data-protection law.",
       "features": [
         "BPMN engine for business process orchestration",
-        "Asynchronous report generation in PDF and XLS",
-        "Inter-service communication via AWS SQS/SNS",
-        "Artifact storage on AWS S3",
-        "Kubernetes deployment via ArgoCD (GitOps)",
-        "Infrastructure as Code with Terraform",
-        "Observability with OpenTelemetry and Jaeger"
+        "Field-level privacy system (LGPD): justified access, sensitive-data masking, and an audit trail",
+        "Go microservice for asynchronous report generation in PDF and XLS",
+        "Object restriction with access control and UUID-traceable error messages",
+        "Event-driven inter-service communication via AWS SQS with SNS envelopes",
+        "MySQL master-data layer: Objectclass/Relationclass model and dozens of versioned migrations",
+        "Kubernetes (Istio) deployment on AWS with Terraform and GitOps via ArgoCD",
+        "Observability with distributed tracing (OpenTelemetry/Jaeger) and structured logging"
       ]
     },
     "sonoria": {
-      "description": "AI-powered web platform for automated analysis of auditory electrophysiological exams (PEATE, PEAC, VEMP), helping healthcare professionals in clinical decision-making.",
+      "description": "AI-powered web platform for automated analysis of auditory electrophysiological exams (PEATE, PEAC, VEMP), to support healthcare professionals in clinical decision-making.",
       "features": [
         "Automated auditory exam analysis with AI (CRNN model)",
         "Upload and processing of exam files (.txt)",
@@ -140,7 +140,11 @@
       "yes": {
         "role": "Backend Developer | Software Engineer",
         "highlights": [
-          "Building microservices in Go and Java; REST APIs; Docker and Kubernetes; AWS; CI/CD pipelines"
+          "Designed and shipped a field-level privacy system (LGPD) that audits 100% of sensitive-data access, with a justified-access flow, masking, and an audit trail in Go, rolled out gradually behind a feature flag",
+          "Built an asynchronous report-generation microservice in Go from scratch (PDF/XLS), processing hundreds of reports per month via AWS SQS/SNS, with S3 storage and a TypeScript CLI running on Kubernetes",
+          "Implemented object-level access control that met the client's compliance requirement, covering the MySQL schema, business logic, and UUID-traceable error messages, validated by integration tests",
+          "Evolved the MySQL master-data layer with dozens of versioned migrations (Objectclass/Relationclass model), fixing referential integrity and translations",
+          "Maintained the Kubernetes (Istio) deployment on AWS via Terraform and GitOps (ArgoCD), with distributed tracing (OpenTelemetry/Jaeger) and structured logging"
         ]
       },
       "guia": {
@@ -155,7 +159,7 @@
       "vergo": {
         "role": "Creator & Lead Developer",
         "highlights": [
-          "Created a production-grade SaaS foundation in Go featuring multi-tenancy, RBAC, JWT auth, and Stripe billing — designed as a reusable base for any SaaS product",
+          "Created a production-grade SaaS foundation in Go featuring multi-tenancy, RBAC, JWT auth, and Stripe billing, designed as a reusable base for any SaaS product",
           "Implemented secure file handling with AWS S3 presigned URLs and project CRUD with full audit logging",
           "Engineered CI/CD with GitHub Actions, Dependabot, and CodeQL security scanning; open-sourced as a reference architecture"
         ]
@@ -163,13 +167,18 @@
       "registartt": {
         "role": "Backend Developer | Software Engineer",
         "highlights": [
-          "Built platform backend from scratch; Go (Golang); REST APIs; PostgreSQL; Docker; AWS"
+          "Built the platform backend from scratch in Go (Gin, SQLC), delivering a REST API with authentication and authorization",
+          "Designed a distributed caching layer and asynchronous task processing to improve throughput",
+          "Added structured logging with monitoring dashboards and interactive API documentation"
         ]
       },
       "oxetech": {
-        "role": "Backend Developer | Software Engineer",
+        "role": "Backend Developer | Team Lead",
         "highlights": [
-          "Backend and microservices; Go, Java, and Node.js; REST APIs; PostgreSQL; Docker; Kubernetes; AWS; CI/CD; team lead"
+          "Migrated a legacy JavaScript API to Go across 50+ endpoints, achieving up to 75% faster response times, as backend team lead",
+          "Led the backend team, coordinating backend, frontend, and DevOps workflows",
+          "Designed and maintained services in Go, Java, and Node.js with PostgreSQL and MongoDB",
+          "Managed Docker/Kubernetes deployments on AWS with automated CI/CD pipelines"
         ]
       }
     },

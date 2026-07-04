@@ -42,6 +42,7 @@ function ProjectCard({ project }) {
           alt={project.title}
           loading="lazy"
           className="project-card__image"
+          data-slug={project.slug}
         />
       </div>
 
